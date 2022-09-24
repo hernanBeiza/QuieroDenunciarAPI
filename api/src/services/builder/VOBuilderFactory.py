@@ -1,5 +1,6 @@
 from .ComunaVOBuilder import ComunaVOBuilder
 from .MateriaVOBuilder import MateriaVOBuilder
+from .PersonaVOBuilder import PersonaVOBuilder
 from .TipoArchivoVOBuilder import TipoArchivoVOBuilder
 from .TipoPersonaVOBuilder import TipoPersonaVOBuilder
 
@@ -18,6 +19,10 @@ class VOBuilderFactory():
 	@staticmethod
 	def getMateriaVOBuilder():
 		return MateriaVOBuilder()
+
+	@staticmethod
+	def getPersonaVOBuilder():
+		return PersonaVOBuilder()
 
 	@staticmethod
 	def getTipoArchivoVOBuilder():
