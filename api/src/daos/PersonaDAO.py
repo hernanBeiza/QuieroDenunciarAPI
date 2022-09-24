@@ -63,11 +63,11 @@ class PersonaDAO():
 			mensajes = "Persona editada correctamente"
 			respuesta = {"result":result, "mensajes":mensajes, "persona":persona}
 		except Exception as e:
-			print(colored("PersonaDAO: La persona con id {} no se pudo editada. Error: {}".format(personaVO.id,e), 'red'))
+			print(colored("PersonaDAO: La persona con id {} no se pudo editar. Error: {}".format(personaVO.id,e), 'red'))
 			db.session.rollback()
 			db.session.flush()
 			result = False
-			errores = "La persona no se pudo editada"
+			errores = "La persona no se pudo editar"
 			respuesta = {"result":result, "errores":errores}
 		return respuesta
 

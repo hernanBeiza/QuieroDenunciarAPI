@@ -9,7 +9,7 @@ from .builder.VOBuilderFactory import VOBuilderFactory
 class PersonaService():
 
 	#def __init__(self):
-		#print('MateriaService')
+		#print('PersonaService')
 
 	@staticmethod
 	def guardar(request):
