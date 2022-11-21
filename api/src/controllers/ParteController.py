@@ -6,9 +6,9 @@ from flask import Blueprint
 
 from termcolor import colored
 
-from ..app import app;
+from src.app import app;
 
-from ..services.ParteService import ParteService
+from src.services.ParteService import ParteService
 
 parteBluePrint = Blueprint('parte', 'parte', url_prefix='/parte')
 

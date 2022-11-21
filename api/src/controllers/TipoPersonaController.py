@@ -1,10 +1,10 @@
-from ..app import app;
+from src.app import app;
 from termcolor import colored
 from flask import jsonify;
 from flask import json;
 from flask import Blueprint
 
-from ..services.TipoPersonaService import TipoPersonaService
+from src.services.TipoPersonaService import TipoPersonaService
 
 tipoPersonaBluePrint = Blueprint('tipo-persona', 'tipo-persona', url_prefix='/tipo-persona')
 

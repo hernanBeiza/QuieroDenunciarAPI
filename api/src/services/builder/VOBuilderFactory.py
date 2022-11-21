@@ -1,10 +1,10 @@
-from .ComunaVOBuilder import ComunaVOBuilder
-from .MateriaVOBuilder import MateriaVOBuilder
-from .ParteVOBuilder import ParteVOBuilder
-from .PersonaVOBuilder import PersonaVOBuilder
-from .TipoArchivoVOBuilder import TipoArchivoVOBuilder
-from .TipoParteVOBuilder import TipoParteVOBuilder
-from .TipoPersonaVOBuilder import TipoPersonaVOBuilder
+from src.services.builder.ComunaVOBuilder import ComunaVOBuilder
+from src.services.builder.MateriaVOBuilder import MateriaVOBuilder
+from src.services.builder.ParteVOBuilder import ParteVOBuilder
+from src.services.builder.PersonaVOBuilder import PersonaVOBuilder
+from src.services.builder.TipoArchivoVOBuilder import TipoArchivoVOBuilder
+from src.services.builder.TipoParteVOBuilder import TipoParteVOBuilder
+from src.services.builder.TipoPersonaVOBuilder import TipoPersonaVOBuilder
 
 class VOBuilderFactory():
 

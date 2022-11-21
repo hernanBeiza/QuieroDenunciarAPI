@@ -1,10 +1,10 @@
-from ..app import db
+from src.app import db
 from termcolor import colored
 
-from ..daos.models.TipoArchivo import TipoArchivo
-from ..daos.TipoArchivoDAO import TipoArchivoDAO
-from .vos.TipoArchivoVO import TipoArchivoVO
-from .builder.VOBuilderFactory import VOBuilderFactory
+from src.daos.models.TipoArchivo import TipoArchivo
+from src.daos.TipoArchivoDAO import TipoArchivoDAO
+from src.services.vos.TipoArchivoVO import TipoArchivoVO
+from src.services.builder.VOBuilderFactory import VOBuilderFactory
 
 class TipoArchivoService():
 

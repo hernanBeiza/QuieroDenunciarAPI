@@ -1,7 +1,7 @@
 from termcolor import colored
 
-from ..app import db
-from ..daos.models.Parte import Parte
+from src.app import db
+from src.daos.models.Parte import Parte
 
 class ParteDAO():
 

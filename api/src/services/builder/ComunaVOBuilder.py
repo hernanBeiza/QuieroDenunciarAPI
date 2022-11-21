@@ -1,9 +1,9 @@
 from marshmallow import Schema, fields
 from termcolor import colored
 
-from ...app import ma
-from ..vos.ComunaVO import ComunaVO
-from ...daos.models.Comuna import Comuna
+from src.app import ma
+from src.services.vos.ComunaVO import ComunaVO
+from src.daos.models.Comuna import Comuna
 
 class ComunaVOBuilder(ma.ModelSchema):
 

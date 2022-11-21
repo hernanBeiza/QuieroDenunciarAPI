@@ -1,7 +1,7 @@
 from termcolor import colored
 
-from ..app import db
-from ..daos.models.Comuna import Comuna
+from src.app import db
+from src.daos.models.Comuna import Comuna
 
 class ComunaDAO():
 

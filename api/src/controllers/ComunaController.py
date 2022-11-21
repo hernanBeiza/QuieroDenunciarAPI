@@ -1,10 +1,10 @@
-from ..app import app;
+from src.app import app;
 from termcolor import colored
 from flask import jsonify;
 from flask import json;
 from flask import Blueprint
 
-from ..services.ComunaService import ComunaService
+from src.services.ComunaService import ComunaService
 
 comunaBluePrint = Blueprint('comuna', 'comuna', url_prefix='/comuna')
 

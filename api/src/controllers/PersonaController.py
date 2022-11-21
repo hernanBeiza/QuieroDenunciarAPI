@@ -6,9 +6,9 @@ from flask import Blueprint
 
 from termcolor import colored
 
-from ..app import app;
+from src.app import app;
 
-from ..services.PersonaService import PersonaService
+from src.services.PersonaService import PersonaService
 
 personaBluePrint = Blueprint('persona', 'persona', url_prefix='/persona')
 

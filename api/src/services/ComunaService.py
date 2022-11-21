@@ -1,10 +1,9 @@
-from ..app import db
 from termcolor import colored
 
-from ..daos.models.Comuna import Comuna
-from ..daos.ComunaDAO import ComunaDAO
-from .vos.ComunaVO import ComunaVO
-from .builder.VOBuilderFactory import VOBuilderFactory
+from src.daos.models.Comuna import Comuna
+from src.daos.ComunaDAO import ComunaDAO
+from src.services.vos.ComunaVO import ComunaVO
+from src.services.builder.VOBuilderFactory import VOBuilderFactory
 
 class ComunaService():
 
@@ -24,7 +23,7 @@ class ComunaService():
 		else:
 			data = {
 				"result":False,
-				"errores":"No se encontraron tipos de personas"
+				"errores":"No se encontraron comunas"
 			}
 		return data
 
@@ -41,7 +40,7 @@ class ComunaService():
 		else:
 			data = {
 				"result":False,
-				"errores":"No se encontró tipo de persona con código {}".format(idComuna)
+				"errores":"No se encontró comuna con código {}".format(idComuna)
 			}
 
 		return data;

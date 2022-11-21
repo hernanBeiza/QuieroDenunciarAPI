@@ -1,8 +1,8 @@
-from ..app import app;
+from src.app import app;
 from flask import jsonify;
 from flask import json;
 
-from ..services.IndexService import IndexService
+from src.services.IndexService import IndexService
 
 class MateriaController():
 

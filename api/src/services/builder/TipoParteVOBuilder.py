@@ -1,8 +1,8 @@
 from marshmallow import Schema, fields
 from termcolor import colored
 
-from ...app import ma
-from ...daos.models.TipoParte import TipoParte
+from src.app import ma
+from src.daos.models.TipoParte import TipoParte
 
 class TipoParteVOBuilder(ma.ModelSchema):
 

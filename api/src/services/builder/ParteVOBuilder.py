@@ -1,10 +1,10 @@
 from marshmallow import Schema, fields
 from termcolor import colored
 
-from ...app import ma
-from ...daos.models.Parte import Parte
-from ..vos.ParteVO import ParteVO
-from .TipoParteVOBuilder import TipoParteVOBuilder
+from src.app import ma
+from src.daos.models.Parte import Parte
+from src.services.vos.ParteVO import ParteVO
+from src.services.builder.TipoParteVOBuilder import TipoParteVOBuilder
 
 class ParteVOBuilder(ma.ModelSchema):
 

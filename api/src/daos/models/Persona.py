@@ -1,6 +1,6 @@
 import datetime
 
-from ...app import db
+from src.app import db
 
 class Persona(db.Model):
 	__tablename__ = 'PERSONA'

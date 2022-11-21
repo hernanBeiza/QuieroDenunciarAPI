@@ -1,7 +1,7 @@
 from termcolor import colored
 
-from ..app import db
-from ..daos.models.TipoArchivo import TipoArchivo
+from src.app import db
+from src.daos.models.TipoArchivo import TipoArchivo
 
 class TipoArchivoDAO():
 

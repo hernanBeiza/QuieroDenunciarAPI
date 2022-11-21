@@ -1,10 +1,10 @@
-from ..app import db
+from src.app import db
 from termcolor import colored
 
-from ..daos.models.Persona import Persona
-from ..daos.PersonaDAO import PersonaDAO
-from .vos.PersonaVO import PersonaVO
-from .builder.VOBuilderFactory import VOBuilderFactory
+from src.daos.models.Persona import Persona
+from src.daos.PersonaDAO import PersonaDAO
+from src.services.vos.PersonaVO import PersonaVO
+from src.services.builder.VOBuilderFactory import VOBuilderFactory
 
 class PersonaService():
 

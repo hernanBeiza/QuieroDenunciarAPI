@@ -4,7 +4,7 @@ from termcolor import colored
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
-from .Config import Config
+from src.Config import Config
 
 print("app.py");
 app = flask.Flask(__name__)	

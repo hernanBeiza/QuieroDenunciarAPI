@@ -1,9 +1,9 @@
 from marshmallow import Schema, fields
 from termcolor import colored
 
-from ...app import ma
-from ..vos.MateriaVO import MateriaVO
-from ...daos.models.Materia import Materia
+from src.app import ma
+from src.services.vos.MateriaVO import MateriaVO
+from src.daos.models.Materia import Materia
 
 class MateriaVOBuilder(ma.ModelSchema):
 

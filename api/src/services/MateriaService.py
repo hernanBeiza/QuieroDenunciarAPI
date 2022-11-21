@@ -1,10 +1,10 @@
-from ..app import db
+from src.app import db
 from termcolor import colored
 
-from ..daos.models.Materia import Materia
-from ..daos.MateriaDAO import MateriaDAO
-from .vos.MateriaVO import MateriaVO
-from .builder.VOBuilderFactory import VOBuilderFactory
+from src.daos.models.Materia import Materia
+from src.daos.MateriaDAO import MateriaDAO
+from src.services.vos.MateriaVO import MateriaVO
+from src.services.builder.VOBuilderFactory import VOBuilderFactory
 
 class MateriaService():
 

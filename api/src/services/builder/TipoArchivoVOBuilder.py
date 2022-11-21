@@ -1,9 +1,9 @@
 from marshmallow import Schema, fields
 from termcolor import colored
 
-from ...app import ma
-from ..vos.TipoArchivoVO import TipoArchivoVO
-from ...daos.models.TipoArchivo import TipoArchivo
+from src.app import ma
+from src.services.vos.TipoArchivoVO import TipoArchivoVO
+from src.daos.models.TipoArchivo import TipoArchivo
 
 class TipoArchivoVOBuilder(ma.ModelSchema):
 

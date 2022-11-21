@@ -1,7 +1,7 @@
 from termcolor import colored
 
-from ..app import db
-from ..daos.models.TipoPersona import TipoPersona
+from src.app import db
+from src.daos.models.TipoPersona import TipoPersona
 
 class TipoPersonaDAO():
 

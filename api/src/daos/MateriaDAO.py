@@ -1,7 +1,7 @@
 from termcolor import colored
 
-from ..app import db
-from ..daos.models.Materia import Materia
+from src.app import db
+from src.daos.models.Materia import Materia
 
 class MateriaDAO():
 
