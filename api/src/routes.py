@@ -1,4 +1,5 @@
 from src.controllers.ComunaController import *
+from src.controllers.DireccionController import *
 from src.controllers.IndexController import *
 from src.controllers.MateriaController import *
 from src.controllers.ParteController import *

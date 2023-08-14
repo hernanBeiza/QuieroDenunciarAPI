@@ -1,7 +1,7 @@
 import json
 
 class PersonaVO():
-	id = None
+	idPersona = None
 	rut = None
 	dv = None
 	nombre = None

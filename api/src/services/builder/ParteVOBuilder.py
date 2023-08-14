@@ -17,14 +17,14 @@ class ParteVOBuilder(ma.ModelSchema):
 
 	#Schema
 	##Modelo - Dato a mostrar
-	id = fields.Integer()
+	id_parte = fields.Integer(data_key="id")
 	rut = fields.Integer()
 	id_direccion = fields.Integer(data_key="idDireccion")
 	cod_tipo_parte = fields.Integer(data_key="codigoTipoParte")
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Integer(data_key="flagActivo")
-	
+	#Debe llamarse igual al declarado en el modelo Parte
 	tipoParte = fields.Nested(TipoParteVOBuilder)
 
 	#def __init__(self):

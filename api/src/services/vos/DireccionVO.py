@@ -1,13 +1,15 @@
 import json
 
-class ParteVO():
-	idParte = None
-	rut = None
+class DireccionVO():
 	idDireccion = None
-	codigoTipoParte = None
+	idComuna = None
+	calle = None
+	numero = None
+	departamento = None
 	fechaCreacion = None
 	fechaModificacion = None
 	flagActivo = None
+	comuna = None
 
 	#def __init__(self):
 		#constructor por defecto

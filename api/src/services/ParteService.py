@@ -105,6 +105,7 @@ class ParteService():
 		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
 		codigoTipoParte = request.get_json()["codigoTipoParte"] if 'codigoTipoParte' in request.get_json() else None
 		fechaCreacion = request.get_json()["fechaCreacion"] if 'fechaCreacion' in request.get_json() else None
+		flagActivo = request.get_json()["flagActivo"] if 'flagActivo' in request.get_json() else None
 
 		enviar = True
 		mensajes = "Faltó:"
@@ -125,11 +126,12 @@ class ParteService():
 			mensajes +="\n Fecha de creación"
 		if(enviar):
 			parteVO = ParteVO()
-			parteVO.id = id
+			parteVO.idParte = id
 			parteVO.rut = rut
 			parteVO.idDireccion = idDireccion
 			parteVO.codigoTipoParte = codigoTipoParte
 			parteVO.fechaCreacion = fechaCreacion
+			parteVO.flagActivo = flagActivo
 			respuesta = ParteDAO.actualizar(parteVO)
 			if(respuesta["result"]):
 				respuesta["parte"] = VOBuilderFactory().getParteVOBuilder().fromParte(respuesta["parte"]).build()

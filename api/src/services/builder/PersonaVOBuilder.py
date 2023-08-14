@@ -16,7 +16,7 @@ class PersonaVOBuilder(ma.ModelSchema):
 
 	#Schema
 	##Modelo - Dato a mostrar
-	id = fields.Integer()
+	id_persona = fields.Integer(data_key="id")
 	rut = fields.Integer()
 	dv = fields.String()
 	nombre = fields.String()

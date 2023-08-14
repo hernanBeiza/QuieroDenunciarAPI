@@ -1,4 +1,5 @@
 from src.services.builder.ComunaVOBuilder import ComunaVOBuilder
+from src.services.builder.DireccionVOBuilder import DireccionVOBuilder
 from src.services.builder.MateriaVOBuilder import MateriaVOBuilder
 from src.services.builder.ParteVOBuilder import ParteVOBuilder
 from src.services.builder.PersonaVOBuilder import PersonaVOBuilder
@@ -17,6 +18,10 @@ class VOBuilderFactory():
 	@staticmethod
 	def getComunaVOBuilder():
 		return ComunaVOBuilder()
+
+	@staticmethod
+	def getDireccionVOBuilder():
+		return DireccionVOBuilder()
 
 	@staticmethod
 	def getMateriaVOBuilder():
