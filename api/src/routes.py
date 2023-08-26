@@ -1,4 +1,7 @@
+from src.controllers.AntecedenteController import *
+from src.controllers.ArchivoController import *
 from src.controllers.ComunaController import *
+from src.controllers.DenunciaController import *
 from src.controllers.DireccionController import *
 from src.controllers.IndexController import *
 from src.controllers.MateriaController import *
