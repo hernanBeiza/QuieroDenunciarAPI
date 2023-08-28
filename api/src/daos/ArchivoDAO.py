@@ -1,7 +1,9 @@
 from termcolor import colored
+import os
 
 from src.app import db
 from src.daos.models.Archivo import Archivo
+from src.ArchivoUtils import ArchivoUtils
 
 class ArchivoDAO():
 
@@ -16,16 +18,16 @@ class ArchivoDAO():
 			archivo = Archivo(None, archivoVO.idAntecedente, archivoVO.codigoTipoArchivo, archivoVO.rutaArchivo, archivoVO.nombreArchivo, archivoVO.extensionArchivo, archivoVO.fecha, archivoVO.fechaCreacion, archivoVO.fechaModificacion, 1)
 			db.session.add(archivo)
 			db.session.commit()
-			print(colored("ArchivoDAO: archivo guardado correctamente", 'yellow'))
+			print(colored("ArchivoDAO: Datos de archivo guardados correctamente", 'yellow'))
 			result = True
-			mensajes = "Archivo guardado correctamente"
+			mensajes = "Datos de archivo guardados correctamente"
 			respuesta = {"result":result,"mensajes":mensajes, "archivo":archivo}
 		except Exception as e:
-			print(colored("ArchivoDAO: El archivo no se pudo guardar. Error: {}".format(e), 'red'))
+			print(colored("ArchivoDAO: Los datos del archivo no se han podido guardar. Error: {}".format(e), 'red'))
 			db.session.rollback()
 			db.session.flush()
 			result = False
-			errores = "El archivo no se pudo guardar"
+			errores = "Los datos del archivo no se han podido guardar"
 			respuesta = {"result":result,"errores":errores}
 		return respuesta
 
@@ -54,16 +56,16 @@ class ArchivoDAO():
 			archivo.flag_activo = archivoVO.flagActivo
 			#archivo.fecha_modificacion = archivoVO.fechaModificacion
 			db.session.commit()
-			print(colored("ArchivoDAO: archivo editado correctamente", 'yellow'))
+			print(colored("ArchivoDAO: Datos de archivo editados correctamente", 'yellow'))
 			result = True
-			mensajes = "Archivo editado correctamente"
+			mensajes = "Datos de archivo editados correctamente"
 			respuesta = {"result":result, "mensajes":mensajes, "archivo":archivo}
 		except Exception as e:
-			print(colored("ArchivoDAO: El archivo con id {} no se pudo editar. Error: {}".format(archivoVO.idArchivo,e), 'red'))
+			print(colored("ArchivoDAO: Los datos del archivo con id {} no se pudieron editar. Error: {}".format(archivoVO.idArchivo,e), 'red'))
 			db.session.rollback()
 			db.session.flush()
 			result = False
-			errores = "El archivo no se pudo editar"
+			errores = "Los datos del archivo no se pudieron editar"
 			respuesta = {"result":result, "errores":errores}
 		return respuesta
 
@@ -74,19 +76,20 @@ class ArchivoDAO():
 		if(archivo is not None):
 			try:
 				result = True
-				mensajes = "Archivo con id {} eliminado correctamente".format(id)
+				mensajes = "Datos de archivo con id {} eliminados correctamente".format(id)
 				db.session.delete(archivo)
 				db.session.commit()
+				ArchivoUtils.eliminar(archivo.ruta_archivo)
 				respuesta = {"result":result, "mensajes":mensajes}
 			except Exception as e:
-				print(colored("ArchivoDAO: La archivo con id {} no se pudo eliminar. Error: {}".format(id,e), 'red'))
+				print(colored("ArchivoDAO: Los datos del archivo con id {} no se pudieron eliminar. Error: {}".format(id,e), 'red'))
 				db.session.rollback()
 				db.session.flush()
 				result = False
-				mensajes = "El archivo con id {} no se pudo eliminar".format(id)
+				mensajes = "Los datos del archivo con id {} no se pudieron eliminar".format(id)
 				respuesta = {"result":result, "errores":mensajes}
 		else:
 			result = False
-			mensajes = "El archivo con id {} no se ha podido encontrar. No se pudo eliminar".format(id)
+			mensajes = "Los datos del archivo con id {} no se ha podido encontrar. No se pudieron eliminar".format(id)
 			respuesta = {"result":result, "errores":mensajes}
 		return respuesta

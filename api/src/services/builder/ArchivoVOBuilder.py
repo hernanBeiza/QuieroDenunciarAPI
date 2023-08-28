@@ -36,7 +36,7 @@ class ArchivoVOBuilder(ma.ModelSchema):
 		return ArchivoVOBuilder()
 
 	@staticmethod
-	def fromPartes(archivos):		
+	def fromArchivos(archivos):		
 		ArchivoVOBuilder.archivos = archivos
 		return ArchivoVOBuilder()
 

@@ -1,8 +1,11 @@
 import os
+import uuid
 
-from src.app import app
 from termcolor import colored
 
+from src.app import app
+from src.ArchivoUtils import ArchivoUtils
+ 
 from src.daos.models.Archivo import Archivo
 from src.daos.ArchivoDAO import ArchivoDAO
 from src.services.vos.ArchivoVO import ArchivoVO
@@ -50,16 +53,21 @@ class ArchivoService():
 			archivoVO = ArchivoVO()
 			archivoVO.idAntecedente = idAntecedente
 			archivoVO.codigoTipoArchivo = codigoTipoArchivo
-			archivoVO.nombreArchivo = nombreArchivo
+			archivoVO.nombreArchivo = ArchivoUtils.crearNombre(nombreArchivo)
 			rutaArchivo = app.config['CARPETA_IMAGENES']
-			archivoVO.rutaArchivo = rutaArchivo
+			archivoVO.rutaArchivo = rutaArchivo+archivoVO.nombreArchivo
 			archivoVO.extensionArchivo = extensionArchivo
 			archivoVO.fecha = fecha
 			archivoVO.flagActivo = 0
 			respuesta = ArchivoDAO.guardar(archivoVO)
 			if(respuesta["result"]):
-				#TODO Mover archivo a carpeta de imágenes
-				respuesta["archivo"] = VOBuilderFactory().getArchivoVOBuilder().fromArchivo(respuesta["archivo"]).build()
+				try:
+					#TODO Revisar si se implementa función de guardar en ArchivoUtils
+					archivo.save(os.path.join(app.config['CARPETA_IMAGENES'],archivoVO.nombreArchivo))
+					respuesta["archivo"] = VOBuilderFactory().getArchivoVOBuilder().fromArchivo(respuesta["archivo"]).build()
+				except Exception as e:
+					print(colored("ArchivoService: El archivo no se pudo guardar. Error: {}".format(e), 'red'))
+					respuesta = {"result":False, "errores":e}
 			else:
 				respuesta = {"result":False, "errores":respuesta["errores"]}
 		else:
@@ -69,17 +77,17 @@ class ArchivoService():
 	@staticmethod
 	def obtener():
 		print(colored("ArchivoService: obtener();", 'cyan'))
-		partes = ArchivoDAO.obtener()
-		if len(partes)>0:
+		archivos = ArchivoDAO.obtener()
+		if len(archivos)>0:
 			data = {
 				"result":True,
 				"archivos":VOBuilderFactory().getArchivoVOBuilder().fromArchivos(archivos).builds(),
-				"mensajes":"Se encontraron partes"
+				"mensajes":"Se encontraron archivos"
 			}
 		else:
 			data = {
 				"result":False,
-				"errores":"No se encontraron partes"
+				"errores":"No se encontraron archivos"
 			}
 		return data
 
@@ -139,7 +147,7 @@ class ArchivoService():
 			archivoVO.idAntecedente = idAntecedente
 			archivoVO.codigoTipoArchivo = codigoTipoArchivo
 			archivoVO.archivo = archivo
-			archivoVO.nombreArchivo = nombreArchivo
+			archivoVO.nombreArchivo = ArchivoUtils.crearNombre(nombreArchivo)
 			rutaArchivo = app.config['CARPETA_IMAGENES']
 			archivoVO.rutaArchivo = rutaArchivo
 			archivoVO.extensionArchivo = extensionArchivo
