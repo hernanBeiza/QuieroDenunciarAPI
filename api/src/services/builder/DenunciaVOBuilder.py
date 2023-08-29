@@ -4,8 +4,9 @@ from termcolor import colored
 from src.app import ma
 from src.daos.models.Denuncia import Denuncia
 from src.services.vos.DenunciaVO import DenunciaVO
-from src.services.builder.AntecedenteVOBuilder import AntecedenteVOBuilder
 from src.services.builder.ParteVOBuilder import ParteVOBuilder
+from src.services.builder.AntecedenteVOBuilder import AntecedenteVOBuilder
+from src.services.builder.DireccionVOBuilder import DireccionVOBuilder
 
 class DenunciaVOBuilder(ma.ModelSchema):
 
@@ -30,8 +31,12 @@ class DenunciaVOBuilder(ma.ModelSchema):
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Integer(data_key="flagActivo")
 	
-	#Debe llamarse igual al declarado como relación en el modelo
+	#TODO Debe llamarse igual al declarado como relación en el modelo Denuncia
 	denunciado = fields.Nested(ParteVOBuilder)
+	denunciante = fields.Nested(ParteVOBuilder)
+	direccion = fields.Nested(DireccionVOBuilder)
+
+	antecedentes = fields.List(fields.Nested(AntecedenteVOBuilder))
 
 	#def __init__(self):
 

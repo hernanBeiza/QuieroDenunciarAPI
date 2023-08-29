@@ -16,7 +16,7 @@ class Direccion(db.Model):
 	fecha_modificacion = db.Column(db.DateTime(), unique=False, nullable=True, default=None, onupdate=datetime.datetime.utcnow)
 	flag_activo = db.Column(db.Integer, unique=False, nullable=False)
 
-	#Debe llamarse igual al declarado en el objeto DireccionVOBuilder
+	#TODO Debe llamarse igual al declarado en el objeto DireccionVOBuilder
 	comuna = db.relationship('Comuna', lazy=True, uselist=False)
 
 	def __init__(self, id_direccion, id_comuna, calle, numero, departamento, fecha_creacion, fecha_modificacion, flag_activo):

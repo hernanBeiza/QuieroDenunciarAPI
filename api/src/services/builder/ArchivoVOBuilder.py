@@ -28,6 +28,8 @@ class ArchivoVOBuilder(ma.ModelSchema):
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Integer(data_key="flagActivo")
 
+	tipoArchivo = fields.Nested(TipoArchivoVOBuilder)
+
 	#def __init__(self):
 
 	@staticmethod

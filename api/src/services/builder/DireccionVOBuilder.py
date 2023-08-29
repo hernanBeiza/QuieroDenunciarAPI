@@ -26,7 +26,7 @@ class DireccionVOBuilder(ma.ModelSchema):
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Integer(data_key="flagActivo")
-	#Debe llamarse igual al declarado en el modelo Direccion
+	#TODO Debe llamarse igual al declarado en el modelo Direccion
 	comuna = fields.Nested(ComunaVOBuilder)
 
 	#def __init__(self):

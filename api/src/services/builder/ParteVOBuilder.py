@@ -24,7 +24,7 @@ class ParteVOBuilder(ma.ModelSchema):
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Integer(data_key="flagActivo")
-	#Debe llamarse igual al declarado en el modelo Parte
+	#TODO llamarse igual al declarado en el modelo Parte
 	tipoParte = fields.Nested(TipoParteVOBuilder)
 
 	#def __init__(self):

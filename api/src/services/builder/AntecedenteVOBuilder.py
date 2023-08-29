@@ -18,15 +18,16 @@ class AntecedenteVOBuilder(ma.ModelSchema):
 	#Schema
 	##Modelo - Dato a mostrar
 	id_antecedente = fields.Integer(data_key="idAntecedente")
-	id_denuncia = fields.Integer(data_key="idDenucia")
+	id_denuncia = fields.Integer(data_key="idDenuncia")
 	descripcion = fields.String(data_key="descripcion")
 	fecha = fields.DateTime(data_key="fecha")
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Integer(data_key="flagActivo")
-	#Debe llamarse igual al declarado como relación en el modelo Antecedente
-	archivos = fields.List(fields.Nested(ArchivoVOBuilder))
 
+	#TODO Debe llamarse igual al declarado como relación en el modelo Antecedente
+	archivos = fields.List(fields.Nested(ArchivoVOBuilder))
+	
 	#def __init__(self):
 
 	@staticmethod
