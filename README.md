@@ -110,7 +110,7 @@ python3 -m virtualenv venv
 - Instalar dependencias
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Configuración de servidor de prueba
