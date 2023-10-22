@@ -12,7 +12,7 @@ class DenunciaDAO():
 	def guardar(denunciaVO):
 		print(colored("DenunciaDAO: guardar(); {}".format(denunciaVO), 'yellow'))
 		try:
-			denuncia = Denuncia(None, denunciaVO.idDenunciado, denunciaVO.idDenunciante, denunciaVO.idDireccion, denunciaVO.codigoMateria, denunciaVO.codigoEstado, denunciaVO.descripcion, denunciaVO.fecha, denunciaVO.fechaCreacion, denunciaVO.fechaModificacion, 1)
+			denuncia = Denuncia(None, denunciaVO.idDenunciado, denunciaVO.idDenunciante, denunciaVO.idDireccion, denunciaVO.codigoEstado, denunciaVO.descripcion, denunciaVO.fecha, denunciaVO.fechaCreacion, denunciaVO.fechaModificacion, 1)
 			db.session.add(denuncia)
 			db.session.commit()
 			print(colored("DenunciaDAO: denuncia guardado correctamente", 'yellow'))
@@ -58,13 +58,12 @@ class DenunciaDAO():
 	def actualizar(denunciaVO):
 		print(colored("DenunciaDAO: actualizar(); {}".format(denunciaVO), 'yellow'))
 		try:
-			denuncia = Denuncia.query.get(denunciaVO.idDenuncia)
-			denuncia.id_denuncia = denunciaVO.idDenuncia
+			denuncia = Denuncia.query.get(denunciaVO.id)
+			denuncia.id_denuncia = denunciaVO.id
 			denuncia.id_denunciado = denunciaVO.idDenunciado
 			denuncia.id_denunciante = denunciaVO.idDenunciante
 			denuncia.id_direccion = denunciaVO.idDireccion
 			denuncia.cod_estado = denunciaVO.codigoEstado
-			denuncia.cod_materia = denunciaVO.codigoMateria
 			denuncia.descripcion = denunciaVO.descripcion
 			denuncia.fecha = denunciaVO.fecha
 			denuncia.fecha_creacion = denunciaVO.fechaCreacion
@@ -73,10 +72,10 @@ class DenunciaDAO():
 			db.session.commit()
 			print(colored("DenunciaDAO: denuncia actualizada correctamente", 'yellow'))
 			result = True
-			mensajes = "Denuncia editado correctamente"
+			mensajes = "Denuncia editada correctamente"
 			respuesta = {"result":result, "mensajes":mensajes, "denuncia":denuncia}
 		except Exception as e:
-			print(colored("DenunciaDAO: La denuncia con id {} no se pudo actualizar. Error: {}".format(denunciaVO.idDenuncia,e), 'red'))
+			print(colored("DenunciaDAO: La denuncia con id {} no se pudo actualizar. Error: {}".format(denunciaVO.id,e), 'red'))
 			db.session.rollback()
 			db.session.flush()
 			result = False
@@ -86,11 +85,11 @@ class DenunciaDAO():
 
 	@staticmethod
 	def actualizarEstado(denunciaVO):
-		print(colored("DenunciaDAO: actualizarEstado(); idDenuncia:{} codigoEstado:{}".format(denunciaVO.idDenuncia,denunciaVO.codigoEstado), 'yellow'))
+		print(colored("DenunciaDAO: actualizarEstado(); idDenuncia:{} codigoEstado:{}".format(denunciaVO.id,denunciaVO.codigoEstado), 'yellow'))
 		try:
-			denuncia = Denuncia.query.get(denunciaVO.idDenuncia)
+			denuncia = Denuncia.query.get(denunciaVO.id)
 			if denuncia is not None:
-				denuncia.id_denuncia = denunciaVO.idDenuncia
+				denuncia.id_denuncia = denunciaVO.id
 				denuncia.cod_estado = denunciaVO.codigoEstado
 				db.session.commit()
 				print(colored("DenunciaDAO: El estado de denuncia ha sido actualizado correctamente", 'yellow'))

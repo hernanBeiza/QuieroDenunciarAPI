@@ -13,7 +13,7 @@ class DireccionDAO():
 		print(colored("DireccionDAO: guardar(); {}".format(direccionVO), 'yellow'))
 
 		try:
-			direccion = Direccion(None, direccionVO.idComuna, direccionVO.calle, direccionVO.numero, direccionVO.departamento, direccionVO.fechaCreacion, direccionVO.fechaModificacion, 1)
+			direccion = Direccion(None, direccionVO.codigoTipoDireccion, direccionVO.idComuna, direccionVO.calle, direccionVO.numero, direccionVO.departamento, direccionVO.fechaCreacion, direccionVO.fechaModificacion, 1)
 			db.session.add(direccion)
 			db.session.commit()
 			print(colored("DireccionDAO: dirección guardada correctamente", 'yellow'))
@@ -44,6 +44,7 @@ class DireccionDAO():
 		print(colored("DireccionDAO: actualizar(); {}".format(direccionVO), 'yellow'))
 		try:
 			direccion = Direccion.query.get(direccionVO.id)
+			direccion.cod_tipo_direccion = direccionVO.codigoTipoDireccion
 			direccion.id_comuna = direccionVO.idComuna
 			direccion.calle = direccionVO.calle
 			direccion.numero = direccionVO.numero

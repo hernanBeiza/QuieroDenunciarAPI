@@ -5,6 +5,7 @@ from src.app import ma
 from src.daos.models.Denuncia import Denuncia
 from src.services.vos.DenunciaVO import DenunciaVO
 from src.services.builder.ParteVOBuilder import ParteVOBuilder
+from src.services.builder.DenunciaMateriaVOBuilder import DenunciaMateriaVOBuilder
 from src.services.builder.AntecedenteVOBuilder import AntecedenteVOBuilder
 from src.services.builder.DireccionVOBuilder import DireccionVOBuilder
 
@@ -19,11 +20,10 @@ class DenunciaVOBuilder(ma.ModelSchema):
 
 	#Schema
 	##Modelo - Dato a mostrar
-	id_denuncia = fields.Integer(data_key="idDenuncia")
+	id_denuncia = fields.Integer(data_key="id")
 	id_denunciado = fields.Integer(data_key="idDenunciado")
 	id_denunciante = fields.Integer(data_key="idDenunciante")
 	id_direccion = fields.Integer(data_key="idDireccion")
-	cod_materia = fields.Integer(data_key="codigoMateria")
 	cod_estado = fields.Integer(data_key="codigoEstado")
 	descripcion = fields.String(data_key="descripcion")
 	fecha = fields.DateTime(data_key="fecha")
@@ -36,6 +36,7 @@ class DenunciaVOBuilder(ma.ModelSchema):
 	denunciante = fields.Nested(ParteVOBuilder)
 	direccion = fields.Nested(DireccionVOBuilder)
 
+	denunciasMaterias = fields.List(fields.Nested(DenunciaMateriaVOBuilder))
 	antecedentes = fields.List(fields.Nested(AntecedenteVOBuilder))
 
 	#def __init__(self):

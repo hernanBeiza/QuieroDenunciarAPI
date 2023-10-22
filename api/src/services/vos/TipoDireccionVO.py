@@ -1,16 +1,9 @@
 import json
 
-class DireccionVO():
-	idDireccion = None
+class TipoDireccionVO():
 	codigoTipoDireccion = None
-	idComuna = None
-	calle = None
-	numero = None
-	departamento = None
-	fechaCreacion = None
-	fechaModificacion = None
+	glosa = None
 	flagActivo = None
-	comuna = None
 
 	#def __init__(self):
 		#constructor por defecto

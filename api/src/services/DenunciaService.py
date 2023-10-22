@@ -20,7 +20,6 @@ class DenunciaService():
 		idDenunciado = request.get_json()["idDenunciado"] if 'idDenunciado' in request.get_json() else None
 		idDenunciante = request.get_json()["idDenunciante"] if 'idDenunciante' in request.get_json() else None
 		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
-		codigoMateria = request.get_json()["codigoMateria"] if 'codigoMateria' in request.get_json() else None
 		#codigoEstado = request.get_json()["codigoEstado"] if 'codigoEstado' in request.get_json() else None
 		##TODO Definir estado de denuncia...
 		codigoEstado = 1
@@ -41,9 +40,6 @@ class DenunciaService():
 		if(idDireccion==None):
 			enviar = False
 			mensajes +="\nDirección"
-		if(codigoMateria==None):
-			enviar = False
-			mensajes +="\nMateria denunciada"
 		if(descripcion==None):
 			enviar = False
 			mensajes +="\nDescripción de la denuncia"
@@ -56,11 +52,10 @@ class DenunciaService():
 			denunciaVO.idDenunciado = idDenunciado
 			denunciaVO.idDenunciante = idDenunciante
 			denunciaVO.idDireccion = idDireccion
-			denunciaVO.codigoMateria = codigoMateria
 			denunciaVO.codigoEstado = codigoEstado
 			denunciaVO.descripcion = descripcion
 			denunciaVO.fecha = fecha
-			denunciaVO.flagActivo = 0
+			denunciaVO.flagActivo = 2
 
 			respuesta = DenunciaDAO.guardar(denunciaVO)
 			if(respuesta["result"]):
@@ -151,7 +146,8 @@ class DenunciaService():
 	@staticmethod
 	def obtenerSegunIdDenunciante(idDenunciante):
 		print(colored("DenunciaService: obtenerSegunIdDenunciante(); {}".format(idDenunciante), 'cyan'))
-		denuncia = DenunciaDAO.obtenerSegunIdDenunciado(idDenunciante)
+		denuncia = DenunciaDAO.obtenerSegunIdDenunciante(idDenunciante)
+
 		if(denuncia):
 			data = {
 				"result":True,
@@ -169,11 +165,10 @@ class DenunciaService():
 	def actualizar(request):
 		print(colored("DenunciaService: actualizar(); {}".format(request.get_json()), 'cyan'))
 
-		idDenuncia = request.get_json()["idDenuncia"] if 'idDenuncia' in request.get_json() else None
+		id = request.get_json()["id"] if 'id' in request.get_json() else None
 		idDenunciado = request.get_json()["idDenunciado"] if 'idDenunciado' in request.get_json() else None
 		idDenunciante = request.get_json()["idDenunciante"] if 'idDenunciante' in request.get_json() else None
 		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
-		codigoMateria = request.get_json()["codigoMateria"] if 'codigoMateria' in request.get_json() else None
 		#codigoEstado = request.get_json()["codigoEstado"] if 'codigoEstado' in request.get_json() else None
 		##TODO Definir estado de denuncia...
 		codigoEstado = 1
@@ -185,9 +180,9 @@ class DenunciaService():
 
 		enviar = True
 		mensajes = "Faltó:"
-		if(idDenuncia==None):
+		if(id==None):
 			enviar = False
-			mensajes +="\nId de la denucia"
+			mensajes +="\nId de la denuncia"			
 		if(idDenunciado==None):
 			enviar = False
 			mensajes +="\nDenunciado"
@@ -197,9 +192,6 @@ class DenunciaService():
 		if(idDireccion==None):
 			enviar = False
 			mensajes +="\nDirección"
-		if(codigoMateria==None):
-			enviar = False
-			mensajes +="\nMateria denunciada"
 		if(descripcion==None):
 			enviar = False
 			mensajes +="\nDescripción de la denuncia"
@@ -208,11 +200,10 @@ class DenunciaService():
 			mensajes +="\nFecha del hecho"
 		if(enviar):
 			denunciaVO = DenunciaVO()
-			denunciaVO.idDenuncia = idDenuncia
+			denunciaVO.id = id
 			denunciaVO.idDenunciado = idDenunciado
 			denunciaVO.idDenunciante = idDenunciante
 			denunciaVO.idDireccion = idDireccion
-			denunciaVO.codigoMateria = codigoMateria
 			denunciaVO.codigoEstado = codigoEstado
 			denunciaVO.descripcion = descripcion
 			denunciaVO.fecha = fecha

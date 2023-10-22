@@ -14,6 +14,7 @@ class DireccionService():
 	@staticmethod
 	def guardar(request):
 		print(colored("DireccionService: guardar(); {}".format(request.get_json()), 'cyan'))
+		codigoTipoDireccion = request.get_json()["codigoTipoDireccion"] if 'codigoTipoDireccion' in request.get_json() else None
 		idComuna = request.get_json()["idComuna"] if 'idComuna' in request.get_json() else None
 		calle = request.get_json()["calle"] if 'calle' in request.get_json() else None
 		numero = request.get_json()["numero"] if 'numero' in request.get_json() else None
@@ -24,6 +25,9 @@ class DireccionService():
 
 		enviar = True
 		mensajes = "Faltó:"
+		if(codigoTipoDireccion==None):
+			enviar = False
+			mensajes +="\nTipo de dirección"
 		if(idComuna==None):
 			enviar = False
 			mensajes +="\nComuna"
@@ -33,15 +37,16 @@ class DireccionService():
 		if(numero==None):
 			enviar = False
 			mensajes +="\nNúmero"
-
 		if(enviar):
 			direccionVO = DireccionVO()
+			direccionVO.codigoTipoDireccion = codigoTipoDireccion
 			direccionVO.idComuna = idComuna
 			direccionVO.calle = calle
 			direccionVO.numero = numero
 			direccionVO.departamento = departamento
 			direccionVO.fechaCreacion = fechaCreacion
 			direccionVO.fechaModificacion = fechaModificacion
+			direccionVO.flagActivo = True
 			respuesta = DireccionDAO.guardar(direccionVO)
 			if(respuesta["result"]):
 				respuesta["direccion"] = VOBuilderFactory().getDireccionVOBuilder().fromDireccion(respuesta["direccion"]).build()
@@ -90,6 +95,7 @@ class DireccionService():
 	def actualizar(request):
 		print(colored("DireccionService: actualizar(); {}".format(request.get_json()), 'cyan'))
 		id = request.get_json()["id"] if 'id' in request.get_json() else None
+		codigoTipoDireccion = request.get_json()["codigoTipoDireccion"] if 'codigoTipoDireccion' in request.get_json() else None
 		idComuna = request.get_json()["idComuna"] if 'idComuna' in request.get_json() else None
 		calle = request.get_json()["calle"] if 'calle' in request.get_json() else None
 		numero = request.get_json()["numero"] if 'numero' in request.get_json() else None
@@ -103,6 +109,9 @@ class DireccionService():
 		if(id==None):
 			enviar = False
 			mensajes +="\nId"
+		if(codigoTipoDireccion==None):
+			enviar = False
+			mensajes +="\nTipo de dirección"
 		if(idComuna==None):
 			enviar = False
 			mensajes +="\nComuna"
@@ -118,6 +127,7 @@ class DireccionService():
 		if(enviar):
 			direccionVO = DireccionVO()
 			direccionVO.id = id
+			direccionVO.codigoTipoDireccion = codigoTipoDireccion
 			direccionVO.idComuna = idComuna
 			direccionVO.calle = calle
 			direccionVO.numero = numero

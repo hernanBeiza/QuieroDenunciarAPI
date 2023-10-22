@@ -63,7 +63,7 @@ class DenunciaController():
 	def obtenerSegunIdDenunciante(idDenunciante):
 		print(colored("DenunciaController: obtenerSegunIdDenunciante(); {}".format(idDenunciante), 'green'))
 		return app.response_class(
-			response = json.dumps(DenunciaService().obtenerSegunIdDenunciado(idDenunciante),sort_keys=False),
+			response = json.dumps(DenunciaService().obtenerSegunIdDenunciante(idDenunciante),sort_keys=False),
 			status = 200,
 			mimetype = 'application/json'
 		)

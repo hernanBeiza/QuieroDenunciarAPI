@@ -1,13 +1,9 @@
 import json
 
-class DenunciaVO():
+class DenunciaMateriaVO():
 	id = None
-	idDenunciado = None
-	idDenunciante = None
-	idDireccion = None
-	codigoEstado = None
-	descripcion = None
-	fecha = None
+	idDenuncia = None
+	codigoMateria = None
 
 	fechaCreacion = None
 	fechaModificacion = None

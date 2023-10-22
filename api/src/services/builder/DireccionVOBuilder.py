@@ -6,6 +6,7 @@ from src.daos.models.Direccion import Direccion
 from src.services.vos.DireccionVO import DireccionVO
 
 from src.services.builder.ComunaVOBuilder import ComunaVOBuilder
+from src.services.builder.TipoDireccionVOBuilder import TipoDireccionVOBuilder
 
 class DireccionVOBuilder(ma.ModelSchema):
 
@@ -19,6 +20,7 @@ class DireccionVOBuilder(ma.ModelSchema):
 	#Schema
 	##Modelo - Dato a mostrar
 	id_direccion = fields.Integer(data_key="idDireccion")
+	cod_tipo_direccion = fields.Integer(data_key="codigoTipoDireccion")
 	id_comuna = fields.Integer(data_key="idComuna")
 	calle = fields.String()
 	numero = fields.Integer()
@@ -26,8 +28,10 @@ class DireccionVOBuilder(ma.ModelSchema):
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Integer(data_key="flagActivo")
+
 	#TODO Debe llamarse igual al declarado en el modelo Direccion
 	comuna = fields.Nested(ComunaVOBuilder)
+	tipoDireccion = fields.Nested(TipoDireccionVOBuilder)
 
 	#def __init__(self):
 

@@ -1,4 +1,4 @@
-# DenunciasAPI
+# QuieroDenunciarAPI
 
  API de denuncias 
 
@@ -139,23 +139,25 @@ FLASK_APP=src/app.py FLASK_ENV=development flask run --host localhost --port 300
 - Instalar y guardar
 
 ```bash
-pip install package && pip freeze > requirements.txt
+pip3 install package && pip freeze > requirements.txt
 ```
 
 - Guardar package usados
 
 ```bash
-pip freeze > requirements.txt
+pip3 freeze > requirements.txt
 ```
 
 - Instalar packages guardados en requirements.txt
 
 ```bash
-pip install -r requirements.txt
+pip3install -r requirements.txt
 ```
 
 ## Modelo de datos
 
 ### Esquema ER
 
-- (Pendiente)
+- 
+
+![QuieroDenunciar - ER](docs/QuieroDenunciar - ER.png)
