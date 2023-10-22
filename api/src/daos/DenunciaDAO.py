@@ -12,7 +12,7 @@ class DenunciaDAO():
 	def guardar(denunciaVO):
 		print(colored("DenunciaDAO: guardar(); {}".format(denunciaVO), 'yellow'))
 		try:
-			denuncia = Denuncia(None, denunciaVO.idDenunciado, denunciaVO.idDenunciante, denunciaVO.idDireccion, denunciaVO.codigoEstado, denunciaVO.descripcion, denunciaVO.fecha, denunciaVO.fechaCreacion, denunciaVO.fechaModificacion, 1)
+			denuncia = Denuncia(None, denunciaVO.idDenunciado, denunciaVO.idDenunciante, denunciaVO.idDireccion, denunciaVO.codigoEstadoDenuncia, denunciaVO.descripcion, denunciaVO.fecha, denunciaVO.fechaCreacion, denunciaVO.fechaModificacion, 1)
 			db.session.add(denuncia)
 			db.session.commit()
 			print(colored("DenunciaDAO: denuncia guardado correctamente", 'yellow'))

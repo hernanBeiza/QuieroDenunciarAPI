@@ -4,6 +4,7 @@ from src.services.builder.ComunaVOBuilder import ComunaVOBuilder
 from src.services.builder.DenunciaMateriaVOBuilder import DenunciaMateriaVOBuilder
 from src.services.builder.DenunciaVOBuilder import DenunciaVOBuilder
 from src.services.builder.DireccionVOBuilder import DireccionVOBuilder
+from src.services.builder.EstadoDenunciaVOBuilder import EstadoDenunciaVOBuilder
 from src.services.builder.MateriaVOBuilder import MateriaVOBuilder
 from src.services.builder.ParteVOBuilder import ParteVOBuilder
 from src.services.builder.PersonaVOBuilder import PersonaVOBuilder
@@ -43,6 +44,10 @@ class VOBuilderFactory():
 	@staticmethod
 	def getDireccionVOBuilder():
 		return DireccionVOBuilder()
+
+	@staticmethod
+	def getEstadoDenunciaVOBuilder():
+		return EstadoDenunciaVOBuilder()
 
 	@staticmethod
 	def getMateriaVOBuilder():

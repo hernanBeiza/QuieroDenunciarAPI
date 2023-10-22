@@ -5,7 +5,7 @@ class DenunciaVO():
 	idDenunciado = None
 	idDenunciante = None
 	idDireccion = None
-	codigoEstado = None
+	codigoEstadoDenuncia = None
 	descripcion = None
 	fecha = None
 
