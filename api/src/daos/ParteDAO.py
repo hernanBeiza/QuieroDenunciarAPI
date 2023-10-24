@@ -14,7 +14,7 @@ class ParteDAO():
 		print(colored("ParteDAO: guardar(); {}".format(parteVO.codigoTipoParte), 'yellow'))
 
 		try:
-			parte = Parte(None, parteVO.rut, parteVO.idDireccion, parteVO.codigoTipoParte, parteVO.fechaCreacion, parteVO.fechaModificacion, 1)
+			parte = Parte(None, parteVO.rut, parteVO.idDireccion, parteVO.codigoTipoParte, parteVO.correo, parteVO.fechaCreacion, parteVO.fechaModificacion, 1)
 			db.session.add(parte)
 			db.session.commit()
 			print(colored("ParteDAO: parte guardada correctamente", 'yellow'))
@@ -53,6 +53,7 @@ class ParteDAO():
 			parte.rut = parteVO.rut
 			parte.idDireccion = parteVO.idDireccion
 			parte.cod_tipo_parte = parteVO.codigoTipoParte
+			parte.correo = parteVO.correo
 			parte.fecha_creacion = parteVO.fechaCreacion
 			#parte.fecha_modificacion = parteVO.fechaModificacion
 			db.session.commit()

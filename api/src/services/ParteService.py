@@ -17,9 +17,11 @@ class ParteService():
 		rut = request.get_json()["rut"] if 'rut' in request.get_json() else None
 		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
 		codigoTipoParte = request.get_json()["codigoTipoParte"] if 'codigoTipoParte' in request.get_json() else None
+		correo = request.get_json()["correo"] if 'correo' in request.get_json() else None
 
 		enviar = True
 		mensajes = "Faltó:"
+		#TODO Dependiendo del codigoTipoParte
 		if(rut==None):
 			enviar = False
 			mensajes +="\nRut"
@@ -35,6 +37,7 @@ class ParteService():
 			parteVO.rut = rut
 			parteVO.idDireccion = idDireccion
 			parteVO.codigoTipoParte = codigoTipoParte
+			parteVO.correo = correo
 			respuesta = ParteDAO.guardar(parteVO)
 			if(respuesta["result"]):
 				respuesta["parte"] = VOBuilderFactory().getParteVOBuilder().fromParte(respuesta["parte"]).build()
@@ -104,6 +107,7 @@ class ParteService():
 		rut = request.get_json()["rut"] if 'rut' in request.get_json() else None
 		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
 		codigoTipoParte = request.get_json()["codigoTipoParte"] if 'codigoTipoParte' in request.get_json() else None
+		correo = request.get_json()["correo"] if 'correo' in request.get_json() else None
 		fechaCreacion = request.get_json()["fechaCreacion"] if 'fechaCreacion' in request.get_json() else None
 		flagActivo = request.get_json()["flagActivo"] if 'flagActivo' in request.get_json() else None
 
@@ -126,10 +130,11 @@ class ParteService():
 			mensajes +="\n Fecha de creación"
 		if(enviar):
 			parteVO = ParteVO()
-			parteVO.idParte = id
+			parteVO.id = id
 			parteVO.rut = rut
 			parteVO.idDireccion = idDireccion
 			parteVO.codigoTipoParte = codigoTipoParte
+			parteVO.correo = correo
 			parteVO.fechaCreacion = fechaCreacion
 			parteVO.flagActivo = flagActivo
 			respuesta = ParteDAO.actualizar(parteVO)

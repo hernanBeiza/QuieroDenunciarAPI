@@ -1,0 +1,489 @@
+{
+  "info": {
+    "name": "QuieroDenunciar",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Parte",
+      "item": [
+        {
+          "name": "Parte: Guardar",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{HOST}}/parte/",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\":16692668,\n  \"idDireccion\":2,\n  \"codigoTipoParte\":2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Parte: Obtener",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/parte/",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\":16692668,\n  \"idDireccion\":1,\n  \"codigoTipoParte\":1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Parte: Obtener con id",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/parte/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\":16692668,\n  \"idDireccion\":1,\n  \"codigoTipoParte\":1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Parte: Obtener según rut",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/parte/rut/5929028",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\":16692668,\n  \"idDireccion\":1,\n  \"codigoTipoParte\":1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Parte: Actualizar",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{HOST}}/parte/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\":16692668,\n  \"idDireccion\":1,\n  \"codigoTipoParte\":1,\n  \"fechaCreacion\":1,\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Persona",
+      "item": [
+        {
+          "name": "Persona: Guardar",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{HOST}}/persona/",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\": 16692668,\n  \"dv\": 8,\n  \"codigoTipoPersona\": 1,\n  \"nombre\": \"Hernán\",\n  \"segundoNombre\": \"Domingo\",\n  \"apellidoPaterno\": \"Beiza\",\n  \"apellidoMaterno\": \"Napolitnao\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Persona: Obtener",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/persona",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\":16692668,\n  \"dv\":8,\n  \"codigoTipoPersona\":1,\n  \"nombre\":\"Hernán\",\n  \"segundoNombre\":\"Domingo\",\n  \"apellidoPaterno\":\"Hernán\",\n  \"apellidoMaterno\":\"Napolitano\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Persona: Actualizar",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{HOST}}/persona/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"rut\": 16692668,\n  \"dv\": \"8\",\n  \"nombre\": \"Hernán\",\n  \"nombreSegundo\": null,\n  \"apellidoPaterno\": \"Hernán\",\n  \"apellidoMaterno\": \"Napolitano\",\n  \"fechaCreacion\": \"2023-10-22T15:20:30\",\n  \"fechaModificacion\": null,\n  \"codigoTipoPersona\": 1,\n  \"flagActivo\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Persona: Obtener con id",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/persona/3",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\":16692668,\n  \"dv\":8,\n  \"codigoTipoPersona\":1,\n  \"nombre\":\"Hernán\",\n  \"segundoNombre\":\"Domingo\",\n  \"apellidoPaterno\":\"Hernán\",\n  \"apellidoMaterno\":\"Napolitano\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Persona: Obtener según rut",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/persona/rut/16692668",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rut\":16692668,\n  \"dv\":8,\n  \"codigoTipoPersona\":1,\n  \"nombre\":\"Hernán\",\n  \"segundoNombre\":\"Domingo\",\n  \"apellidoPaterno\":\"Hernán\",\n  \"apellidoMaterno\":\"Napolitano\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Persona: Eliminar",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{HOST}}/persona/3",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"rut\": 16692668,\n  \"dv\": \"8\",\n  \"nombre\": \"Hernán\",\n  \"nombreSegundo\": null,\n  \"apellidoPaterno\": \"Hernán\",\n  \"apellidoMaterno\": \"Napolitano\",\n  \"fechaCreacion\": \"2023-10-22T15:20:30\",\n  \"fechaModificacion\": null,\n  \"codigoTipoPersona\": 1,\n  \"flagActivo\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Direccion",
+      "item": [
+        {
+          "name": "Direccion: Guardar",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{HOST}}/direccion/",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigoTipoDireccion\":1,\n  \"idComuna\": 1,\n  \"calle\": \"Avenida Vicuña Mackenna Oriente\",\n  \"numero\": 10082\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Direccion: Obtener",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/direccion/",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idComuna\": 1,\n  \"calle\": \"Avenida Vicuña Mackenna Oriente\",\n  \"numero\": 10082\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Direccion: Actualizar",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{HOST}}/direccion/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"idComuna\": 1,\n  \"idProvincia\": 1,\n  \"idDireccion\": 1,\n  \"calle\": \"Avenida Vicuña Mackenna Oriente\",\n  \"numero\": 10082,\n  \"departamento\": null,\n  \"fechaCreacion\": \"2023-10-22T15:28:43\",\n  \"fechaModificacion\": null,\n  \"flagActivo\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Direccion: Eliminar",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{HOST}}/direccion/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"idComuna\": 1,\n  \"idProvincia\": 1,\n  \"idDireccion\": 1,\n  \"calle\": \"Avenida Vicuña Mackenna Oriente\",\n  \"numero\": 10082,\n  \"departamento\": null,\n  \"fechaCreacion\": \"2023-10-22T15:28:43\",\n  \"fechaModificacion\": null,\n  \"flagActivo\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Direccion: Según id",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/direccion/2",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idComuna\": 1,\n  \"calle\": \"Avenida Vicuña Mackenna Oriente\",\n  \"numero\": 10082\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Denuncia",
+      "item": [
+        {
+          "name": "Denuncia: Guardar",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{HOST}}/denuncia/",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idDenunciante\": 6,\n  \"idDenunciado\": 7,\n  \"idDireccion\": 2,\n  \"descripcion\": \"Estos tipos son unos rufianes\",\n  \"fecha\": \"2023-10-20T00:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Denuncia: Obtener",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/denuncia/3",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idDenunciante\": 6,\n  \"idDenunciado\": 7,\n  \"idDireccion\": 2,\n  \"descripcion\": \"Estos tipos son unos rufianes\",\n  \"fecha\": \"2023-10-20T00:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Denuncia: Paginadas",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/denuncia/pagina/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idDenunciante\": 6,\n  \"idDenunciado\": 7,\n  \"idDireccion\": 2,\n  \"descripcion\": \"Estos tipos son unos rufianes\",\n  \"fecha\": \"2023-10-20T00:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Denuncia: Según idDenunciado",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/denuncia/denunciado/7",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idDenunciante\": 6,\n  \"idDenunciado\": 7,\n  \"idDireccion\": 2,\n  \"descripcion\": \"Estos tipos son unos rufianes\",\n  \"fecha\": \"2023-10-20T00:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Denuncia: Según idDenunciante",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/denuncia/denunciante/6",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idDenunciante\": 6,\n  \"idDenunciado\": 7,\n  \"idDireccion\": 2,\n  \"descripcion\": \"Estos tipos son unos rufianes\",\n  \"fecha\": \"2023-10-20T00:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Denuncia: Actualizar",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{HOST}}/denuncia/3",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 3,\n  \"codigoEstado\": 1,\n  \"descripcion\": \"Estos tipos son unos rufianes\",\n  \"fecha\": \"2023-10-20T00:00:00\",\n  \"fechaCreacion\": \"2023-10-22T16:17:01\",\n  \"fechaModificacion\": null,\n  \"flagActivo\": 2,\n  \"idDenunciado\": 7,\n  \"idDenunciante\": 6,\n  \"idDireccion\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Denuncia: Eliminar",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{HOST}}/denuncia/3",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 3,\n  \"codigoEstado\": 1,\n  \"descripcion\": \"Estos tipos son unos rufianes\",\n  \"fecha\": \"2023-10-20T00:00:00\",\n  \"fechaCreacion\": \"2023-10-22T16:17:01\",\n  \"fechaModificacion\": null,\n  \"flagActivo\": 2,\n  \"idDenunciado\": 7,\n  \"idDenunciante\": 6,\n  \"idDireccion\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Denuncia: Según id",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/denuncia/3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DenunciaMateria",
+      "item": []
+    },
+    {
+      "name": "TipoDireccion",
+      "item": [
+        {
+          "name": "TipoDireccion: Obtener",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/tipo-direccion/"
+          }
+        },
+        {
+          "name": "TipoDireccion: Según id",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{HOST}}/tipo-direccion/5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TipoParte",
+      "item": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "HOST",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import json
 
 class ParteVO():
-	idParte = None
+	id = None
 	rut = None
 	idDireccion = None
 	codigoTipoParte = None

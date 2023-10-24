@@ -21,6 +21,7 @@ class ParteVOBuilder(ma.ModelSchema):
 	rut = fields.Integer()
 	id_direccion = fields.Integer(data_key="idDireccion")
 	cod_tipo_parte = fields.Integer(data_key="codigoTipoParte")
+	correo = fields.String(data_key="correo")
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Integer(data_key="flagActivo")
