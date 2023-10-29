@@ -14,27 +14,26 @@ class ParteService():
 	@staticmethod
 	def guardar(request):
 		print(colored("ParteService: guardar(); {}".format(request.get_json()), 'cyan'))
-		rut = request.get_json()["rut"] if 'rut' in request.get_json() else None
+		idPersona = request.get_json()["idPersona"] if 'idPersona' in request.get_json() else None
 		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
 		codigoTipoParte = request.get_json()["codigoTipoParte"] if 'codigoTipoParte' in request.get_json() else None
 		correo = request.get_json()["correo"] if 'correo' in request.get_json() else None
 
 		enviar = True
 		mensajes = "Faltó:"
-		#TODO Dependiendo del codigoTipoParte
-		if(rut==None):
+		if(idPersona==None):
 			enviar = False
-			mensajes +="\nRut"
+			mensajes +="\nPersona"
 		if(idDireccion==None):
 			enviar = False
 			mensajes +="\nDirección"
 		if(codigoTipoParte==None):
 			enviar = False
-			mensajes +="\nCódigo tipo de parte"
+			mensajes +="\nCódigo de tipo de parte"
 
 		if(enviar):
 			parteVO = ParteVO()
-			parteVO.rut = rut
+			parteVO.idPersona = idPersona
 			parteVO.idDireccion = idDireccion
 			parteVO.codigoTipoParte = codigoTipoParte
 			parteVO.correo = correo
@@ -83,19 +82,19 @@ class ParteService():
 		return data;
 
 	@staticmethod
-	def obtenerSegunRut(rut):
-		print(colored("ParteService: obtenerSegunRut(); {}".format(rut), 'cyan'))
-		parte = ParteDAO.obtenerSegunRut(rut)
+	def obtenerSegunIdPersona(idPersona):
+		print(colored("ParteService: obtenerSegunIdPersona(); {}".format(idPersona), 'cyan'))
+		parte = ParteDAO.obtenerSegunIdPersona(idPersona)
 		if(parte):
 			data = {
 				"result":True,
 				"parte":VOBuilderFactory().getParteVOBuilder().fromPartes(parte).builds(),
-				"mensajes":"Se encontró parte con rut {}".format(rut)
+				"mensajes":"Se encontró parte con id de persona {}".format(idPersona)
 			}
 		else:
 			data = {
 				"result":False,
-				"errores":"No se encontró parte con rut {}".format(rut)
+				"errores":"No se encontró parte con id de persona {}".format(idPersona)
 			}
 
 		return data;
@@ -104,7 +103,7 @@ class ParteService():
 	def actualizar(request):
 		print(colored("ParteService: actualizar(); {}".format(request.get_json()), 'cyan'))
 		id = request.get_json()["id"] if 'id' in request.get_json() else None
-		rut = request.get_json()["rut"] if 'rut' in request.get_json() else None
+		idPersona = request.get_json()["idPersona"] if 'idPersona' in request.get_json() else None
 		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
 		codigoTipoParte = request.get_json()["codigoTipoParte"] if 'codigoTipoParte' in request.get_json() else None
 		correo = request.get_json()["correo"] if 'correo' in request.get_json() else None
@@ -116,9 +115,9 @@ class ParteService():
 		if(id==None):
 			enviar = False
 			mensajes +="\nId"
-		if(rut==None):
+		if(idPersona==None):
 			enviar = False
-			mensajes +="\nRut"
+			mensajes +="\nPersona"
 		if(idDireccion==None):
 			enviar = False
 			mensajes +="\nDirección"
@@ -131,7 +130,7 @@ class ParteService():
 		if(enviar):
 			parteVO = ParteVO()
 			parteVO.id = id
-			parteVO.rut = rut
+			parteVO.idPersona = idPersona
 			parteVO.idDireccion = idDireccion
 			parteVO.codigoTipoParte = codigoTipoParte
 			parteVO.correo = correo

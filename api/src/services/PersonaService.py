@@ -5,6 +5,7 @@ from src.daos.models.Persona import Persona
 from src.daos.PersonaDAO import PersonaDAO
 from src.services.vos.PersonaVO import PersonaVO
 from src.services.builder.VOBuilderFactory import VOBuilderFactory
+from src.services.enums import TipoPersonaEnum
 
 class PersonaService():
 

@@ -41,11 +41,11 @@ class ParteController():
 			mimetype = 'application/json'
 		)
 
-	@parteBluePrint.route('/rut/<string:rut>', methods=['GET'])
-	def obtenerSegunRut(rut):
-		print(colored("ParteController: obtenerSegunRut(); {}".format(rut), 'green'))
+	@parteBluePrint.route('/persona/<string:idPersona>', methods=['GET'])
+	def obtenerSegunIdPersona(idPersona):
+		print(colored("ParteController: obtenerSegunIdPersona(); {}".format(idPersona), 'green'))
 		return app.response_class(
-			response = json.dumps(ParteService().obtenerSegunRut(rut),sort_keys=False),
+			response = json.dumps(ParteService().obtenerSegunIdPersona(idPersona),sort_keys=False),
 			status = 200,
 			mimetype = 'application/json'
 		)

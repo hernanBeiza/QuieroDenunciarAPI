@@ -11,10 +11,9 @@ class ParteDAO():
 	@staticmethod
 	def guardar(parteVO):
 		print(colored("ParteDAO: guardar(); {}".format(parteVO), 'yellow'))
-		print(colored("ParteDAO: guardar(); {}".format(parteVO.codigoTipoParte), 'yellow'))
 
 		try:
-			parte = Parte(None, parteVO.rut, parteVO.idDireccion, parteVO.codigoTipoParte, parteVO.correo, parteVO.fechaCreacion, parteVO.fechaModificacion, 1)
+			parte = Parte(None, parteVO.idPersona, parteVO.idDireccion, parteVO.codigoTipoParte, parteVO.correo, parteVO.fechaCreacion, parteVO.fechaModificacion, 1)
 			db.session.add(parte)
 			db.session.commit()
 			print(colored("ParteDAO: parte guardada correctamente", 'yellow'))
@@ -41,17 +40,17 @@ class ParteDAO():
 		return Parte.query.get(id)
 
 	@staticmethod
-	def obtenerSegunRut(rut):
-		print(colored("ParteDAO: obtenerSegunRut(); {}".format(rut), 'yellow'))
-		return Parte.query.filter_by(rut=rut).all()
+	def obtenerSegunIdPersona(idPersona):
+		print(colored("ParteDAO: obtenerSegunIdPersona(); {}".format(idPersona), 'yellow'))
+		return Parte.query.filter_by(id_persona=idPersona).all()
 
 	@staticmethod
 	def actualizar(parteVO):
 		print(colored("ParteDAO: actualizar(); {}".format(parteVO), 'yellow'))
 		try:
 			parte = Parte.query.get(parteVO.id)
-			parte.rut = parteVO.rut
-			parte.idDireccion = parteVO.idDireccion
+			parte.id_persona = parteVO.idPersona
+			parte.id_direccion = parteVO.idDireccion
 			parte.cod_tipo_parte = parteVO.codigoTipoParte
 			parte.correo = parteVO.correo
 			parte.fecha_creacion = parteVO.fechaCreacion

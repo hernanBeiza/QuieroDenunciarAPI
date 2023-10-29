@@ -1,4 +1,5 @@
 import flask
+
 from termcolor import colored
 
 from flask_sqlalchemy import SQLAlchemy
@@ -8,11 +9,9 @@ from src.Config import Config
 from src.ArchivoUtils import ArchivoUtils
 
 print("app.py");
-app = flask.Flask(__name__)	
+app = flask.Flask(__name__)
 Config().iniciarConApp(app);
 ArchivoUtils().verificarCarpetas(app);
-#Configurado desde ENV
-#app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql+mysqlconnector://root:0C3v8ea0@192.168.56.101/tareadb'
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 

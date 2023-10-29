@@ -34,7 +34,7 @@ docker pull mysql:8.0.30
 - Crear contenedor
 
 ```bash
-docker run --name denuncias-mysql -e MYSQL_ROOT_PASSWORD=mypass123 -e TZ=America/Santiago -d -p 3306:3306  mysql:8.0.30
+docker run --name quierodenunciar-mysql -e MYSQL_ROOT_PASSWORD=mypass123 -e TZ=America/Santiago -d -p 3306:3306 mysql:8.0.30
 ```
 
 - Conectar usando 3306
@@ -42,7 +42,7 @@ docker run --name denuncias-mysql -e MYSQL_ROOT_PASSWORD=mypass123 -e TZ=America
 - Si el contenedor ya está creado, levantar ejecutando
 
 ```bash
-docker start denuncias-mysql
+docker start quierodenunciar-mysql
 ```
 
 #### phpmyadmin
@@ -56,13 +56,13 @@ docker pull phpmyadmin/phpmyadmin:latest
 - Crear contenedor
 
 ```bash
-docker run --name denuncias-phpmyadmin -d --link denuncias-mysql:db -p 8081:80 phpmyadmin/phpmyadmin
+docker run --name quierodenunciar-phpmyadmin -d --link quierodenunciar-mysql:db -p 8081:80 phpmyadmin/phpmyadmin
 ```
 
 - Si el contenedor ya está creado, levantar ejecutando
 
 ```bash
-docker start denuncias-phpmyadmin
+docker start quierodenunciar-phpmyadmin
 ```
 
 - Entrar a [phpMyAdmin](http://localhost:8081)
@@ -119,7 +119,7 @@ pip3 install -r requirements.txt
 
 ```bash
 export FLASK_APP=src/app.py
-export FLASK_ENV=development
+export FLASK_ENV=dev
 ```
 
 - Ejecutar en la CLI.
@@ -131,7 +131,7 @@ flask run --host localhost --port 3000
 - Todo en una línea
 
 ```bash
-FLASK_APP=src/app.py FLASK_ENV=development flask run --host localhost --port 3000
+FLASK_APP=src/app.py FLASK_ENV=dev flask run --host localhost --port 3000
 ```
 
 ## Comandos útiles PIP

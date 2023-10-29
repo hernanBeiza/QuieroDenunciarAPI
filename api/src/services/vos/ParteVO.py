@@ -2,7 +2,7 @@ import json
 
 class ParteVO():
 	id = None
-	rut = None
+	idPersona = None
 	idDireccion = None
 	codigoTipoParte = None
 	fechaCreacion = None

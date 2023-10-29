@@ -18,7 +18,7 @@ class ParteVOBuilder(ma.ModelSchema):
 	#Schema
 	##Modelo - Dato a mostrar
 	id_parte = fields.Integer(data_key="id")
-	rut = fields.Integer()
+	id_persona = fields.Integer(data_key="idPersona")
 	id_direccion = fields.Integer(data_key="idDireccion")
 	cod_tipo_parte = fields.Integer(data_key="codigoTipoParte")
 	correo = fields.String(data_key="correo")
