@@ -108,6 +108,7 @@ class ParteService():
 		codigoTipoParte = request.get_json()["codigoTipoParte"] if 'codigoTipoParte' in request.get_json() else None
 		correo = request.get_json()["correo"] if 'correo' in request.get_json() else None
 		fechaCreacion = request.get_json()["fechaCreacion"] if 'fechaCreacion' in request.get_json() else None
+		fechaModificacion = request.get_json()["fechaModificacion"] if 'fechaModificacion' in request.get_json() else None
 		flagActivo = request.get_json()["flagActivo"] if 'flagActivo' in request.get_json() else None
 
 		enviar = True
@@ -124,9 +125,6 @@ class ParteService():
 		if(codigoTipoParte==None):
 			enviar = False
 			mensajes +="\nCódigo tipo de parte"
-		if(fechaCreacion==None):
-			enviar = False
-			mensajes +="\n Fecha de creación"
 		if(enviar):
 			parteVO = ParteVO()
 			parteVO.id = id
@@ -135,6 +133,7 @@ class ParteService():
 			parteVO.codigoTipoParte = codigoTipoParte
 			parteVO.correo = correo
 			parteVO.fechaCreacion = fechaCreacion
+			parteVO.fechaModificacion = fechaModificacion
 			parteVO.flagActivo = flagActivo
 			respuesta = ParteDAO.actualizar(parteVO)
 			if(respuesta["result"]):

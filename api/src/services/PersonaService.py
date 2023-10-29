@@ -15,38 +15,29 @@ class PersonaService():
 	@staticmethod
 	def guardar(request):
 		print(colored("PersonaService: guardar(); {}".format(request.get_json()), 'cyan'))
+		codigoTipoPersona = request.get_json()["codigoTipoPersona"] if 'codigoTipoPersona' in request.get_json() else None
 		rut = request.get_json()["rut"] if 'rut' in request.get_json() else None
 		dv = request.get_json()["dv"] if 'dv' in request.get_json() else None
 		nombre = request.get_json()["nombre"] if 'nombre' in request.get_json() else None
 		nombreSegundo = request.get_json()["nombreSegundo"] if 'nombreSegundo' in request.get_json() else None
 		apellidoPaterno = request.get_json()["apellidoPaterno"] if 'apellidoPaterno' in request.get_json() else None
 		apellidoMaterno = request.get_json()["apellidoMaterno"] if 'apellidoMaterno' in request.get_json() else None
-		codigoTipoPersona = request.get_json()["codigoTipoPersona"] if 'codigoTipoPersona' in request.get_json() else None
 
 		enviar = True
 		mensajes = "Faltó:"
-		if(rut==None):
-			enviar = False
-			mensajes +="\nRut"
-		if(dv==None):
-			enviar = False
-			mensajes +="\nDV"
-		if(nombre==None):
-			enviar = False
-			mensajes +="\nNombre"
 		if(codigoTipoPersona==None):
 			enviar = False
 			mensajes +="\nTipo de persona"
 
 		if(enviar):
 			personaVO = PersonaVO()
+			personaVO.codigoTipoPersona = codigoTipoPersona
 			personaVO.rut = rut
 			personaVO.dv = dv
 			personaVO.nombre = nombre
 			personaVO.nombreSegundo = nombreSegundo
 			personaVO.apellidoPaterno = apellidoPaterno
 			personaVO.apellidoMaterno = apellidoMaterno
-			personaVO.codigoTipoPersona = codigoTipoPersona
 			respuesta = PersonaDAO.guardar(personaVO)
 			if(respuesta["result"]):
 				respuesta["persona"] = VOBuilderFactory().getPersonaVOBuilder().fromPersona(respuesta["persona"]).build()
@@ -113,6 +104,7 @@ class PersonaService():
 	def actualizar(request):
 		print(colored("PersonaService: actualizar(); {}".format(request.get_json()), 'cyan'))
 		id = request.get_json()["id"] if 'id' in request.get_json() else None
+		codigoTipoPersona = request.get_json()["codigoTipoPersona"] if 'codigoTipoPersona' in request.get_json() else None
 		rut = request.get_json()["rut"] if 'rut' in request.get_json() else None
 		dv = request.get_json()["dv"] if 'dv' in request.get_json() else None
 		nombre = request.get_json()["nombre"] if 'nombre' in request.get_json() else None
@@ -121,22 +113,12 @@ class PersonaService():
 		apellidoMaterno = request.get_json()["apellidoMaterno"] if 'apellidoMaterno' in request.get_json() else None
 		fechaCreacion = request.get_json()["fechaCreacion"] if 'fechaCreacion' in request.get_json() else None
 		fechaModificacion = request.get_json()["fechaModificacion"] if 'fechaModificacion' in request.get_json() else None
-		codigoTipoPersona = request.get_json()["codigoTipoPersona"] if 'codigoTipoPersona' in request.get_json() else None
 
 		enviar = True
 		mensajes = "Faltó:"
 		if(id==None):
 			enviar = False
 			mensajes +="\nId"
-		if(rut==None):
-			enviar = False
-			mensajes +="\nRut"
-		if(dv==None):
-			enviar = False
-			mensajes +="\nDV"
-		if(nombre==None):
-			enviar = False
-			mensajes +="\nNombre"
 		if(codigoTipoPersona==None):
 			enviar = False
 			mensajes +="\nTipo de persona"
@@ -144,6 +126,7 @@ class PersonaService():
 		if(enviar):
 			personaVO = PersonaVO()
 			personaVO.id = id
+			personaVO.codigoTipoPersona = codigoTipoPersona
 			personaVO.rut = rut
 			personaVO.dv = dv
 			personaVO.nombre = nombre
@@ -152,7 +135,6 @@ class PersonaService():
 			personaVO.apellidoMaterno = apellidoMaterno
 			personaVO.fechaCreacion = fechaCreacion
 			personaVO.fechaModificacion = fechaModificacion
-			personaVO.codigoTipoPersona = codigoTipoPersona
 			respuesta = PersonaDAO.actualizar(personaVO)
 			if(respuesta["result"]):
 				respuesta["persona"] = VOBuilderFactory().getPersonaVOBuilder().fromPersona(respuesta["persona"]).build()

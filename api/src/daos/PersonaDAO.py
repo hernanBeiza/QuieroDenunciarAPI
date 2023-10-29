@@ -48,6 +48,7 @@ class PersonaDAO():
 		print(colored("PersonaDAO: actualizar(); {}".format(personaVO), 'yellow'))
 		try:
 			persona = Persona.query.get(personaVO.id)
+			persona.cod_tipo_persona = personaVO.codigoTipoPersona
 			persona.rut = personaVO.rut
 			persona.dv = personaVO.dv
 			persona.nombre = personaVO.nombre
@@ -56,7 +57,6 @@ class PersonaDAO():
 			persona.apellido_materno = personaVO.apellidoMaterno
 			persona.fecha_creacion = personaVO.fechaCreacion
 			#persona.fecha_modificacion = personaVO.fechaModificacion
-			persona.cod_tipo_persona = personaVO.codigoTipoPersona
 			db.session.commit()
 			print(colored("PersonaDAO: persona editada correctamente", 'yellow'))
 			result = True
