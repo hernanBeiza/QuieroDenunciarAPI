@@ -1,12 +1,10 @@
 import os
-import uuid
 
 from termcolor import colored
 
 from src.app import app
-from src.ArchivoUtils import ArchivoUtils
- 
-from src.daos.models.Archivo import Archivo
+from src.utils.ArchivoUtils import ArchivoUtils
+
 from src.daos.ArchivoDAO import ArchivoDAO
 from src.services.vos.ArchivoVO import ArchivoVO
 from src.services.builder.VOBuilderFactory import VOBuilderFactory

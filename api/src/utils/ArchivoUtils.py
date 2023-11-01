@@ -9,7 +9,7 @@ class ArchivoUtils:
 	def verificarCarpetas(app):
 		try:
 			print("ArchivoUtils: Crear carpeta de imágenes en: {}".format(app.config['CARPETA_IMAGENES']))
-			os.makedirs(app.config['CARPETA_IMAGENES'])
+			os.makedirs(os.environ.get('CARPETA_IMAGENES'))
 			print("ArchivoUtils: Carpeta de imágenes creada correctamente en: {}".format(app.config['CARPETA_IMAGENES']))
 			return True;
 		except Exception as e:
