@@ -1,6 +1,6 @@
 import datetime
 
-from src.app import db
+from src.db import db
 from src.daos.models.TipoDireccion import TipoDireccion
 
 class Direccion(db.Model):

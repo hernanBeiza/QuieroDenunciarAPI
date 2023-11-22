@@ -1,0 +1,1702 @@
+{
+	"info": {
+		"_postman_id": "ed24b155-bc1c-453c-88e8-aacdcbd77784",
+		"name": "QuieroDenunciar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Antecedente",
+			"item": [
+				{
+					"name": "Antecedente: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idDenuncia\": 7,\n  \"descripcion\": \"Primer antecedente de la denuncia\",\n  \"fecha\": \"2023-01-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/antecedente/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"antecedente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Antecedente: Obtener",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{HOST}}/antecedente",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"antecedente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Antecedente: Obtener con id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/antecedente/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"antecedente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Antecedente: Obtener con id denuncia",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/antecedente/denuncia/6",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"antecedente",
+								"denuncia",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Antecedente: Editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 3,\n  \"idDenuncia\": 1,\n  \"descripcion\": \"Tercer antecedente de la denuncia 1\",\n  \"fecha\": \"2023-01-23\",\n  \"fechaCreacion\": \"2023-01-25\",\n  \"flagActivo\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/antecedente/3",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"antecedente",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Antecedente: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/antecedente/4",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"antecedente",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Archivo",
+			"item": [
+				{
+					"name": "Archivo: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/archivo/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"archivo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archivo: Obtener",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{HOST}}/archivo",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"archivo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archivo: Obtener con id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/archivo/40",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"archivo",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archivo: Editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "40",
+									"type": "default"
+								},
+								{
+									"key": "idAntecedente",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20 19:00:00",
+									"type": "default"
+								},
+								{
+									"key": "fechaCreacion",
+									"value": "2023-10-10",
+									"type": "default"
+								},
+								{
+									"key": "flagActivo",
+									"value": "2",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/archivo/40",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"archivo",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archivo: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/archivo/40",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"archivo",
+								"40"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comuna",
+			"item": [
+				{
+					"name": "Comuna: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/comuna",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"comuna"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comuna: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/comuna/109",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"comuna",
+								"109"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comuna: Obtener con id provincia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/comuna/provincia/23",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"comuna",
+								"provincia",
+								"23"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Denuncia",
+			"item": [
+				{
+					"name": "Denuncia: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idDenunciante\": 3,\n  \"idDenunciado\": 2,\n  \"idDireccion\": 1,\n  \"codigoMateria\" :1,\n  \"descripcion\": \"Soy la descripción de la denuncia\",\n  \"fecha\": \"2023-01-23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Denuncia: Obtener",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Denuncia: Obtener con id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia/3",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Denuncia: Obtener paginadas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia/pagina/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia",
+								"pagina",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Denuncia: Obtener con id denunciado",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia/denunciado/3",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia",
+								"denunciado",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Denuncia: Obtener con id denunciante",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia/denunciante/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia",
+								"denunciante",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Denuncia: Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idDenuncia\": 1,\n  \"idDenunciante\": 1,\n  \"idDenunciado\": 1,\n  \"idDireccion\": 1,\n  \"codigoMateria\" :1,\n  \"descripcion\": \"Soy la descripción de la denuncia\",\n  \"fecha\": \"2023-01-23\",\n  \"fechaCreacion\":\"2022-10-10\",\n  \"flagActivo\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Denuncia: Actualizar estado",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idDenuncia\": 6,\n  \"codigoEstado\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia/estado/6/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia",
+								"estado",
+								"6",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Denuncia: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DenunciaMateria",
+			"item": [
+				{
+					"name": "DenunciaMateria: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idDenuncia\": 1,\n  \"codigoMateria\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/denuncia-materia/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia-materia",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DenunciaMateria: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/denuncia-materia",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia-materia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DenunciaMateria: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/denuncia-materia/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia-materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DenunciaMateria: Obtener con idDenuncia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/denuncia-materia/denuncia/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia-materia",
+								"denuncia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DenunciaMateria: Editar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/denuncia-materia/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia-materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DenunciaMateria: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/denuncia-materia/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"denuncia-materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dirección",
+			"item": [
+				{
+					"name": "Dirección: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"codigoTipoDireccion\": 1,\n  \"idComuna\": 1,\n  \"calle\": \"La ñipa\",\n  \"numero\": 1163,\n  \"departamento\": 507,\n  \"fechaCreacion\": \"2023-05-20\",\n  \"flagActivo\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/direccion/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"direccion",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dirección: Obtener",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\":\"Hernán\",\n  \"apellidoPaterno\":\"Beiza\",\n  \"rut\":76481245,\n  \"dv\":1,\n  \"codigoTipoPersona\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/direccion/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"direccion",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dirección: Obtener con id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\":\"Hernán\",\n  \"apellidoPaterno\":\"Beiza\",\n  \"rut\":76481245,\n  \"dv\":1,\n  \"codigoTipoPersona\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/direccion/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"direccion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dirección: Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\":2,\n  \"codigoTipoDireccion\":2,\n  \"idComuna\":13,\n  \"calle\":\"La ñipa\",\n  \"numero\":1163,\n  \"fechaCreacion\":\"2023-05-20\",\n  \"flagActivo\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/direccion/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"direccion",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dirección: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/direccion/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"direccion",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EstadoDenuncia",
+			"item": [
+				{
+					"name": "EstadoDenuncia: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/estado-denuncia",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"estado-denuncia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EstadoDenuncia: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/estado-denuncia/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"estado-denuncia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Materia",
+			"item": [
+				{
+					"name": "Materia: Obtener por página",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/materia/pagina/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"materia",
+								"pagina",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Materia: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/materia",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"materia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Materia: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/materia/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parte",
+			"item": [
+				{
+					"name": "Parte: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idPersona\": 4,\n  \"idDireccion\": 1,\n  \"codigoTipoParte\": 1,\n  \"correo\": \"dorisn@vtr.net\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/parte/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parte: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/parte",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parte: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/parte/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parte: Obtener con id de persona",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/parte/persona/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte",
+								"persona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parte: Obtener con id denuncia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/parte/denuncia/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte",
+								"denuncia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parte: Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 5,\n  \"idPersona\": 4,\n  \"idDireccion\": 1,\n  \"codigoTipoParte\": 2,\n  \"correo\": \"dorisn@vtr.net\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/parte/5",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parte: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\":1,\n  \"nombre\":\"Hernán\",\n  \"apellidoPaterno\":\"Beiza\",\n  \"rut\":76481245,\n  \"dv\":1,\n  \"fechaCreacion\": \"2022-09-24T16:34:08\",\n  \"codigoTipoPersona\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/parte/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Persona",
+			"item": [
+				{
+					"name": "Persona: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"codigoTipoPersona\": 2,\n  \"rut\": 16692668,\n  \"dv\": 8,\n  \"nombre\": \"Doris\",\n  \"apellidoPaterno\": \"Napolitano\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/persona/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"persona",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Persona: Obtener",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\":\"Hernán\",\n  \"apellidoPaterno\":\"Beiza\",\n  \"rut\":76481245,\n  \"dv\":1,\n  \"codigoTipoPersona\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/persona/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"persona",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Persona: Obtener con id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\":\"Hernán\",\n  \"apellidoPaterno\":\"Beiza\",\n  \"rut\":76481245,\n  \"dv\":1,\n  \"codigoTipoPersona\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/persona/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"persona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Persona: Obtener con rut",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\":\"Hernán\",\n  \"apellidoPaterno\":\"Beiza\",\n  \"rut\":76481245,\n  \"dv\":1,\n  \"codigoTipoPersona\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/persona/rut/11111111",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"persona",
+								"rut",
+								"11111111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Persona: Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"rut\": 16692668,\n  \"dv\": \"8\",\n  \"nombre\": \"Hernán\",\n  \"nombreSegundo\": \"Domingo\",\n  \"apellidoPaterno\": \"Beiza\",\n  \"apellidoMaterno\": \"Napolitano\",\n  \"fechaCreacion\": \"2023-10-29T21:18:09\",\n  \"fechaModificacion\": \"2023-10-29T21:20:15\",\n  \"codigoTipoPersona\": 1,\n  \"flagActivo\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/persona/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"persona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Persona: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\":1,\n  \"nombre\":\"Hernán\",\n  \"apellidoPaterno\":\"Beiza\",\n  \"rut\":76481245,\n  \"dv\":1,\n  \"fechaCreacion\": \"2022-09-24T16:34:08\",\n  \"codigoTipoPersona\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/parte/6",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoArchivo",
+			"item": [
+				{
+					"name": "TipoArchivo: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tipo-archivo",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tipo-archivo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipoArchivo: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tipo-archivo/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tipo-archivo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoDireccion",
+			"item": [
+				{
+					"name": "TipoDireccion: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tipo-direccion",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tipo-direccion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipoDireccion: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tipo-direccion/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tipo-direccion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoParte",
+			"item": [
+				{
+					"name": "TipoParte: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tipo-parte",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tipo-parte"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipoParte: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tipo-parte/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tipo-parte",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoPersona",
+			"item": [
+				{
+					"name": "TipoPersona: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tipo-persona/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tipo-persona",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipoPersona: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/tipo-persona",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"tipo-persona"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

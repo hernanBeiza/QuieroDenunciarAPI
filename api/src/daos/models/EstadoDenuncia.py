@@ -1,4 +1,4 @@
-from src.app import db
+from src.db import db
 
 class EstadoDenuncia(db.Model):
 	__tablename__ = 'ESTADO_DENUNCIA'

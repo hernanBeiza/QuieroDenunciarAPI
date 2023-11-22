@@ -1,6 +1,5 @@
 from termcolor import colored
 
-from src.app import db
 from src.daos.models.EstadoDenuncia import EstadoDenuncia
 
 class EstadoDenunciaDAO():

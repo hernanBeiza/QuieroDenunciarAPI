@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields
 from termcolor import colored
 
-from src.app import ma
+from src.ma import ma
 from src.daos.models.Direccion import Direccion
 from src.services.vos.DireccionVO import DireccionVO
 

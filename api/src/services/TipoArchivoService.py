@@ -1,4 +1,4 @@
-from src.app import db
+from src.run import db
 from termcolor import colored
 
 from src.daos.models.TipoArchivo import TipoArchivo

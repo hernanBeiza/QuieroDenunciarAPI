@@ -10,7 +10,7 @@ class ArchivoUtils:
 		try:
 			print("ArchivoUtils: Crear carpeta de imágenes en: {}".format(app.config['CARPETA_IMAGENES']))
 			os.makedirs(os.environ.get('CARPETA_IMAGENES'))
-			print("ArchivoUtils: Carpeta de imágenes creada correctamente en: {}".format(app.config['CARPETA_IMAGENES']))
+			print(colored("ArchivoUtils: Carpeta de imágenes creada correctamente en: {}".format(app.config['CARPETA_IMAGENES']), 'green'))
 			return True;
 		except Exception as e:
 			print(colored("ArchivoUtils: La carpeta de imágenes no se pudo crear. Error: {}".format(e), 'red'))
@@ -21,7 +21,7 @@ class ArchivoUtils:
 		try:
 			if os.path.exists(ruta):
 				os.remove(ruta)
-				print(colored("ArchivoUtils: El archivo se ha podido eliminar."),'yellow')
+				print(colored("ArchivoUtils: El archivo se ha podido eliminar."),'green')
 			else:
 				print(colored("ArchivoUtils: El archivo no existe. No se ha podido eliminar.",'red'))
 			return True

@@ -6,7 +6,7 @@ from flask import Blueprint
 
 from termcolor import colored
 
-from src.app import app;
+from src.app import app
 
 from src.services.AntecedenteService import AntecedenteService
 

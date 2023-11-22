@@ -115,10 +115,10 @@ pip3 install -r requirements.txt
 
 ### Configuración de servidor de prueba
 
-- Setear variables de entorno en la CLI, teniendo en cuenta la ubicación del archivo app.py
+- Setear variables de entorno en la CLI, teniendo en cuenta la ubicación del archivo run.py
 
 ```bash
-export FLASK_APP=src/app.py
+export FLASK_APP=src/run.py
 export FLASK_ENV=development
 ```
 
@@ -131,7 +131,7 @@ flask run --host localhost --port 3000
 - Todo en una línea
 
 ```bash
-FLASK_APP=src/app.py FLASK_ENV=development flask run --host localhost --port 3000
+FLASK_APP=src/run.py FLASK_ENV=development flask run --host localhost --port 3000
 ```
 
 ## Comandos útiles PIP

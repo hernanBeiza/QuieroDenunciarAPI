@@ -1,4 +1,4 @@
-from src.app import db
+from src.db import db
 
 class TipoParte(db.Model):
 	__tablename__ = 'TIPO_PARTE'

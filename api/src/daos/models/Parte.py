@@ -1,6 +1,6 @@
 import datetime
 
-from src.app import db
+from src.db import db
 #Se importa para poder usar la TipoParte Materia en la relació
 from src.daos.models.TipoParte import TipoParte
 

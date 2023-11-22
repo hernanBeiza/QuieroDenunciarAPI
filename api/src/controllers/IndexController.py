@@ -1,6 +1,6 @@
-from src.app import app;
-from flask import jsonify;
-from flask import json;
+from src.app import app
+from flask import jsonify
+from flask import json
 
 from src.services.IndexService import IndexService
 

@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields
 from termcolor import colored
 
-from src.app import ma
+from src.ma import ma
 from src.daos.models.DenunciaMateria import DenunciaMateria
 from src.daos.models.Denuncia import Denuncia
 from src.services.vos.DenunciaVO import DenunciaVO

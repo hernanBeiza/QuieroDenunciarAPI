@@ -1,6 +1,6 @@
 import datetime
 
-from src.app import db
+from src.db import db
 #Se importa para poder usar la clase Direccion en la relació
 from src.daos.models.Direccion import Direccion
 #Se importa para poder usar la clase Materia en la relació

@@ -13,7 +13,7 @@ sys.path.append(os.getcwd())
 # This is the address of your `app` folder, as shown below.
 sys.path.append('~/api.quierodenunciar.site/src')
 
-from src.app import app as application
+from src.run import app as application
 
 if __name__ == '__main__':
     application.run(debug=False)

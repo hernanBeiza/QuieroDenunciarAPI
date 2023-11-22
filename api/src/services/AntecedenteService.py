@@ -1,6 +1,5 @@
 import os
 
-from src.app import app
 from termcolor import colored
 
 from src.daos.models.Antecedente import Antecedente

@@ -1,6 +1,6 @@
 import datetime
 
-from src.app import db
+from src.db import db
 
 class Archivo(db.Model):
 	__tablename__ = 'ARCHIVO'

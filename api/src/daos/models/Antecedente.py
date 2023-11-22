@@ -1,6 +1,6 @@
 import datetime
 
-from src.app import db
+from src.db import db
 
 class Antecedente(db.Model):
 	__tablename__ = 'ANTECEDENTE'

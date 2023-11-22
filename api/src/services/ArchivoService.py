@@ -2,7 +2,6 @@ import os
 
 from termcolor import colored
 
-from src.app import app
 from src.utils.ArchivoUtils import ArchivoUtils
 
 from src.daos.ArchivoDAO import ArchivoDAO

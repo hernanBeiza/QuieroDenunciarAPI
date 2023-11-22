@@ -51,5 +51,6 @@ Thumbs.db
 # App folders
 public/
 
-.env
 .env.*
+
+venv

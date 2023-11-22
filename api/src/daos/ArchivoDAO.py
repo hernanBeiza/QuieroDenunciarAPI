@@ -1,6 +1,6 @@
 from termcolor import colored
 
-from src.app import db
+from src.db import db
 from src.daos.models.Archivo import Archivo
 from src.utils.ArchivoUtils import ArchivoUtils
 

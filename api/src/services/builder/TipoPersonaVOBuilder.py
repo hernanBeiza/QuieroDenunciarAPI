@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields
 from termcolor import colored
 
-from src.app import ma
+from src.ma import ma
 from src.services.vos.TipoPersonaVO import TipoPersonaVO
 from src.daos.models.TipoPersona import TipoPersona
 

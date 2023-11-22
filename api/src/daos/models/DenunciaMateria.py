@@ -1,6 +1,6 @@
 import datetime
 
-from src.app import db
+from src.db import db
 
 class DenunciaMateria(db.Model):
 	__tablename__ = 'DENUNCIA_MATERIA'

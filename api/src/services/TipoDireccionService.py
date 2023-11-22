@@ -1,4 +1,3 @@
-from src.app import db
 from termcolor import colored
 
 from src.daos.models.TipoDireccion import TipoDireccion
