@@ -4,7 +4,7 @@
 
 ## Requerimientos
 
-- python3
+- python3.8
 - pip3
 - python venv
 - flask
@@ -151,7 +151,7 @@ pip3 freeze > requirements.txt
 - Instalar packages guardados en requirements.txt
 
 ```bash
-pip3install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Modelo de datos
