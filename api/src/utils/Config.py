@@ -1,6 +1,6 @@
 from flask_cors import CORS
 import os
-from dotenv import load_dotenv , dotenv_values
+from dotenv import load_dotenv, find_dotenv, dotenv_values
 
 from termcolor import colored
 
@@ -15,7 +15,10 @@ class Config:
 		#Variables de ambiente
 		environment = os.environ.get("FLASK_ENV")
 		print(colored("Config: Ambiente: {}".format(environment), 'yellow'))
-		load_dotenv()
+		archivoENV = ".env.{}".format(environment)
+		print(colored("Config: Archivo: {}".format(archivoENV), 'yellow'))
+		encontradoENV = find_dotenv(archivoENV)
+		load_dotenv(encontradoENV)
 		config = dotenv_values()
 		app.config.from_mapping(config)
 		#CORS
