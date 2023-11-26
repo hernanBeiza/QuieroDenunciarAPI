@@ -9,12 +9,12 @@ class ArchivoUtils:
 	def verificarCarpetas(app):
 		try:
 			print("ArchivoUtils: Crear carpeta de imágenes en: {}".format(app.config['CARPETA_IMAGENES']))
-			os.makedirs(os.environ.get('CARPETA_IMAGENES'))
+			os.makedirs(app.config['CARPETA_IMAGENES'])
 			print(colored("ArchivoUtils: Carpeta de imágenes creada correctamente en: {}".format(app.config['CARPETA_IMAGENES']), 'green'))
-			return True;
+			return True
 		except Exception as e:
 			print(colored("ArchivoUtils: La carpeta de imágenes no se pudo crear. Error: {}".format(e), 'red'))
-			return False;
+			return False
 
 	@staticmethod
 	def eliminar(ruta):
@@ -27,7 +27,7 @@ class ArchivoUtils:
 			return True
 		except Exception as e:
 			print(colored("ArchivoUtils: El archivo no se ha podido eliminar. Error: {}".format(e), 'red'))
-			return False;
+			return False
 
 	@staticmethod
 	def crearNombre(nombreArchivo):
