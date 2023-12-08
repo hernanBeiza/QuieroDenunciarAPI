@@ -24,9 +24,6 @@ class PersonaService():
 
 		enviar = True
 		mensajes = "Faltó:"
-		if(codigoTipoPersona==None):
-			enviar = False
-			mensajes +="\nTipo de persona"
 
 		if(enviar):
 			personaVO = PersonaVO()
@@ -41,9 +38,9 @@ class PersonaService():
 			if(respuesta["result"]):
 				respuesta["persona"] = VOBuilderFactory().getPersonaVOBuilder().fromPersona(respuesta["persona"]).build()
 			else:
-				respuesta = {"result":False, "errores":respuesta["errores"]}
+				respuesta = {"result": False, "errores": respuesta["errores"]}
 		else:
-			respuesta = {"result":False, "errores":mensajes}
+			respuesta = {"result": False, "errores": mensajes}
 		return respuesta
 
 	@staticmethod

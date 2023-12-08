@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-10-24T23:16:11.317Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="gJC_DP3LZeUJaHmIZZj-" version="22.0.3" type="device">
+<mxfile host="Electron" modified="2023-12-08T14:41:29.119Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="91sn0hV2Jek0asf-IHGB" version="22.0.3" type="device">
   <diagram name="Page-1" id="CpqdUaT4-oj_t1N33Mlo">
-    <mxGraphModel dx="1939" dy="687" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="2266" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -903,7 +903,7 @@
             <mxRectangle width="60" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="QxJRPxMJet-DMWclTAMe-153" value="Row 3" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;" parent="QxJRPxMJet-DMWclTAMe-151" vertex="1">
+        <mxCell id="QxJRPxMJet-DMWclTAMe-153" value="glosa" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;" parent="QxJRPxMJet-DMWclTAMe-151" vertex="1">
           <mxGeometry x="60" width="140" height="30" as="geometry">
             <mxRectangle width="140" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -1569,7 +1569,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="RZvMMsjJ5pUIRA5MPPUW-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERoneToMany;startFill=0;" edge="1" parent="1" source="QxJRPxMJet-DMWclTAMe-202" target="RZvMMsjJ5pUIRA5MPPUW-4">
+        <mxCell id="RZvMMsjJ5pUIRA5MPPUW-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERoneToMany;startFill=0;" parent="1" source="QxJRPxMJet-DMWclTAMe-202" target="RZvMMsjJ5pUIRA5MPPUW-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="720" y="995" as="sourcePoint" />
             <Array as="points">
@@ -1579,8 +1579,11 @@
             <mxPoint x="720" y="525" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="RZvMMsjJ5pUIRA5MPPUW-4" value="Cambiar a DOCUMENTO" style="shape=note;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;" vertex="1" parent="1">
+        <mxCell id="RZvMMsjJ5pUIRA5MPPUW-4" value="Cambiar a DOCUMENTO" style="shape=note;size=20;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;" parent="1" vertex="1">
           <mxGeometry x="690" y="850" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="C8ORagQU8IXKiEZnlh1q-1" value="&lt;div style=&quot;text-align: left;&quot;&gt;1. Natural&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;2. Jurídica&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;shadow=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="950" y="110" width="100" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

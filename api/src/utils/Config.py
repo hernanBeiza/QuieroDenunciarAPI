@@ -18,10 +18,14 @@ class Config:
 		archivoENV = ".env.{}".format(environment)
 		print(colored("Config: Archivo: {}".format(archivoENV), 'yellow'))
 		encontradoENV = find_dotenv(archivoENV)
-		load_dotenv(encontradoENV)
-		config = dotenv_values(encontradoENV)
-		app.config.from_mapping(config)
-		print("Config: Version: {}".format(app.config["VERSION"]))
+		if encontradoENV:
+			print(colored("Config: Archivo: {} encontrado".format(archivoENV), 'green'))
+			load_dotenv(encontradoENV)
+			config = dotenv_values(encontradoENV)
+			app.config.from_mapping(config)
+			print("Config: Version: {}".format(app.config["VERSION"]))
+		else:
+			print(colored("Config: Archivo: {} no encontrado".format(archivoENV), 'red'))
 
 		#CORS
 		CORS(app)

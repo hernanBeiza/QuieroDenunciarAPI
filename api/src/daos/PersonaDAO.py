@@ -1,3 +1,5 @@
+#from mysql.connector.errors import IntegrityError
+from sqlalchemy.exc import IntegrityError
 from termcolor import colored
 
 from src.db import db
@@ -18,15 +20,19 @@ class PersonaDAO():
 			print(colored("PersonaDAO: persona guardada correctamente", 'yellow'))
 			result = True
 			mensajes = "Persona guardada correctamente"
-			respuesta = {"result":result,"mensajes":mensajes, "persona":persona}
-		except Exception as e:
-			print(colored("PersonaDAO: La persona no se pudo guardar. Error: {}".format(e), 'red'))
+			respuesta = {"result": result,"mensajes": mensajes, "persona": persona}
+			return respuesta
+		except IntegrityError as e:
+			error = "PersonaDAO: La persona no se pudo guardar. Error: {}".format(e.orig)
+			errorVisualizable = "La persona no se pudo guardar"
+			if "Duplicate entry" in str(e.orig):
+				errorVisualizable = "La persona no se pudo guardar. Ya existe una persona con ese RUT ingresada"
+			print(colored(error, 'red'))
 			db.session.rollback()
 			db.session.flush()
 			result = False
-			errores = "La persona no se pudo guardar"
-			respuesta = {"result":result,"errores":errores}
-		return respuesta
+			respuesta = {"result": result, "error": errorVisualizable, "codigo": 500}
+			raise Exception(error, respuesta)
 
 	@staticmethod
 	def obtener():
@@ -67,8 +73,8 @@ class PersonaDAO():
 			db.session.rollback()
 			db.session.flush()
 			result = False
-			errores = "La persona no se pudo editar"
-			respuesta = {"result":result, "errores":errores}
+			error = "La persona no se pudo editar"
+			respuesta = {"result": result, "error": error}
 		return respuesta
 
 	@staticmethod

@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-10-24T22:51:22.381Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="7mMGPM19_5gLPn88B8CE" version="22.0.3" type="device">
+<mxfile host="Electron" modified="2023-10-24T23:16:07.408Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="r3gYAg7tphZ9T-awImFh" version="22.0.3" type="device">
   <diagram name="Page-1" id="CpqdUaT4-oj_t1N33Mlo">
     <mxGraphModel dx="1939" dy="687" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -1568,9 +1568,6 @@
               <mxPoint x="260" y="635" />
             </Array>
           </mxGeometry>
-        </mxCell>
-        <mxCell id="9eRU8vn6EhmQ1nw9Kt-_-4" value="Se agrega correo" style="shape=note;size=20;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;" parent="1" vertex="1">
-          <mxGeometry x="-5.684341886080802e-14" y="385" width="160" height="120" as="geometry" />
         </mxCell>
         <mxCell id="RZvMMsjJ5pUIRA5MPPUW-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERone;endFill=0;startArrow=ERoneToMany;startFill=0;" edge="1" parent="1" source="QxJRPxMJet-DMWclTAMe-202" target="RZvMMsjJ5pUIRA5MPPUW-4">
           <mxGeometry relative="1" as="geometry">
