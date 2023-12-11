@@ -20,8 +20,6 @@ class Denuncia(db.Model):
 	id_denunciado = db.Column(db.Integer, db.ForeignKey('PARTE.id_parte'), nullable=False)
 	#id_denunciante = db.Column(db.Integer, nullable=False)
 	id_denunciante = db.Column(db.Integer, db.ForeignKey('PARTE.id_parte'), nullable=False)
-	#id_direccion = db.Column(db.Integer, nullable=False)
-	id_direccion = db.Column(db.Integer, db.ForeignKey('DIRECCION.id_direccion'), nullable=False)
 	#cod_estado_denuncia = db.Column(db.Integer, nullable=False)
 	cod_estado_denuncia = db.Column(db.Integer, db.ForeignKey('ESTADO_DENUNCIA.cod_estado_denuncia'), nullable=False)
 	descripcion = db.Column(db.String, nullable=False)
@@ -34,17 +32,15 @@ class Denuncia(db.Model):
 	#TODO Relaciona la tabla hija con esta
 	denunciado = db.relationship('Parte', foreign_keys=[id_denunciado], lazy=True)
 	denunciante = db.relationship('Parte', foreign_keys=[id_denunciante], lazy=True)
-	direccion = db.relationship('Direccion', lazy=True)
 	estadoDenuncia = db.relationship('EstadoDenuncia', lazy=True)
 
 	denunciasMaterias = db.relationship('DenunciaMateria', uselist=True, lazy=True)
 	antecedentes = db.relationship('Antecedente', uselist=True, lazy=True)
 
-	def __init__(self, id_denuncia, id_denunciado, id_denunciante, id_direccion, cod_estado_denuncia, descripcion, fecha, fecha_creacion, fecha_modificacion, flag_activo):
+	def __init__(self, id_denuncia, id_denunciado, id_denunciante, cod_estado_denuncia, descripcion, fecha, fecha_creacion, fecha_modificacion, flag_activo):
 		self.id_denuncia = id_denuncia
 		self.id_denunciado = id_denunciado
 		self.id_denunciante = id_denunciante
-		self.id_direccion = id_direccion
 		self.cod_estado_denuncia = cod_estado_denuncia
 		self.descripcion = descripcion
 		self.fecha = fecha

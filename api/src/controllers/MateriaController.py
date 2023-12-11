@@ -31,10 +31,6 @@ class MateriaController():
 	@materiaBluePrint.route('/<int:codigoMateria>', methods=['GET'])
 	def obtenerSegunCodigo(codigoMateria):
 		print(colored("MateriaController: obtenerSegunCodigo(); {}".format(codigoMateria), 'green'))
-		#print(MateriaService().obtener(pagina))
-		#print(jsonify(MateriaService().obtener(pagina)))
-		#print(json.dumps(MateriaService().obtener(pagina)))
-		#return jsonify((MateriaService().obtener(pagina)))
 		return app.response_class(
 			response = json.dumps(MateriaService().obtenerSegunCodigo(codigoMateria),sort_keys=False),
 			status = 200,

@@ -58,5 +58,5 @@ class DireccionController():
 			status = 200,
 			mimetype = 'application/json'
 		)
-		
+
 app.register_blueprint(direccionBluePrint)

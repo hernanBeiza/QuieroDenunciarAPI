@@ -1,10 +1,8 @@
 from termcolor import colored
 
-from src.daos.models.Persona import Persona
 from src.daos.PersonaDAO import PersonaDAO
 from src.services.vos.PersonaVO import PersonaVO
 from src.services.builder.VOBuilderFactory import VOBuilderFactory
-from src.services.enums import TipoPersonaEnum
 
 class PersonaService():
 
@@ -34,11 +32,15 @@ class PersonaService():
 			personaVO.nombreSegundo = nombreSegundo
 			personaVO.apellidoPaterno = apellidoPaterno
 			personaVO.apellidoMaterno = apellidoMaterno
-			respuesta = PersonaDAO.guardar(personaVO)
-			if(respuesta["result"]):
-				respuesta["persona"] = VOBuilderFactory().getPersonaVOBuilder().fromPersona(respuesta["persona"]).build()
+			respuestaPersonaEncontrada = PersonaService().obtenerSegunRut(rut)
+			if respuestaPersonaEncontrada["result"]:
+				return respuestaPersonaEncontrada
 			else:
-				respuesta = {"result": False, "errores": respuesta["errores"]}
+				respuesta = PersonaDAO.guardar(personaVO)
+				if(respuesta["result"]):
+					respuesta["persona"] = VOBuilderFactory().getPersonaVOBuilder().fromPersona(respuesta["persona"]).build()
+				else:
+					respuesta = {"result": False, "errores": respuesta["errores"]}
 		else:
 			respuesta = {"result": False, "errores": mensajes}
 		return respuesta
@@ -94,7 +96,7 @@ class PersonaService():
 				"errores":"No se encontró persona con rut {}".format(rut)
 			}
 
-		return data;
+		return data
 
 	@staticmethod
 	def actualizar(request):

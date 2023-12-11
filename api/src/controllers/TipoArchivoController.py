@@ -22,10 +22,6 @@ class TipoArchivoController():
 	@tipoArchivoBluePrint.route('/<int:codigoTipoArchivo>', methods=['GET'])
 	def obtenerSegunCodigo(codigoTipoArchivo):
 		print(colored("TipoArchivoController: obtenerSegunCodigo(); {}".format(codigoTipoArchivo), 'green'))
-		#print(MateriaService().obtener(pagina))
-		#print(jsonify(MateriaService().obtener(pagina)))
-		#print(json.dumps(MateriaService().obtener(pagina)))
-		#return jsonify((MateriaService().obtener(pagina)))
 		return app.response_class(
 			response = json.dumps(TipoArchivoService().obtenerSegunCodigo(codigoTipoArchivo),sort_keys=False),
 			status = 200,

@@ -5,6 +5,7 @@ from src.controllers.DenunciaController import *
 from src.controllers.DenunciaMateriaController import *
 from src.controllers.DireccionController import *
 from src.controllers.EstadoDenunciaController import *
+from src.controllers.ExcepcionesController import *
 from src.controllers.IndexController import *
 from src.controllers.MateriaController import *
 from src.controllers.ParteController import *

@@ -24,7 +24,6 @@ class DenunciaVOBuilder(ma.ModelSchema):
 	id_denuncia = fields.Integer(data_key="id")
 	id_denunciado = fields.Integer(data_key="idDenunciado")
 	id_denunciante = fields.Integer(data_key="idDenunciante")
-	id_direccion = fields.Integer(data_key="idDireccion")
 	cod_estado_denuncia = fields.Integer(data_key="codigoEstadoDenuncia")
 	descripcion = fields.String(data_key="descripcion")
 	fecha = fields.DateTime(data_key="fecha")

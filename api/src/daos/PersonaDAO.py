@@ -12,12 +12,12 @@ class PersonaDAO():
 
 	@staticmethod
 	def guardar(personaVO):
-		print(colored("PersonaDAO: guardar(); {}".format(personaVO), 'yellow'))
+		print(colored("PersonaDAO: guardar(); {}".format(personaVO), 'magenta'))
 		try:
 			persona = Persona(None, personaVO.rut, personaVO.dv, personaVO.nombre, personaVO.nombreSegundo, personaVO.apellidoPaterno, personaVO.apellidoMaterno, personaVO.fechaCreacion, personaVO.fechaModificacion, personaVO.codigoTipoPersona, 1)
 			db.session.add(persona)
 			db.session.commit()
-			print(colored("PersonaDAO: persona guardada correctamente", 'yellow'))
+			print(colored("PersonaDAO: persona guardada correctamente", 'magenta'))
 			result = True
 			mensajes = "Persona guardada correctamente"
 			respuesta = {"result": result,"mensajes": mensajes, "persona": persona}
@@ -41,17 +41,17 @@ class PersonaDAO():
 
 	@staticmethod
 	def obtenerSegunId(id):
-		print(colored("PersonaDAO: obtenerSegunId(); {}".format(id), 'yellow'))
+		print(colored("PersonaDAO: obtenerSegunId(); {}".format(id), 'magenta'))
 		return Persona.query.get(id)
 
 	@staticmethod
 	def obtenerSegunRut(rut):
-		print(colored("PersonaDAO: obtenerSegunRut(); {}".format(rut), 'yellow'))
-		return Persona.query.filter_by(rut=rut).all()
+		print(colored("PersonaDAO: obtenerSegunRut(); {}".format(rut), 'magenta'))
+		return Persona.query.filter_by(rut=rut).first()
 
 	@staticmethod
 	def actualizar(personaVO):
-		print(colored("PersonaDAO: actualizar(); {}".format(personaVO), 'yellow'))
+		print(colored("PersonaDAO: actualizar(); {}".format(personaVO), 'magenta'))
 		try:
 			persona = Persona.query.get(personaVO.id)
 			persona.cod_tipo_persona = personaVO.codigoTipoPersona
@@ -64,7 +64,7 @@ class PersonaDAO():
 			persona.fecha_creacion = personaVO.fechaCreacion
 			#persona.fecha_modificacion = personaVO.fechaModificacion
 			db.session.commit()
-			print(colored("PersonaDAO: persona editada correctamente", 'yellow'))
+			print(colored("PersonaDAO: persona editada correctamente", 'magenta'))
 			result = True
 			mensajes = "Persona editada correctamente"
 			respuesta = {"result":result, "mensajes":mensajes, "persona":persona}
@@ -79,7 +79,7 @@ class PersonaDAO():
 
 	@staticmethod
 	def eliminar(id):
-		print(colored("PersonaDAO: eliminar(); {}".format(id), 'yellow'))
+		print(colored("PersonaDAO: eliminar(); {}".format(id), 'magenta'))
 		persona = Persona.query.get(id)
 		if(persona is not None):
 			try:

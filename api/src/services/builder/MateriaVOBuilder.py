@@ -16,7 +16,7 @@ class MateriaVOBuilder(ma.ModelSchema):
 
 	#Schema
 	##Modelo - Dato a mostrar
-	cod_materia = fields.Integer(data_key="codigoMateria")
+	cod_materia = fields.Integer(data_key="codigo")
 	glosa = fields.String()
 	flag_activo = fields.Integer(data_key="flagActivo")
 

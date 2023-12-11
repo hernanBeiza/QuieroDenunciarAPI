@@ -1,7 +1,7 @@
 import json
 
 class MateriaVO():
-	codigoMateria = None
+	codigo = None
 	glosa = None
 	activo = None
 

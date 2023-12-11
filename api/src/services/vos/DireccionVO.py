@@ -1,7 +1,7 @@
 import json
 
 class DireccionVO():
-	idDireccion = None
+	id = None
 	codigoTipoDireccion = None
 	idComuna = None
 	calle = None

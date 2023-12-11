@@ -12,10 +12,10 @@ class DenunciaDAO():
 	def guardar(denunciaVO):
 		print(colored("DenunciaDAO: guardar(); {}".format(denunciaVO), 'yellow'))
 		try:
-			denuncia = Denuncia(None, denunciaVO.idDenunciado, denunciaVO.idDenunciante, denunciaVO.idDireccion, denunciaVO.codigoEstadoDenuncia, denunciaVO.descripcion, denunciaVO.fecha, denunciaVO.fechaCreacion, denunciaVO.fechaModificacion, 1)
+			denuncia = Denuncia(None, denunciaVO.idDenunciado, denunciaVO.idDenunciante, denunciaVO.codigoEstadoDenuncia, denunciaVO.descripcion, denunciaVO.fecha, denunciaVO.fechaCreacion, denunciaVO.fechaModificacion, 1)
 			db.session.add(denuncia)
 			db.session.commit()
-			print(colored("DenunciaDAO: denuncia guardado correctamente", 'yellow'))
+			print(colored("DenunciaDAO: denuncia guardada correctamente", 'yellow'))
 			result = True
 			mensajes = "Denuncia guardada correctamente"
 			respuesta = {"result":result,"mensajes":mensajes, "denuncia":denuncia}
@@ -48,7 +48,6 @@ class DenunciaDAO():
 		print(colored("DenunciaDAO: obtenerSegunIdDenunciado(); {}".format(idDenunciado), 'yellow'))
 		return Denuncia.query.filter_by(id_denunciado=idDenunciado).all()
 
-
 	@staticmethod
 	def obtenerSegunIdDenunciante(idDenunciante):
 		print(colored("DenunciaDAO: obtenerSegunIdDenunciante(); {}".format(idDenunciante), 'yellow'))
@@ -62,8 +61,7 @@ class DenunciaDAO():
 			denuncia.id_denuncia = denunciaVO.id
 			denuncia.id_denunciado = denunciaVO.idDenunciado
 			denuncia.id_denunciante = denunciaVO.idDenunciante
-			denuncia.id_direccion = denunciaVO.idDireccion
-			denuncia.cod_estado = denunciaVO.codigoEstado
+			denuncia.cod_estado = denunciaVO.codigoEstadoDenuncia
 			denuncia.descripcion = denunciaVO.descripcion
 			denuncia.fecha = denunciaVO.fecha
 			denuncia.fecha_creacion = denunciaVO.fechaCreacion

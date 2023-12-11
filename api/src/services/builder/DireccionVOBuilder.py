@@ -19,7 +19,7 @@ class DireccionVOBuilder(ma.ModelSchema):
 
 	#Schema
 	##Modelo - Dato a mostrar
-	id_direccion = fields.Integer(data_key="idDireccion")
+	id_direccion = fields.Integer(data_key="id")
 	cod_tipo_direccion = fields.Integer(data_key="codigoTipoDireccion")
 	id_comuna = fields.Integer(data_key="idComuna")
 	calle = fields.String()

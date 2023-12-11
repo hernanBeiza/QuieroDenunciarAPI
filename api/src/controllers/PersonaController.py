@@ -68,15 +68,4 @@ class PersonaController():
 			mimetype = 'application/json'
 		)
 
-	@personaBluePrint.app_errorhandler(Exception)
-	def excepcion(exception):
-		print(colored("PersonaController: excepcion();", 'green'))
-		print(colored("Error: {}. Tipo: {}".format(exception, type(exception)), 'red'))
-		print(exception.args)
-		return app.response_class(
-			response=json.dumps(exception.args[1], sort_keys=False),
-			status=exception.args[1]["codigo"],
-			mimetype='application/json'
-		)
-
 app.register_blueprint(personaBluePrint)

@@ -5,6 +5,7 @@ from src.ma import ma
 from src.daos.models.DenunciaMateria import DenunciaMateria
 from src.daos.models.Denuncia import Denuncia
 from src.services.vos.DenunciaVO import DenunciaVO
+from src.services.vos.DenunciaMateriaVO import DenunciaMateriaVO
 from src.services.builder.MateriaVOBuilder import MateriaVOBuilder
 
 class DenunciaMateriaVOBuilder(ma.ModelSchema):
@@ -13,6 +14,7 @@ class DenunciaMateriaVOBuilder(ma.ModelSchema):
 		model = DenunciaMateria
 		ordered = True
 
+	denunciaMateriaJSON = None
 	denunciaMateria = None
 	denunciasMaterias = None
 
@@ -33,7 +35,12 @@ class DenunciaMateriaVOBuilder(ma.ModelSchema):
 	#def __init__(self):
 
 	@staticmethod
-	def fromDenunciaMateria(denunciaMateria):		
+	def fromJSON(denunciaMateriaJSON):
+		DenunciaMateriaVOBuilder.denunciaMateriaJSON = denunciaMateriaJSON
+		return DenunciaMateriaVOBuilder()
+
+	@staticmethod
+	def fromDenunciaMateria(denunciaMateria):
 		DenunciaMateriaVOBuilder.denunciaMateria = denunciaMateria
 		return DenunciaMateriaVOBuilder()
 
@@ -43,7 +50,27 @@ class DenunciaMateriaVOBuilder(ma.ModelSchema):
 		return DenunciaMateriaVOBuilder()
 
 	@staticmethod
-	def build():		
+	def buildFromJSON():
+		if(DenunciaMateriaVOBuilder.denunciaMateriaJSON is None):
+			print("No se puede contruir DenunciaMateriaVO")
+			return None
+		else:
+			try:
+				if DenunciaMateriaVOBuilder.denunciaMateriaJSON is None:
+					return None
+				denunciaMateriaVO = DenunciaMateriaVO()
+				denunciaMateriaVO.id = DenunciaMateriaVOBuilder.denunciaMateriaJSON['id'] if 'id' in DenunciaMateriaVOBuilder.denunciaMateriaJSON else None
+				denunciaMateriaVO.idDenuncia = DenunciaMateriaVOBuilder.denunciaMateriaJSON['idDenuncia'] if 'idDenuncia' in DenunciaMateriaVOBuilder.denunciaMateriaJSON else None
+				denunciaMateriaVO.codigoMateria = DenunciaMateriaVOBuilder.denunciaMateriaJSON['codigoMateria'] if 'codigoMateria' in DenunciaMateriaVOBuilder.denunciaMateriaJSON else None
+				denunciaMateriaVO.fechaCreacion = DenunciaMateriaVOBuilder.denunciaMateriaJSON['fechaCreacion'] if 'fechaCreacion' in DenunciaMateriaVOBuilder.denunciaMateriaJSON else None
+				denunciaMateriaVO.fechaModificacion = DenunciaMateriaVOBuilder.denunciaMateriaJSON['fechaModificacion'] if 'fechaModificacion' in DenunciaMateriaVOBuilder.denunciaMateriaJSON else None
+				denunciaMateriaVO.flagActivo = DenunciaMateriaVOBuilder.denunciaMateriaJSON['flagActivo'] if 'flagActivo' in DenunciaMateriaVOBuilder.denunciaMateriaJSON else True
+				return denunciaMateriaVO
+			except Exception as e:
+				print(colored("No se puede contruir DenunciaMateriaVO con JSON. Error en DenunciaMateriaVOBuilder; {}".format(e), 'red'))
+
+	@staticmethod
+	def build():
 		if(DenunciaMateriaVOBuilder.denunciaMateria is None):
 			print("No se puede contruir DenunciaMateriaVO")
 			return None
@@ -51,7 +78,7 @@ class DenunciaMateriaVOBuilder(ma.ModelSchema):
 			try:
 				return DenunciaMateriaVOBuilder().dump(DenunciaMateriaVOBuilder.denunciaMateria)
 			except Exception as e:
-				print(colored("No se puede contruir DenunciaMateriaVO. Error en DenunciaMateriaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir DenunciaMateriaVO con objeto denunciaMateria. Error en DenunciaMateriaVOBuilder; {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -62,4 +89,4 @@ class DenunciaMateriaVOBuilder(ma.ModelSchema):
 			try:
 				return DenunciaMateriaVOBuilder(many=True).dump(DenunciaMateriaVOBuilder.denunciasMaterias)
 			except Exception as e:
-				print(colored("No se puede contruir DenunciaMateriaVO. Error en DenunciaMateriaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir DenunciaMateriaVO con objeto denunciasMateria. Error en DenunciaMateriaVOBuilder; {}".format(e), 'red'))

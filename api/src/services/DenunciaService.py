@@ -4,7 +4,9 @@ from termcolor import colored
 
 from src.daos.models.Denuncia import Denuncia
 from src.daos.DenunciaDAO import DenunciaDAO
+from src.daos.DenunciaMateriaDAO import DenunciaMateriaDAO
 from src.services.vos.DenunciaVO import DenunciaVO
+from src.services.vos.DenunciaMateriaVO import DenunciaMateriaVO
 from src.services.builder.VOBuilderFactory import VOBuilderFactory
 
 class DenunciaService():
@@ -18,8 +20,8 @@ class DenunciaService():
 
 		idDenunciado = request.get_json()["idDenunciado"] if 'idDenunciado' in request.get_json() else None
 		idDenunciante = request.get_json()["idDenunciante"] if 'idDenunciante' in request.get_json() else None
-		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
-		codigoEstadoDenuncia = request.get_json()["codigoEstadoDenuncia"] if 'codigoEstadoDenuncia' in request.get_json() else None
+		codigoEstadoDenuncia = request.get_json()["codigoEstadoDenuncia"] if 'codigoEstadoDenuncia' in request.get_json() else 1
+		denunciasMaterias = request.get_json()["denunciasMaterias"] if 'denunciasMaterias' in request.get_json() else None
 		descripcion = request.get_json()["descripcion"] if 'descripcion' in request.get_json() else None
 		fecha = request.get_json()["fecha"] if 'fecha' in request.get_json() else None
 
@@ -31,9 +33,9 @@ class DenunciaService():
 		if(idDenunciante==None):
 			enviar = False
 			mensajes +="\nDenunciante"
-		if(idDireccion==None):
+		if(denunciasMaterias==None):
 			enviar = False
-			mensajes +="\nDirección"
+			mensajes +="\nSeleccionar materias de la denuncia"
 		if(descripcion==None):
 			enviar = False
 			mensajes +="\nDescripción de la denuncia"
@@ -45,7 +47,7 @@ class DenunciaService():
 			denunciaVO = DenunciaVO()
 			denunciaVO.idDenunciado = idDenunciado
 			denunciaVO.idDenunciante = idDenunciante
-			denunciaVO.idDireccion = idDireccion
+			#denunciaVO.denunciasMaterias = denunciasMaterias
 			denunciaVO.codigoEstadoDenuncia = codigoEstadoDenuncia
 			denunciaVO.descripcion = descripcion
 			denunciaVO.fecha = fecha
@@ -53,6 +55,10 @@ class DenunciaService():
 			
 			respuesta = DenunciaDAO.guardar(denunciaVO)
 			if(respuesta["result"]):
+				denunciasMateriasVO = list(map(lambda item:VOBuilderFactory.getDenunciaMateriaVOBuilder().fromJSON(item).buildFromJSON(), denunciasMaterias))
+				for denunciaMateriaVO in denunciasMateriasVO:
+					denunciaMateriaVO.idDenuncia = respuesta['denuncia'].id_denuncia
+				respuestaDenunciasMateria = list(map(lambda denunciaMateriaVO: DenunciaMateriaDAO.guardar(denunciaMateriaVO), denunciasMateriasVO) if denunciaMateriaVO.id is None else DenunciaMateriaDAO.actualizar(denunciaMateriaVO))
 				respuesta["denuncia"] = VOBuilderFactory().getDenunciaVOBuilder().fromDenuncia(respuesta["denuncia"]).build()
 			else:
 				respuesta = {"result":False, "errores":respuesta["errores"]}
@@ -162,8 +168,8 @@ class DenunciaService():
 		id = request.get_json()["id"] if 'id' in request.get_json() else None
 		idDenunciado = request.get_json()["idDenunciado"] if 'idDenunciado' in request.get_json() else None
 		idDenunciante = request.get_json()["idDenunciante"] if 'idDenunciante' in request.get_json() else None
-		idDireccion = request.get_json()["idDireccion"] if 'idDireccion' in request.get_json() else None
 		codigoEstadoDenuncia = request.get_json()["codigoEstadoDenuncia"] if 'codigoEstadoDenuncia' in request.get_json() else None
+		denunciasMaterias = request.get_json()["denunciasMaterias"] if 'denunciasMaterias' in request.get_json() else None
 		descripcion = request.get_json()["descripcion"] if 'descripcion' in request.get_json() else None
 		fecha = request.get_json()["fecha"] if 'fecha' in request.get_json() else None
 		fechaCreacion = request.get_json()["fechaCreacion"] if 'fechaCreacion' in request.get_json() else None
@@ -181,9 +187,9 @@ class DenunciaService():
 		if(idDenunciante==None):
 			enviar = False
 			mensajes +="\nDenunciante"
-		if(idDireccion==None):
+		if(denunciasMaterias==None):
 			enviar = False
-			mensajes +="\nDirección"
+			mensajes +="\nSeleccionar materias de la denuncia"
 		if(descripcion==None):
 			enviar = False
 			mensajes +="\nDescripción de la denuncia"
@@ -195,8 +201,8 @@ class DenunciaService():
 			denunciaVO.id = id
 			denunciaVO.idDenunciado = idDenunciado
 			denunciaVO.idDenunciante = idDenunciante
-			denunciaVO.idDireccion = idDireccion
 			denunciaVO.codigoEstadoDenuncia = codigoEstadoDenuncia
+			denunciaVO.denunciasMaterias = denunciasMaterias
 			denunciaVO.descripcion = descripcion
 			denunciaVO.fecha = fecha
 			denunciaVO.fechaCreacion = fechaCreacion
@@ -205,6 +211,10 @@ class DenunciaService():
 
 			respuesta = DenunciaDAO.actualizar(denunciaVO)
 			if(respuesta["result"]):
+				denunciasMateriasVO = list(map(lambda item:VOBuilderFactory.getDenunciaMateriaVOBuilder().fromJSON(item).buildFromJSON(), denunciasMaterias))
+				for denunciaMateriaVO in denunciasMateriasVO:
+					denunciaMateriaVO.idDenuncia = respuesta['denuncia'].id_denuncia
+				respuestaDenunciasMateria = list(map(lambda denunciaMateriaVO: DenunciaMateriaDAO.guardar(denunciaMateriaVO), denunciasMateriasVO) if denunciaMateriaVO.id is None else DenunciaMateriaDAO.actualizar(denunciaMateriaVO))
 				respuesta["denuncia"] = VOBuilderFactory().getDenunciaVOBuilder().fromDenuncia(respuesta["denuncia"]).build()
 			else:
 				respuesta = {"result":False, "errores":respuesta["errores"]}
