@@ -58,7 +58,9 @@ class DenunciaService():
 				denunciasMateriasVO = list(map(lambda item:VOBuilderFactory.getDenunciaMateriaVOBuilder().fromJSON(item).buildFromJSON(), denunciasMaterias))
 				for denunciaMateriaVO in denunciasMateriasVO:
 					denunciaMateriaVO.idDenuncia = respuesta['denuncia'].id_denuncia
-				respuestaDenunciasMateria = list(map(lambda denunciaMateriaVO: DenunciaMateriaDAO.guardar(denunciaMateriaVO), denunciasMateriasVO) if denunciaMateriaVO.id is None else DenunciaMateriaDAO.actualizar(denunciaMateriaVO))
+
+				respuestaDenunciasMateria = list(map(lambda itemDenunciaMateriaVO: DenunciaMateriaDAO.guardar(itemDenunciaMateriaVO), denunciasMateriasVO))
+
 				respuesta["denuncia"] = VOBuilderFactory().getDenunciaVOBuilder().fromDenuncia(respuesta["denuncia"]).build()
 			else:
 				respuesta = {"result":False, "errores":respuesta["errores"]}
@@ -202,7 +204,7 @@ class DenunciaService():
 			denunciaVO.idDenunciado = idDenunciado
 			denunciaVO.idDenunciante = idDenunciante
 			denunciaVO.codigoEstadoDenuncia = codigoEstadoDenuncia
-			denunciaVO.denunciasMaterias = denunciasMaterias
+			#denunciaVO.denunciasMaterias = denunciasMaterias
 			denunciaVO.descripcion = descripcion
 			denunciaVO.fecha = fecha
 			denunciaVO.fechaCreacion = fechaCreacion
@@ -211,10 +213,8 @@ class DenunciaService():
 
 			respuesta = DenunciaDAO.actualizar(denunciaVO)
 			if(respuesta["result"]):
-				denunciasMateriasVO = list(map(lambda item:VOBuilderFactory.getDenunciaMateriaVOBuilder().fromJSON(item).buildFromJSON(), denunciasMaterias))
-				for denunciaMateriaVO in denunciasMateriasVO:
-					denunciaMateriaVO.idDenuncia = respuesta['denuncia'].id_denuncia
-				respuestaDenunciasMateria = list(map(lambda denunciaMateriaVO: DenunciaMateriaDAO.guardar(denunciaMateriaVO), denunciasMateriasVO) if denunciaMateriaVO.id is None else DenunciaMateriaDAO.actualizar(denunciaMateriaVO))
+				denunciasMateriasVO = list(map(lambda itemJSON:VOBuilderFactory.getDenunciaMateriaVOBuilder().fromJSON(itemJSON).buildFromJSON(), denunciasMaterias))
+				respuestaDenunciasMateria = list(map(lambda itemDenunciaMateriaVO: DenunciaMateriaDAO.guardar(itemDenunciaMateriaVO) if itemDenunciaMateriaVO.id is None else DenunciaMateriaDAO.actualizar(itemDenunciaMateriaVO), denunciasMateriasVO))
 				respuesta["denuncia"] = VOBuilderFactory().getDenunciaVOBuilder().fromDenuncia(respuesta["denuncia"]).build()
 			else:
 				respuesta = {"result":False, "errores":respuesta["errores"]}

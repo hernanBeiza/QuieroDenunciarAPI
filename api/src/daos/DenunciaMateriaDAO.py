@@ -15,7 +15,7 @@ class DenunciaMateriaDAO():
 			denunciaMateria = DenunciaMateria(None, denunciaMateriaVO.idDenuncia, denunciaMateriaVO.codigoMateria, denunciaMateriaVO.fechaCreacion, denunciaMateriaVO.fechaModificacion, denunciaMateriaVO.flagActivo)
 			db.session.add(denunciaMateria)
 			db.session.commit()
-			print(colored("DenunciaMateriaDAO: DenunciaMateria guardado correctamente", 'yellow'))
+			print(colored("DenunciaMateriaDAO: DenunciaMateria guardada correctamente", 'magenta'))
 			result = True
 			mensajes = "DenunciaMateria guardada correctamente"
 			respuesta = {"result":result,"mensajes":mensajes, "denunciaMateria":denunciaMateria}
@@ -54,7 +54,7 @@ class DenunciaMateriaDAO():
 			denunciaMateria.fecha_creacion = denunciaMateriaVO.fechaCreacion
 			denunciaMateria.flag_activo = denunciaMateriaVO.flagActivo
 			db.session.commit()
-			print(colored("DenunciaMateriaDAO: DenunciaMateria actualizada correctamente", 'yellow'))
+			print(colored("DenunciaMateriaDAO: DenunciaMateria actualizada correctamente", 'magenta'))
 			result = True
 			mensajes = "DenunciaMateria actualizada correctamente"
 			respuesta = {"result":result, "mensajes":mensajes, "denunciaMateria":denunciaMateria}
