@@ -12,9 +12,8 @@ class ArchivoDAO():
 	@staticmethod
 	def guardar(archivoVO):
 		print(colored("ArchivoDAO: guardar(); {}".format(archivoVO), 'yellow'))
-
 		try:
-			archivo = Archivo(None, archivoVO.idAntecedente, archivoVO.codigoTipoArchivo, archivoVO.rutaArchivo, archivoVO.nombreArchivo, archivoVO.extensionArchivo, archivoVO.fecha, archivoVO.fechaCreacion, archivoVO.fechaModificacion, 1)
+			archivo = Archivo(None, archivoVO.idDenuncia, archivoVO.codigoTipoArchivo, archivoVO.rutaArchivo, archivoVO.nombreArchivo, archivoVO.extensionArchivo, archivoVO.descripcion, archivoVO.fecha, archivoVO.fechaCreacion, archivoVO.fechaModificacion, 1)
 			db.session.add(archivo)
 			db.session.commit()
 			print(colored("ArchivoDAO: Datos de archivo guardados correctamente", 'yellow'))
@@ -26,7 +25,7 @@ class ArchivoDAO():
 			db.session.rollback()
 			db.session.flush()
 			result = False
-			errores = "Los datos del archivo no se han podido guardar"
+			errores = "Los datos del archivo con nombre {} no se han podido guardar".format(archivoVO.nombreArchivo)
 			respuesta = {"result":result,"errores":errores}
 		return respuesta
 
@@ -44,12 +43,13 @@ class ArchivoDAO():
 	def actualizar(archivoVO):
 		print(colored("ArchivoDAO: actualizar(); {}".format(archivoVO), 'yellow'))
 		try:
-			archivo = Archivo.query.get(archivoVO.idArchivo)
-			archivo.id_antecedente = archivoVO.idAntecedente
+			archivo = Archivo.query.get(archivoVO.id)
+			archivo.id_denuncia = archivoVO.idDenuncia
 			archivo.cod_tipo_archivo = archivoVO.codigoTipoArchivo
 			archivo.ruta_archivo = archivoVO.rutaArchivo
 			archivo.nombre_archivo = archivoVO.nombreArchivo
 			archivo.extension_archivo = archivoVO.extensionArchivo
+			archivo.descripcion = archivoVO.descripcion
 			archivo.fecha = archivoVO.fecha
 			archivo.fecha_creacion = archivoVO.fechaCreacion
 			archivo.flag_activo = archivoVO.flagActivo
@@ -60,7 +60,7 @@ class ArchivoDAO():
 			mensajes = "Datos de archivo editados correctamente"
 			respuesta = {"result":result, "mensajes":mensajes, "archivo":archivo}
 		except Exception as e:
-			print(colored("ArchivoDAO: Los datos del archivo con id {} no se pudieron editar. Error: {}".format(archivoVO.idArchivo,e), 'red'))
+			print(colored("ArchivoDAO: Los datos del archivo con id {} no se pudieron editar. Error: {}".format(archivoVO.id,e), 'red'))
 			db.session.rollback()
 			db.session.flush()
 			result = False

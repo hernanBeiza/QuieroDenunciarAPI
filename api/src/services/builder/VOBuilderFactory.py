@@ -1,4 +1,3 @@
-from src.services.builder.AntecedenteVOBuilder import AntecedenteVOBuilder
 from src.services.builder.ArchivoVOBuilder import ArchivoVOBuilder
 from src.services.builder.ComunaVOBuilder import ComunaVOBuilder
 from src.services.builder.DenunciaMateriaVOBuilder import DenunciaMateriaVOBuilder
@@ -20,10 +19,6 @@ class VOBuilderFactory():
 	@staticmethod
 	def VOBuilderFactory():
 		print("VOBuilderFactory")
-
-	@staticmethod
-	def getAntecedenteVOBuilder():
-		return AntecedenteVOBuilder()
 
 	@staticmethod
 	def getArchivoVOBuilder():

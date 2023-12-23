@@ -6,7 +6,7 @@ from src.daos.models.Denuncia import Denuncia
 from src.services.vos.DenunciaVO import DenunciaVO
 from src.services.builder.ParteVOBuilder import ParteVOBuilder
 from src.services.builder.DenunciaMateriaVOBuilder import DenunciaMateriaVOBuilder
-from src.services.builder.AntecedenteVOBuilder import AntecedenteVOBuilder
+from src.services.builder.ArchivoVOBuilder import ArchivoVOBuilder
 from src.services.builder.DireccionVOBuilder import DireccionVOBuilder
 from src.services.builder.EstadoDenunciaVOBuilder import EstadoDenunciaVOBuilder
 
@@ -37,7 +37,7 @@ class DenunciaVOBuilder(ma.ModelSchema):
 	direccion = fields.Nested(DireccionVOBuilder)
 
 	denunciasMaterias = fields.List(fields.Nested(DenunciaMateriaVOBuilder))
-	antecedentes = fields.List(fields.Nested(AntecedenteVOBuilder))
+	archivos = fields.List(fields.Nested(ArchivoVOBuilder))
 	estadoDenuncia = fields.Nested(EstadoDenunciaVOBuilder)
 
 	#def __init__(self):

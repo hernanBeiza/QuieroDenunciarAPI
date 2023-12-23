@@ -1,8 +1,6 @@
 import datetime
 
 from src.db import db
-#Se importa para poder usar la clase Direccion en la relació
-from src.daos.models.Direccion import Direccion
 #Se importa para poder usar la clase Materia en la relació
 from src.daos.models.Materia import Materia
 #Se importa para poder usar la clase Parte en la relació
@@ -35,7 +33,7 @@ class Denuncia(db.Model):
 	estadoDenuncia = db.relationship('EstadoDenuncia', lazy=True)
 
 	denunciasMaterias = db.relationship('DenunciaMateria', uselist=True, lazy=True)
-	antecedentes = db.relationship('Antecedente', uselist=True, lazy=True)
+	archivos = db.relationship('Archivo', uselist=True, lazy=True)
 
 	def __init__(self, id_denuncia, id_denunciado, id_denunciante, cod_estado_denuncia, descripcion, fecha, fecha_creacion, fecha_modificacion, flag_activo):
 		self.id_denuncia = id_denuncia

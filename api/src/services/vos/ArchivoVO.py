@@ -1,12 +1,13 @@
 import json
 
 class ArchivoVO():
-	idArchivo = None
-	idAntecedente = None
+	id = None
+	idDenuncia = None
 	codigoTipoArchivo = None
 	rutaArchivo = None
 	nombreArchivo = None
 	extensionArchivo = None
+	descripcion = None
 	fecha = None
 	fechaCreacion = None
 	fechaModificacion = None

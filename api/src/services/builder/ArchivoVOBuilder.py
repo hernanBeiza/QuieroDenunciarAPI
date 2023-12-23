@@ -18,11 +18,12 @@ class ArchivoVOBuilder(ma.ModelSchema):
 	#Schema
 	##Modelo - Dato a mostrar
 	id_archivo = fields.Integer(data_key="id")
-	id_antecedente = fields.Integer(data_key="idAntecedente")
+	id_denuncia = fields.Integer(data_key="idDenuncia")
 	cod_tipo_archivo = fields.Integer(data_key="codigoTipoArchivo")
 	ruta_archivo = fields.String(data_key="rutaArchivo")
 	nombre_archivo = fields.String(data_key="nombreArchivo")
 	extension_archivo = fields.String(data_key="extensionArchivo")
+	descripcion = fields.String(data_key="descripcion")
 	fecha = fields.DateTime(data_key="fecha")
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")

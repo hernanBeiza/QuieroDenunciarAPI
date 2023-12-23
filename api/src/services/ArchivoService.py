@@ -1,9 +1,10 @@
 import os
+from flask import send_from_directory
 
 from termcolor import colored
 
 from src.utils.ArchivoUtils import ArchivoUtils
-
+from src.app import app
 from src.daos.ArchivoDAO import ArchivoDAO
 from src.services.vos.ArchivoVO import ArchivoVO
 from src.services.builder.VOBuilderFactory import VOBuilderFactory
@@ -18,11 +19,14 @@ class ArchivoService():
 		print(colored("ArchivoService: guardar(); {}".format(request.form), 'cyan'))
 		print(colored("ArchivoService: guardar(); {}".format(request.files), 'cyan'))
 
-		idAntecedente = request.form.get("idAntecedente", None)
-		codigoTipoArchivo = request.form.get("idAntecedente", None)
+		idDenuncia = request.form.get("idDenuncia", None)
+		codigoTipoArchivo = request.form.get("codigoTipoArchivo", None)
 		archivo = request.files.get("archivo", None)
+		#TODO Manejar cuando no viene el archivo
 		nombreArchivo = archivo.filename if archivo else None
 		extensionArchivo = archivo.filename.rsplit('.', 1)[1].lower() if archivo else None
+		print(extensionArchivo)		
+		descripcion = request.form.get("descripcion", None)
 		fecha = request.form.get("fecha", None)
 
 		extensionesPermitidas = app.config['EXTENSIONES_PERMITIDAS']
@@ -30,31 +34,38 @@ class ArchivoService():
 
 		enviar = True
 		mensajes = "Faltó:"
-		if(idAntecedente==None):
+		if(idDenuncia==None):
 			enviar = False
-			mensajes +="\nAntecedente"
+			mensajes +="\nDenuncia"
 		if(archivo==None):
 			enviar = False
 			mensajes +="\nArchivo"
 		if(codigoTipoArchivo==None):
 			enviar = False
 			mensajes +="\nTipo de archivo"
+		if(descripcion==None):
+			enviar = False
+			mensajes +="\nDescripción de la imagen"
 		if(fecha==None):
 			enviar = False
 			mensajes +="\nFecha del hecho"
+		if(extensionArchivo==None):
+			enviar = False
+			mensajes +="\nArchivo no enviado"
 		if(extensionArchivo not in extensionesPermitidas):
 			enviar = False
 			mensajes +="\nTipo de archivo no permitido"
 
 		if(enviar):
 			archivoVO = ArchivoVO()
-			archivoVO.idAntecedente = idAntecedente
+			archivoVO.idDenuncia = idDenuncia
 			archivoVO.codigoTipoArchivo = codigoTipoArchivo
+			archivoVO.rutaArchivo = app.config['CARPETA_IMAGENES']
 			archivoVO.nombreArchivo = ArchivoUtils.crearNombre(nombreArchivo)
-			rutaArchivo = app.config['CARPETA_IMAGENES']
-			archivoVO.rutaArchivo = rutaArchivo+archivoVO.nombreArchivo
 			archivoVO.extensionArchivo = extensionArchivo
+			archivoVO.descripcion = descripcion
 			archivoVO.fecha = fecha
+
 			archivoVO.flagActivo = 0
 			respuesta = ArchivoDAO.guardar(archivoVO)
 			if(respuesta["result"]):
@@ -107,16 +118,31 @@ class ArchivoService():
 		return data;
 
 	@staticmethod
+	def descargarArchivoSegunId(id):
+		print(colored("ArchivoService: descargarArchivoSegunId(); {}".format(id), 'cyan'))
+		archivo = ArchivoDAO.obtenerSegunId(id)
+		if(archivo is not None):
+			carpeta = "../{}".format(app.config['CARPETA_IMAGENES'])
+			return send_from_directory(carpeta, archivo.nombre_archivo, as_attachment=True)
+		else:
+			print(colored("ArchivoService: No se encontó archivo con id; {}".format(id), 'red'))
+			return {
+				"result":False,
+				"errores":"No se encontró archivo con id {}".format(id)
+			}
+
+	@staticmethod
 	def actualizar(request):
 		print(colored("ArchivoService: actualizar(); {}".format(request.form), 'cyan'))
 		print(colored("ArchivoService: actualizar(); {}".format(request.files), 'cyan'))
 
-		idArchivo = request.form.get("id", None)
-		idAntecedente = request.form.get("idAntecedente", None)
+		id = request.form.get("id", None)
+		idDenuncia = request.form.get("idDenuncia", None)
 		codigoTipoArchivo = request.form.get("codigoTipoArchivo", None)
 		archivo = request.files.get("archivo", None)
 		nombreArchivo = archivo.filename if archivo else None
 		extensionArchivo = archivo.filename.rsplit('.', 1)[1].lower() if archivo else None
+		descripcion = request.form.get("descripcion", None)
 		fecha = request.form.get("fecha", None)
 		fechaCreacion = request.form.get("fechaCreacion", None)
 		flagActivo = request.form.get("flagActivo", None)
@@ -126,12 +152,15 @@ class ArchivoService():
 		if(id==None):
 			enviar = False
 			mensajes +="\nId"
-		if(idAntecedente==None):
+		if(idDenuncia==None):
 			enviar = False
-			mensajes +="\nAntecedente"
+			mensajes +="\nDenuncia"
 		if(codigoTipoArchivo==None):
 			enviar = False
 			mensajes +="\nTipo de archivo"
+		if(descripcion==None):
+			enviar = False
+			mensajes +="\nDescripción de la imagen"
 		if(fecha==None):
 			enviar = False
 			mensajes +="\nFecha del hecho"
@@ -140,14 +169,14 @@ class ArchivoService():
 			mensajes +="\n Fecha de creación"
 		if(enviar):
 			archivoVO = ArchivoVO()
-			archivoVO.idArchivo = idArchivo
-			archivoVO.idAntecedente = idAntecedente
+			archivoVO.id = id
+			archivoVO.idDenuncia = idDenuncia
 			archivoVO.codigoTipoArchivo = codigoTipoArchivo
 			archivoVO.archivo = archivo
-			archivoVO.nombreArchivo = ArchivoUtils.crearNombre(nombreArchivo)
-			rutaArchivo = app.config['CARPETA_IMAGENES']
-			archivoVO.rutaArchivo = rutaArchivo
+			archivoVO.rutaArchivo = app.config['CARPETA_IMAGENES']
+			archivoVO.nombreArchivo = ArchivoUtils.crearNombre(nombreArchivo) if nombreArchivo else None
 			archivoVO.extensionArchivo = extensionArchivo
+			archivoVO.descripcion = descripcion
 			archivoVO.fecha = fecha
 
 			archivoVO.fechaCreacion = fechaCreacion

@@ -41,6 +41,11 @@ class ArchivoController():
 			mimetype = 'application/json'
 		)
 
+	@archivoBluePrint.route('/descargar/<int:id>', methods=['GET'])
+	def descargarArchivoSegunId(id):
+		print(colored("ArchivoController: descargarArchivoSegunId(); {}".format(id), 'green'))
+		return ArchivoService().descargarArchivoSegunId(id)
+
 	@archivoBluePrint.route('/<int:id>', methods=['PUT'])
 	def actualizar(id):
 		print(colored("ArchivoController: actualizar(); {}".format(id), 'green'))
