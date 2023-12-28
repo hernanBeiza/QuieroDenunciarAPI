@@ -17,13 +17,26 @@ class ArchivoUtils:
 			return False
 
 	@staticmethod
+	def guardar(ruta, archivo):
+		try:
+			if not os.path.exists(ruta):				
+				archivo.save(ruta)
+				print(colored("ArchivoUtils: El archivo en ruta {} ha sido guardado correctamente.".format(ruta),'green'))
+			else:
+				print(colored("ArchivoUtils: El archivo en ruta {} no existe. No se ha podido guardar.".format(ruta),'red'))
+			return True
+		except Exception as e:
+			print(colored("ArchivoUtils: El archivo no se ha podido guardar. Error: {}".format(e), 'red'))
+			return False
+
+	@staticmethod
 	def eliminar(ruta):
 		try:
 			if os.path.exists(ruta):
 				os.remove(ruta)
-				print(colored("ArchivoUtils: El archivo se ha podido eliminar."),'green')
+				print(colored("ArchivoUtils: El archivo en ruta {} ha sido eliminado correctamente.".format(ruta),'green'))
 			else:
-				print(colored("ArchivoUtils: El archivo no existe. No se ha podido eliminar.",'red'))
+				print(colored("ArchivoUtils: El archivo en ruta {} no existe. No se ha podido eliminar.".format(ruta),'red'))
 			return True
 		except Exception as e:
 			print(colored("ArchivoUtils: El archivo no se ha podido eliminar. Error: {}".format(e), 'red'))

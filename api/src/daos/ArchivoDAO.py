@@ -1,4 +1,5 @@
 from termcolor import colored
+import os
 
 from src.db import db
 from src.daos.models.Archivo import Archivo
@@ -55,7 +56,7 @@ class ArchivoDAO():
 			archivo.flag_activo = archivoVO.flagActivo
 			#archivo.fecha_modificacion = archivoVO.fechaModificacion
 			db.session.commit()
-			print(colored("ArchivoDAO: Datos de archivo editados correctamente", 'yellow'))
+			print(colored("ArchivoDAO: Datos de archivo con id {} editados correctamente".format(archivoVO.id), 'green'))
 			result = True
 			mensajes = "Datos de archivo editados correctamente"
 			respuesta = {"result":result, "mensajes":mensajes, "archivo":archivo}
@@ -76,9 +77,12 @@ class ArchivoDAO():
 			try:
 				result = True
 				mensajes = "Datos de archivo con id {} eliminados correctamente".format(id)
+				print(colored("ArchivoDAO: Datos del archivo con id {} eliminados correctamente.".format(id), 'green'))
 				db.session.delete(archivo)
 				db.session.commit()
-				ArchivoUtils.eliminar(archivo.ruta_archivo)
+				#TODO Pasar lógica de concatenado a ArchivoUtils
+				rutaArchivoEliminable = os.path.join(archivo.ruta_archivo,archivo.nombre_archivo)
+				ArchivoUtils.eliminar(rutaArchivoEliminable);
 				respuesta = {"result":result, "mensajes":mensajes}
 			except Exception as e:
 				print(colored("ArchivoDAO: Los datos del archivo con id {} no se pudieron eliminar. Error: {}".format(id,e), 'red'))

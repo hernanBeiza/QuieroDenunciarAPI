@@ -66,12 +66,12 @@ class ArchivoService():
 			archivoVO.descripcion = descripcion
 			archivoVO.fecha = fecha
 
-			archivoVO.flagActivo = 0
+			archivoVO.flagActivo = 2
 			respuesta = ArchivoDAO.guardar(archivoVO)
 			if(respuesta["result"]):
 				try:
-					#TODO Revisar si se implementa función de guardar en ArchivoUtils
-					archivo.save(os.path.join(app.config['CARPETA_IMAGENES'],archivoVO.nombreArchivo))
+					ArchivoUtils.guardar(os.path.join(app.config['CARPETA_IMAGENES'],archivoVO.nombreArchivo), archivo)
+					archivo
 					respuesta["archivo"] = VOBuilderFactory().getArchivoVOBuilder().fromArchivo(respuesta["archivo"]).build()
 				except Exception as e:
 					print(colored("ArchivoService: El archivo no se pudo guardar. Error: {}".format(e), 'red'))
@@ -125,11 +125,12 @@ class ArchivoService():
 			carpeta = "../{}".format(app.config['CARPETA_IMAGENES'])
 			return send_from_directory(carpeta, archivo.nombre_archivo, as_attachment=True)
 		else:
-			print(colored("ArchivoService: No se encontó archivo con id; {}".format(id), 'red'))
-			return {
-				"result":False,
-				"errores":"No se encontró archivo con id {}".format(id)
-			}
+			error = "ArchivoService: No se encontró archivo con id: {}".format(id)
+			print(colored(error, 'red'))
+			errorVisualizable = "El archivo no se pudo descargar. No existe archivo con id: {}".format(id)
+			result = False
+			respuesta = {"result": result, "error": errorVisualizable, "codigo": 404}
+			raise Exception(error, respuesta)
 
 	@staticmethod
 	def actualizar(request):
@@ -138,14 +139,10 @@ class ArchivoService():
 
 		id = request.form.get("id", None)
 		idDenuncia = request.form.get("idDenuncia", None)
-		codigoTipoArchivo = request.form.get("codigoTipoArchivo", None)
-		archivo = request.files.get("archivo", None)
-		nombreArchivo = archivo.filename if archivo else None
-		extensionArchivo = archivo.filename.rsplit('.', 1)[1].lower() if archivo else None
 		descripcion = request.form.get("descripcion", None)
 		fecha = request.form.get("fecha", None)
 		fechaCreacion = request.form.get("fechaCreacion", None)
-		flagActivo = request.form.get("flagActivo", None)
+		flagActivo = request.form.get("flagActivo", 2)
 
 		enviar = True
 		mensajes = "Faltó:"
@@ -155,9 +152,6 @@ class ArchivoService():
 		if(idDenuncia==None):
 			enviar = False
 			mensajes +="\nDenuncia"
-		if(codigoTipoArchivo==None):
-			enviar = False
-			mensajes +="\nTipo de archivo"
 		if(descripcion==None):
 			enviar = False
 			mensajes +="\nDescripción de la imagen"
@@ -171,20 +165,25 @@ class ArchivoService():
 			archivoVO = ArchivoVO()
 			archivoVO.id = id
 			archivoVO.idDenuncia = idDenuncia
-			archivoVO.codigoTipoArchivo = codigoTipoArchivo
-			archivoVO.archivo = archivo
-			archivoVO.rutaArchivo = app.config['CARPETA_IMAGENES']
-			archivoVO.nombreArchivo = ArchivoUtils.crearNombre(nombreArchivo) if nombreArchivo else None
-			archivoVO.extensionArchivo = extensionArchivo
+			#Obtener datos del archivo
+			archivoEncontrado = ArchivoDAO.obtenerSegunId(id);
+			if(archivoEncontrado is not None):
+				archivoVO.codigoTipoArchivo = archivoEncontrado.cod_tipo_archivo
+				archivoVO.rutaArchivo = archivoEncontrado.ruta_archivo
+				archivoVO.nombreArchivo = archivoEncontrado.nombre_archivo
+				archivoVO.extensionArchivo = archivoEncontrado.extension_archivo
+				archivoVO.flagActivo = archivoEncontrado.flag_activo
+			else:
+				print(colored("ArchivoService: actualizar(); No se encontró archivo con id: {}".format(id), 'red'))
+
 			archivoVO.descripcion = descripcion
 			archivoVO.fecha = fecha
 
 			archivoVO.fechaCreacion = fechaCreacion
 			archivoVO.flagActivo = flagActivo
+			
 			respuesta = ArchivoDAO.actualizar(archivoVO)
 			if(respuesta["result"]):
-				#TODO Eliminar archivo anterior
-				#TODO Mover nuevo archivo a carpeta de imágenes
 				respuesta["archivo"] = VOBuilderFactory().getArchivoVOBuilder().fromArchivo(respuesta["archivo"]).build()
 			else:
 				respuesta = {"result":False, "errores":respuesta["errores"]}
@@ -195,5 +194,15 @@ class ArchivoService():
 	@staticmethod
 	def eliminar(id):
 		print(colored("ArchivoService: eliminar(); {}".format(id), 'cyan'))
-		respuesta = ArchivoDAO.eliminar(id)
+		archivoAntiguo = ArchivoDAO.obtenerSegunId(id);
+		if archivoAntiguo is not None:
+			respuesta = ArchivoDAO.eliminar(id)
+		else:
+			print(colored("ArchivoService: El archivo con id: {} no existe. No se ha podido eliminar.".format(id), 'cyan'))
+			error = "El archivo con id: {} no existe. No se ha podido eliminar.".format(id);
+			respuesta = {
+				"result":False,
+				"errores":error
+			}
+
 		return respuesta
