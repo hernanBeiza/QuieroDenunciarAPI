@@ -45,9 +45,9 @@ class UsuarioDAO():
 		return Usuario.query.get(id)
 
 	@staticmethod
-	def obtenerSegunUsuarioContrasena(usuario, contrasena):
-		print(colored("UsuarioDAO: obtenerSegunUsuarioContrasena(); {} {}".format(usuario, contrasena), 'magenta'))
-		return Usuario.query.filter_by(usuario=usuario, contrasena=contrasena).first()
+	def obtenerSegunUsuario(usuario):
+		print(colored("UsuarioDAO: obtenerSegunUsuario(); {}".format(usuario), 'magenta'))
+		return Usuario.query.filter_by(usuario=usuario).first()
 
 	@staticmethod
 	def actualizar(usuarioVO):

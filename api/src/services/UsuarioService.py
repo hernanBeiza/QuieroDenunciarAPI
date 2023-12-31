@@ -92,15 +92,21 @@ class UsuarioService():
 		usuario = request.get_json()["usuario"] if 'usuario' in request.get_json() else None
 		contrasena = request.get_json()["contrasena"] if 'contrasena' in request.get_json() else None
 
-		usuarioEncontrado = UsuarioDAO.obtenerSegunUsuarioContrasena(usuario, contrasena)
+		usuarioEncontrado = UsuarioDAO.obtenerSegunUsuario(usuario)
 		if(usuarioEncontrado):
-			token = create_access_token(identity=usuarioEncontrado.id_usuario)
-			data = {
-				"result": True,
-				"usuario": VOBuilderFactory().getUsuarioVOBuilder().fromUsuario(usuarioEncontrado).build(),
-				"token": token,
-				"mensajes": "Bienvenido {}".format(usuario)
-			}
+			if bcrypt.checkpw(contrasena.encode("utf8"), usuarioEncontrado.contrasena.encode("utf8")):
+				token = create_access_token(identity=usuarioEncontrado.id_usuario)
+				data = {
+					"result": True,
+					"usuario": VOBuilderFactory().getUsuarioVOBuilder().fromUsuario(usuarioEncontrado).build(),
+					"token": token,
+					"mensajes": "Bienvenido {}".format(usuario)
+				}
+			else:
+				data = {
+					"result": False,
+					"errores": "No se encontró usuario"
+				}				
 		else:
 			data = {
 				"result": False,
