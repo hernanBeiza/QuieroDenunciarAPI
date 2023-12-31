@@ -16,7 +16,7 @@ class EstadoDenunciaVOBuilder(ma.ModelSchema):
 
 	#Schema
 	##Modelo - Dato a mostrar
-	cod_estado_denuncia = fields.Integer(data_key="codigoEstadoDenuncia")
+	cod_estado_denuncia = fields.Integer(data_key="codigo")
 	glosa = fields.String()
 	flag_activo = fields.Integer(data_key="flagActivo")
 

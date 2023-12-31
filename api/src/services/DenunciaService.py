@@ -96,7 +96,8 @@ class DenunciaService():
 				data = {
 					"result":True,
 					"denuncias":VOBuilderFactory().getDenunciaVOBuilder().fromDenuncias(paginacion.items).builds(),
-					"mensajes":"Se encontraron denuncias de la página {}".format(pagina)
+					"mensajes":"Se encontraron denuncias de la página {}".format(pagina),
+					"paginas":paginacion.pages
 				}
 			else:
 				data = {

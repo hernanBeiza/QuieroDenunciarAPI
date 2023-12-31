@@ -1,7 +1,7 @@
 import json
 
 class EstadoDenunciaVO():
-	codigoEstadoDenuncia = None
+	codigo = None
 	glosa = None
 	flagActivo = None
 
