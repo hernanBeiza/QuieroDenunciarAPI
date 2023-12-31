@@ -41,7 +41,7 @@ class TipoPersonaVOBuilder(ma.ModelSchema):
 			try:
 				return TipoPersonaVOBuilder().dump(TipoPersonaVOBuilder.tipoPersona)
 			except Exception as e:
-				print(colored("No se puede contruir TipoPersonaVO. Error en TipoPersonaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir TipoPersonaVO. Error en TipoPersonaVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -52,4 +52,4 @@ class TipoPersonaVOBuilder(ma.ModelSchema):
 			try:
 				return TipoPersonaVOBuilder(many=True).dump(TipoPersonaVOBuilder.tipoPersonas)
 			except Exception as e:
-				print(colored("No se puede contruir TipoPersonaVO. Error en TipoPersonaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir TipoPersonaVO. Error en TipoPersonaVOBuilder: {}".format(e), 'red'))

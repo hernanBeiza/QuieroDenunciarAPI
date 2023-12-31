@@ -41,7 +41,7 @@ class MateriaVOBuilder(ma.ModelSchema):
 			try:
 				return MateriaVOBuilder().dump(MateriaVOBuilder.materia)
 			except Exception as e:
-				print(colored("No se puede contruir MateriaVO. Error en MateriaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir MateriaVO. Error en MateriaVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -52,4 +52,4 @@ class MateriaVOBuilder(ma.ModelSchema):
 			try:
 				return MateriaVOBuilder(many=True).dump(MateriaVOBuilder.materias)
 			except Exception as e:
-				print(colored("No se puede contruir MateriaVO. Error en MateriaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir MateriaVO. Error en MateriaVOBuilder: {}".format(e), 'red'))

@@ -41,7 +41,7 @@ class TipoDireccionVOBuilder(ma.ModelSchema):
 			try:
 				return TipoDireccionVOBuilder().dump(TipoDireccionVOBuilder.tipoDireccion)
 			except Exception as e:
-				print(colored("No se puede contruir TipoDireccionVO. Error en TipoDireccionVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir TipoDireccionVO. Error en TipoDireccionVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -52,4 +52,4 @@ class TipoDireccionVOBuilder(ma.ModelSchema):
 			try:
 				return TipoDireccionVOBuilder(many=True).dump(TipoDireccionVOBuilder.tiposDirecciones)
 			except Exception as e:
-				print(colored("No se puede contruir TipoDireccionVO. Error en TipoDireccionVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir TipoDireccionVO. Error en TipoDireccionVOBuilder: {}".format(e), 'red'))

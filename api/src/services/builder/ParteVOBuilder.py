@@ -49,7 +49,7 @@ class ParteVOBuilder(ma.ModelSchema):
 			try:
 				return ParteVOBuilder().dump(ParteVOBuilder.parte)
 			except Exception as e:
-				print(colored("No se puede contruir ParteVO. Error en ParteVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir ParteVO. Error en ParteVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -60,4 +60,4 @@ class ParteVOBuilder(ma.ModelSchema):
 			try:
 				return ParteVOBuilder(many=True).dump(ParteVOBuilder.partes)
 			except Exception as e:
-				print(colored("No se puede contruir ParteVO. Error en ParteVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir ParteVO. Error en ParteVOBuilder: {}".format(e), 'red'))

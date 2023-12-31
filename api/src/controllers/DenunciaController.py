@@ -3,6 +3,7 @@ from flask import escape
 from flask import json
 from flask import jsonify
 from flask import Blueprint
+from flask_jwt_extended import jwt_required
 
 from termcolor import colored
 
@@ -24,6 +25,7 @@ class DenunciaController():
 		)
 
 	@denunciaBluePrint.route('/', methods=['GET'])
+	@jwt_required()
 	def obtener():
 		print(colored("DenunciaController: obtener();", 'green'))
 		return app.response_class(
@@ -33,6 +35,7 @@ class DenunciaController():
 		)
 
 	@denunciaBluePrint.route('/pagina/<int:pagina>', methods=['GET'])
+	@jwt_required()
 	def obtenerPaginadas(pagina):
 		print(colored("DenunciaController: obtenerPaginadas();", 'green'))
 		return app.response_class(
@@ -42,6 +45,7 @@ class DenunciaController():
 		)
 
 	@denunciaBluePrint.route('/<int:id>', methods=['GET'])
+	@jwt_required()
 	def obtenerSegunId(id):
 		print(colored("DenunciaController: obtenerSegunId(); {}".format(id), 'green'))
 		return app.response_class(
@@ -51,6 +55,7 @@ class DenunciaController():
 		)
 
 	@denunciaBluePrint.route('/denunciado/<int:idDenunciado>', methods=['GET'])
+	@jwt_required()
 	def obtenerSegunIdDenunciado(idDenunciado):
 		print(colored("DenunciaController: obtenerSegunIdDenunciado(); {}".format(idDenunciado), 'green'))
 		return app.response_class(
@@ -60,6 +65,7 @@ class DenunciaController():
 		)
 
 	@denunciaBluePrint.route('/denunciante/<int:idDenunciante>', methods=['GET'])
+	@jwt_required()
 	def obtenerSegunIdDenunciante(idDenunciante):
 		print(colored("DenunciaController: obtenerSegunIdDenunciante(); {}".format(idDenunciante), 'green'))
 		return app.response_class(
@@ -78,6 +84,7 @@ class DenunciaController():
 		)
 
 	@denunciaBluePrint.route('/estado/<int:id>/<int:codigoEstado>', methods=['PUT'])
+	@jwt_required()
 	def actualizarEstado(id, codigoEstado):
 		print(colored("DenunciaController: actualizarEstado(); id:{} codigoEstado: {}".format(id,codigoEstado), 'green'))
 		return app.response_class(
@@ -87,6 +94,7 @@ class DenunciaController():
 		)
 
 	@denunciaBluePrint.route('/<int:id>', methods=['DELETE'])
+	@jwt_required()
 	def eliminar(id):
 		print(colored("DenunciaController: eliminar(); {}".format(id), 'green'))
 		return app.response_class(

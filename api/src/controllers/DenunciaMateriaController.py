@@ -3,6 +3,7 @@ from flask import escape
 from flask import json
 from flask import jsonify
 from flask import Blueprint
+from flask_jwt_extended import jwt_required
 
 from termcolor import colored
 
@@ -24,6 +25,7 @@ class DenunciaMateriaController():
 		)
 
 	@denunciaMateriaBluePrint.route('/', methods=['GET'])
+	@jwt_required()
 	def obtener():
 		print(colored("DenunciaMateriaController: obtener();", 'green'))
 		return app.response_class(
@@ -33,6 +35,7 @@ class DenunciaMateriaController():
 		)
 
 	@denunciaMateriaBluePrint.route('/<int:id>', methods=['GET'])
+	@jwt_required()
 	def obtenerSegunId(id):
 		print(colored("DenunciaMateriaController: obtenerSegunId(); {}".format(id), 'green'))
 		return app.response_class(
@@ -42,6 +45,7 @@ class DenunciaMateriaController():
 		)
 
 	@denunciaMateriaBluePrint.route('/denuncia/<int:idDenuncia>', methods=['GET'])
+	@jwt_required()
 	def obtenerSegunIdDenuncia(idDenuncia):
 		print(colored("DenunciaMateriaController: obtenerSegunIdDenuncia(); {}".format(idDenuncia), 'green'))
 		return app.response_class(
@@ -60,6 +64,7 @@ class DenunciaMateriaController():
 		)
 
 	@denunciaMateriaBluePrint.route('/<int:id>', methods=['DELETE'])
+	@jwt_required()
 	def eliminar(id):
 		print(colored("DenunciaMateriaController: eliminar(); {}".format(id), 'green'))
 		return app.response_class(

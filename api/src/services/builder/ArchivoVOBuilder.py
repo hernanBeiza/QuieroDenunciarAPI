@@ -52,7 +52,7 @@ class ArchivoVOBuilder(ma.ModelSchema):
 			try:
 				return ArchivoVOBuilder().dump(ArchivoVOBuilder.archivo)
 			except Exception as e:
-				print(colored("No se puede contruir ArchivoVO. Error en ArchivoVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir ArchivoVO. Error en ArchivoVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -63,4 +63,4 @@ class ArchivoVOBuilder(ma.ModelSchema):
 			try:
 				return ArchivoVOBuilder(many=True).dump(ArchivoVOBuilder.archivos)
 			except Exception as e:
-				print(colored("No se puede contruir ArchivoVO. Error en ArchivoVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir ArchivoVO. Error en ArchivoVOBuilder: {}".format(e), 'red'))

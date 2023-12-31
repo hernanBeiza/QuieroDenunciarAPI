@@ -41,7 +41,7 @@ class ComunaVOBuilder(ma.ModelSchema):
 			try:
 				return ComunaVOBuilder().dump(ComunaVOBuilder.comuna)
 			except Exception as e:
-				print(colored("No se puede contruir ComunaVO. Error en ComunaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir ComunaVO. Error en ComunaVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -52,4 +52,4 @@ class ComunaVOBuilder(ma.ModelSchema):
 			try:
 				return ComunaVOBuilder(many=True).dump(ComunaVOBuilder.comunas)
 			except Exception as e:
-				print(colored("No se puede contruir ComunaVO. Error en ComunaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir ComunaVO. Error en ComunaVOBuilder: {}".format(e), 'red'))

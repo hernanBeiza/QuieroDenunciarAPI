@@ -54,7 +54,7 @@ class DireccionVOBuilder(ma.ModelSchema):
 			try:
 				return DireccionVOBuilder().dump(DireccionVOBuilder.direccion)
 			except Exception as e:
-				print(colored("No se puede contruir DireccionVO. Error en DireccionVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir DireccionVO. Error en DireccionVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -65,4 +65,4 @@ class DireccionVOBuilder(ma.ModelSchema):
 			try:
 				return DireccionVOBuilder(many=True).dump(DireccionVOBuilder.direcciones)
 			except Exception as e:
-				print(colored("No se puede contruir DireccionVO. Error en DireccionVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir DireccionVO. Error en DireccionVOBuilder: {}".format(e), 'red'))

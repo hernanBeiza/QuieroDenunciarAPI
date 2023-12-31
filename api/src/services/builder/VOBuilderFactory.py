@@ -7,10 +7,12 @@ from src.services.builder.EstadoDenunciaVOBuilder import EstadoDenunciaVOBuilder
 from src.services.builder.MateriaVOBuilder import MateriaVOBuilder
 from src.services.builder.ParteVOBuilder import ParteVOBuilder
 from src.services.builder.PersonaVOBuilder import PersonaVOBuilder
+from src.services.builder.RolVOBuilder import RolVOBuilder
 from src.services.builder.TipoArchivoVOBuilder import TipoArchivoVOBuilder
 from src.services.builder.TipoDireccionVOBuilder import TipoDireccionVOBuilder
 from src.services.builder.TipoParteVOBuilder import TipoParteVOBuilder
 from src.services.builder.TipoPersonaVOBuilder import TipoPersonaVOBuilder
+from src.services.builder.UsuarioVOBuilder import UsuarioVOBuilder
 
 class VOBuilderFactory():
 
@@ -57,6 +59,10 @@ class VOBuilderFactory():
 		return PersonaVOBuilder()
 
 	@staticmethod
+	def getRolVOBuilder():
+		return RolVOBuilder()
+
+	@staticmethod
 	def getTipoArchivoVOBuilder():
 		return TipoArchivoVOBuilder()
 
@@ -71,4 +77,8 @@ class VOBuilderFactory():
 	@staticmethod
 	def getTipoPersonaVOBuilder():
 		return TipoPersonaVOBuilder()
+
+	@staticmethod
+	def getUsuarioVOBuilder():
+		return UsuarioVOBuilder()
 

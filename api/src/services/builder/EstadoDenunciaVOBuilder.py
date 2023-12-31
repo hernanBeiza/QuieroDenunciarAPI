@@ -41,7 +41,7 @@ class EstadoDenunciaVOBuilder(ma.ModelSchema):
 			try:
 				return EstadoDenunciaVOBuilder().dump(EstadoDenunciaVOBuilder.estadoDenuncia)
 			except Exception as e:
-				print(colored("No se puede contruir EstadoDenunciaVO. Error en EstadoDenunciaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir EstadoDenunciaVO. Error en EstadoDenunciaVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -52,4 +52,4 @@ class EstadoDenunciaVOBuilder(ma.ModelSchema):
 			try:
 				return EstadoDenunciaVOBuilder(many=True).dump(EstadoDenunciaVOBuilder.estadosDenuncias)
 			except Exception as e:
-				print(colored("No se puede contruir EstadoDenunciaVO. Error en EstadoDenunciaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir EstadoDenunciaVO. Error en EstadoDenunciaVOBuilder: {}".format(e), 'red'))

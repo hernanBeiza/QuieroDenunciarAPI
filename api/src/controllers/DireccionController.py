@@ -3,6 +3,7 @@ from flask import escape
 from flask import json
 from flask import jsonify
 from flask import Blueprint
+from flask_jwt_extended import jwt_required
 
 from termcolor import colored
 
@@ -24,6 +25,7 @@ class DireccionController():
 		)
 
 	@direccionBluePrint.route('/', methods=['GET'])
+	@jwt_required()
 	def obtener():
 		print(colored("DireccionController: obtener();", 'green'))
 		return app.response_class(
@@ -33,6 +35,7 @@ class DireccionController():
 		)
 
 	@direccionBluePrint.route('/<int:id>', methods=['GET'])
+	@jwt_required()
 	def obtenerSegunId(id):
 		print(colored("DireccionController: obtenerSegunId(); {}".format(id), 'green'))
 		return app.response_class(
@@ -51,6 +54,7 @@ class DireccionController():
 		)
 		
 	@direccionBluePrint.route('/<int:id>', methods=['DELETE'])
+	@jwt_required()
 	def eliminar(id):
 		print(colored("DireccionController: eliminar(); {}".format(id), 'green'))
 		return app.response_class(

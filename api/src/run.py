@@ -3,6 +3,7 @@ import os
 from src.app import app
 from src.db import db
 from src.ma import ma
+from src.JWT import JWT
 
 from src.utils.Config import Config
 from src.utils.ArchivoUtils import ArchivoUtils
@@ -12,6 +13,7 @@ print("run.py")
 #app = flask.Flask(__name__)
 Config().iniciarConApp(app)
 ArchivoUtils().verificarCarpetas(app)
+JWT.iniciarConApp(app)
 
 #db = SQLAlchemy(app)
 db.init_app(app)

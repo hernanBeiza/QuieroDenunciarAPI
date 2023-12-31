@@ -3,6 +3,7 @@ from flask import escape
 from flask import json
 from flask import jsonify
 from flask import Blueprint
+from flask_jwt_extended import jwt_required
 
 from termcolor import colored
 
@@ -24,6 +25,7 @@ class ArchivoController():
 		)
 
 	@archivoBluePrint.route('/', methods=['GET'])
+	@jwt_required()
 	def obtener():
 		print(colored("ArchivoController: obtener();", 'green'))
 		return app.response_class(
@@ -33,6 +35,7 @@ class ArchivoController():
 		)
 
 	@archivoBluePrint.route('/<int:id>', methods=['GET'])
+	@jwt_required()
 	def obtenerSegunId(id):
 		print(colored("ArchivoController: obtenerSegunId(); {}".format(id), 'green'))
 		return app.response_class(

@@ -41,7 +41,7 @@ class TipoArchivoVOBuilder(ma.ModelSchema):
 			try:
 				return TipoArchivoVOBuilder().dump(TipoArchivoVOBuilder.tipoArchivo)
 			except Exception as e:
-				print(colored("No se puede contruir TipoArchivVO. Error en TipoArchivoVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir TipoArchivVO. Error en TipoArchivoVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -52,4 +52,4 @@ class TipoArchivoVOBuilder(ma.ModelSchema):
 			try:
 				return TipoArchivoVOBuilder(many=True).dump(TipoArchivoVOBuilder.tipoArchivos)
 			except Exception as e:
-				print(colored("No se puede contruir TipoArchivVO. Error en TipoArchivoVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir TipoArchivVO. Error en TipoArchivoVOBuilder: {}".format(e), 'red'))

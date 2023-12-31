@@ -40,7 +40,7 @@ class TipoParteVOBuilder(ma.ModelSchema):
 			try:
 				return TipoParteVOBuilder().dump(TipoParteVOBuilder.tipoParte)
 			except Exception as e:
-				print(colored("No se puede contruir TipoParteVO. Error en TipoParteVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir TipoParteVO. Error en TipoParteVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -51,4 +51,4 @@ class TipoParteVOBuilder(ma.ModelSchema):
 			try:
 				return TipoParteVOBuilder(many=True).dump(TipoParteVOBuilder.tipoPartes)
 			except Exception as e:
-				print(colored("No se puede contruir TipoParteVO. Error en TipoParteVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir TipoParteVO. Error en TipoParteVOBuilder: {}".format(e), 'red'))

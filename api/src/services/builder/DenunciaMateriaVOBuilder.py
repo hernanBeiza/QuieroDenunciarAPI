@@ -67,7 +67,7 @@ class DenunciaMateriaVOBuilder(ma.ModelSchema):
 				denunciaMateriaVO.flagActivo = DenunciaMateriaVOBuilder.denunciaMateriaJSON['flagActivo'] if 'flagActivo' in DenunciaMateriaVOBuilder.denunciaMateriaJSON else True
 				return denunciaMateriaVO
 			except Exception as e:
-				print(colored("No se puede contruir DenunciaMateriaVO con JSON. Error en DenunciaMateriaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir DenunciaMateriaVO con JSON. Error en DenunciaMateriaVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def build():
@@ -78,7 +78,7 @@ class DenunciaMateriaVOBuilder(ma.ModelSchema):
 			try:
 				return DenunciaMateriaVOBuilder().dump(DenunciaMateriaVOBuilder.denunciaMateria)
 			except Exception as e:
-				print(colored("No se puede contruir DenunciaMateriaVO con objeto denunciaMateria. Error en DenunciaMateriaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir DenunciaMateriaVO con objeto denunciaMateria. Error en DenunciaMateriaVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -89,4 +89,4 @@ class DenunciaMateriaVOBuilder(ma.ModelSchema):
 			try:
 				return DenunciaMateriaVOBuilder(many=True).dump(DenunciaMateriaVOBuilder.denunciasMaterias)
 			except Exception as e:
-				print(colored("No se puede contruir DenunciaMateriaVO con objeto denunciasMateria. Error en DenunciaMateriaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir DenunciaMateriaVO con objeto denunciasMateria. Error en DenunciaMateriaVOBuilder: {}".format(e), 'red'))

@@ -9,7 +9,9 @@ from src.controllers.IndexController import *
 from src.controllers.MateriaController import *
 from src.controllers.ParteController import *
 from src.controllers.PersonaController import *
+from src.controllers.RolController import *
 from src.controllers.TipoArchivoController import *
 from src.controllers.TipoDireccionController import *
 from src.controllers.TipoParteController import *
 from src.controllers.TipoPersonaController import *
+from src.controllers.UsuarioController import *

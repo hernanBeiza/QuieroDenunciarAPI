@@ -49,7 +49,7 @@ class PersonaVOBuilder(ma.ModelSchema):
 			try:
 				return PersonaVOBuilder().dump(PersonaVOBuilder.persona)
 			except Exception as e:
-				print(colored("No se puede contruir PersonaVO. Error en PersonaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir PersonaVO. Error en PersonaVOBuilder: {}".format(e), 'red'))
 
 	@staticmethod
 	def builds():
@@ -60,4 +60,4 @@ class PersonaVOBuilder(ma.ModelSchema):
 			try:
 				return PersonaVOBuilder(many=True).dump(PersonaVOBuilder.personas)
 			except Exception as e:
-				print(colored("No se puede contruir PersonaVO. Error en PersonaVOBuilder; {}".format(e), 'red'))
+				print(colored("No se puede contruir PersonaVO. Error en PersonaVOBuilder: {}".format(e), 'red'))
