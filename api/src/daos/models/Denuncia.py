@@ -17,7 +17,7 @@ class Denuncia(db.Model):
 	#id_denunciado = db.Column(db.Integer, nullable=False)
 	id_denunciado = db.Column(db.Integer, db.ForeignKey('PARTE.id_parte'), nullable=False)
 	#id_denunciante = db.Column(db.Integer, nullable=False)
-	id_denunciante = db.Column(db.Integer, db.ForeignKey('PARTE.id_parte'), nullable=False)
+	id_denunciante = db.Column(db.Integer, db.ForeignKey('PARTE.id_parte'), nullable=True)
 	#cod_estado_denuncia = db.Column(db.Integer, nullable=False)
 	cod_estado_denuncia = db.Column(db.Integer, db.ForeignKey('ESTADO_DENUNCIA.cod_estado_denuncia'), nullable=False)
 	descripcion = db.Column(db.String, nullable=False)

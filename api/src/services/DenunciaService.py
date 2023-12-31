@@ -30,9 +30,11 @@ class DenunciaService():
 		if(idDenunciado==None):
 			enviar = False
 			mensajes +="\nDenunciado"
+		"""
 		if(idDenunciante==None):
 			enviar = False
 			mensajes +="\nDenunciante"
+		"""
 		if(denunciasMaterias==None):
 			enviar = False
 			mensajes +="\nSeleccionar materias de la denuncia"
@@ -186,9 +188,11 @@ class DenunciaService():
 		if(idDenunciado==None):
 			enviar = False
 			mensajes +="\nDenunciado"
+		"""
 		if(idDenunciante==None):
 			enviar = False
 			mensajes +="\nDenunciante"
+		"""
 		if(denunciasMaterias==None):
 			enviar = False
 			mensajes +="\nSeleccionar materias de la denuncia"
