@@ -5,6 +5,7 @@ from src.ma import ma
 from src.daos.models.Parte import Parte
 from src.services.vos.ParteVO import ParteVO
 from src.services.builder.TipoParteVOBuilder import TipoParteVOBuilder
+from src.services.builder.PersonaVOBuilder import PersonaVOBuilder
 
 class ParteVOBuilder(ma.ModelSchema):
 
@@ -27,6 +28,8 @@ class ParteVOBuilder(ma.ModelSchema):
 	flag_activo = fields.Integer(data_key="flagActivo")
 	#TODO Debe llamarse igual al declarado en el modelo Parte
 	tipoParte = fields.Nested(TipoParteVOBuilder)
+	#TODO Debe llamarse igual al declarado en el modelo Persona
+	persona = fields.Nested(PersonaVOBuilder)
 
 	#def __init__(self):
 

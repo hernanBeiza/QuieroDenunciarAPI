@@ -1,7 +1,7 @@
 import json
 
 class TipoParteVO():
-	codigoTipoParte = None
+	codigo = None
 	glosa = None
 	flagActivo = None
 

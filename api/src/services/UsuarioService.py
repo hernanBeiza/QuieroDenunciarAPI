@@ -100,7 +100,7 @@ class UsuarioService():
 					"result": True,
 					"usuario": VOBuilderFactory().getUsuarioVOBuilder().fromUsuario(usuarioEncontrado).build(),
 					"token": token,
-					"mensajes": "Bienvenido {}".format(usuario)
+					"mensajes": "Bienvenido {}".format(usuarioEncontrado.nombre)
 				}
 			else:
 				data = {

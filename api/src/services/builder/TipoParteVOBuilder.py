@@ -15,7 +15,7 @@ class TipoParteVOBuilder(ma.ModelSchema):
 
 	#Schema
 	##Modelo - Dato a mostrar
-	cod_tipo_parte = fields.Integer(data_key="codigoTipoParte")
+	cod_tipo_parte = fields.Integer(data_key="codigo")
 	glosa = fields.String()
 	flag_activo = fields.Integer(data_key="flagActivo")
 
