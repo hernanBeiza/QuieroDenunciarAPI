@@ -44,12 +44,12 @@ class CorreoController():
 			mimetype = 'application/json'
 		)
 
-	@correoBluePrint.route('/ente-fiscalizador/<int:idEnteFiscalizador>', methods=['GET'])
+	@correoBluePrint.route('/fiscalizador/<int:idFiscalizador>', methods=['GET'])
 	@jwt_required()
-	def obtenerSegunIdEnteFiscalizador(idEnteFiscalizador):
-		print(colored("CorreoController: obtenerSegunIdEnteFiscalizador(); {}".format(idEnteFiscalizador), 'green'))
+	def obtenerSegunIdFiscalizador(idFiscalizador):
+		print(colored("CorreoController: obtenerSegunIdFiscalizador(); {}".format(idFiscalizador), 'green'))
 		return app.response_class(
-			response = json.dumps(CorreoService().obtenerSegunIdEnteFiscalizador(idEnteFiscalizador),sort_keys=False),
+			response = json.dumps(CorreoService().obtenerSegunIdFiscalizador(idFiscalizador),sort_keys=False),
 			status = 200,
 			mimetype = 'application/json'
 		)

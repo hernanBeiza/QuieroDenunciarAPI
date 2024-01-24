@@ -13,6 +13,8 @@ class Fiscalizador(db.Model):
 	fecha_modificacion = db.Column(db.DateTime(), unique=False, nullable=True, default=None, onupdate=datetime.datetime.utcnow)
 	flag_activo = db.Column(db.Integer, unique=False, nullable=False)
 
+	correos = db.relationship('Correo', uselist=True, lazy=True)
+
 	def __init__(self, id_fiscalizador, id_comuna, nombre, fechaCreacion, fechaModificacion, flag_activo):
 		self.id_fiscalizador = id_fiscalizador
 		self.id_comuna = id_comuna

@@ -3,6 +3,7 @@ import os
 from src.app import app
 from src.db import db
 from src.ma import ma
+from src.mail import mail
 from src.JWT import JWT
 
 from src.utils.Config import Config
@@ -20,6 +21,9 @@ db.init_app(app)
 
 #ma = Marshmallow(app)
 ma.init_app(app)
+
+#Mail
+mail.init_app(app)
 
 #Importar archivos de Controllers
 from src.routes import *

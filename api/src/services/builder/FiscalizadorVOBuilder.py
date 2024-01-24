@@ -3,6 +3,7 @@ from termcolor import colored
 
 from src.ma import ma
 from src.daos.models.Fiscalizador import Fiscalizador
+from src.services.builder.CorreoVOBuilder import CorreoVOBuilder
 
 class FiscalizadorVOBuilder(ma.ModelSchema):
 
@@ -21,6 +22,8 @@ class FiscalizadorVOBuilder(ma.ModelSchema):
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Boolean(data_key="flagActivo")
+
+	correos = fields.List(fields.Nested(CorreoVOBuilder))
 
 	#def __init__(self):
 

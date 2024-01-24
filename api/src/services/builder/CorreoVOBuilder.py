@@ -16,7 +16,7 @@ class CorreoVOBuilder(ma.ModelSchema):
 	#Schema
 	##Modelo - Dato a mostrar
 	id_correo = fields.Integer(data_key="id")
-	id_ente_fiscalizador = fields.Integer(data_key="idEnteFiscalizador")
+	id_fiscalizador = fields.Integer(data_key="idFiscalizador")
 	flosa = fields.String(data_key="nombre")
 	#fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	#fecha_modificacion = fields.DateTime(data_key="fechaModificacion")

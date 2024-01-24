@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv, find_dotenv, dotenv_values
 
 from termcolor import colored
+from distutils.util import strtobool
 
 class Config:
 
@@ -26,6 +27,12 @@ class Config:
 			print("Config: Version: {}".format(app.config["VERSION"]))
 		else:
 			print(colored("Config: Archivo: {} no encontrado".format(archivoENV), 'red'))
-
 		#CORS
 		CORS(app)
+		#Configuración de email
+		#app.config['MAIL_SERVER'] = ''
+		#app.config['MAIL_PORT'] =
+		#app.config['MAIL_USERNAME'] = ''
+		#app.config['MAIL_PASSWORD'] = ''
+		app.config['MAIL_USE_TLS'] = bool(strtobool(app.config['MAIL_USE_TLS']))
+		app.config['MAIL_USE_SSL'] = bool(strtobool(app.config['MAIL_USE_SSL']))

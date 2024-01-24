@@ -6,225 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "Antecedente",
-			"item": [
-				{
-					"name": "Antecedente: Guardar",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"idDenuncia\": 7,\n  \"descripcion\": \"Primer antecedente de la denuncia\",\n  \"fecha\": \"2023-01-23\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{HOST}}/antecedente/",
-							"host": [
-								"{{HOST}}"
-							],
-							"path": [
-								"antecedente",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Antecedente: Obtener",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{HOST}}/antecedente",
-							"host": [
-								"{{HOST}}"
-							],
-							"path": [
-								"antecedente"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Antecedente: Obtener con id",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "idAntecedente",
-									"value": "12",
-									"type": "default"
-								},
-								{
-									"key": "codigoTipoArchivo",
-									"value": "2",
-									"type": "default"
-								},
-								{
-									"key": "archivo",
-									"type": "file",
-									"src": "/Users/hb/Pictures/Dog.png"
-								},
-								{
-									"key": "fecha",
-									"value": "2023-03-20",
-									"type": "default"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{HOST}}/antecedente/1",
-							"host": [
-								"{{HOST}}"
-							],
-							"path": [
-								"antecedente",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Antecedente: Obtener con id denuncia",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "idAntecedente",
-									"value": "12",
-									"type": "default"
-								},
-								{
-									"key": "codigoTipoArchivo",
-									"value": "2",
-									"type": "default"
-								},
-								{
-									"key": "archivo",
-									"type": "file",
-									"src": "/Users/hb/Pictures/Dog.png"
-								},
-								{
-									"key": "fecha",
-									"value": "2023-03-20",
-									"type": "default"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{HOST}}/antecedente/denuncia/6",
-							"host": [
-								"{{HOST}}"
-							],
-							"path": [
-								"antecedente",
-								"denuncia",
-								"6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Antecedente: Editar",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"id\": 3,\n  \"idDenuncia\": 1,\n  \"descripcion\": \"Tercer antecedente de la denuncia 1\",\n  \"fecha\": \"2023-01-23\",\n  \"fechaCreacion\": \"2023-01-25\",\n  \"flagActivo\": 2\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{HOST}}/antecedente/3",
-							"host": [
-								"{{HOST}}"
-							],
-							"path": [
-								"antecedente",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Antecedente: Eliminar",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "idAntecedente",
-									"value": "12",
-									"type": "default"
-								},
-								{
-									"key": "codigoTipoArchivo",
-									"value": "2",
-									"type": "default"
-								},
-								{
-									"key": "archivo",
-									"type": "file",
-									"src": "/Users/hb/Pictures/Dog.png"
-								},
-								{
-									"key": "fecha",
-									"value": "2023-03-20",
-									"type": "default"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{HOST}}/antecedente/4",
-							"host": [
-								"{{HOST}}"
-							],
-							"path": [
-								"antecedente",
-								"4"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Archivo",
 			"item": [
 				{
@@ -236,7 +17,7 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "idAntecedente",
+									"key": "idDenuncia",
 									"value": "1",
 									"type": "default"
 								},
@@ -248,11 +29,16 @@
 								{
 									"key": "archivo",
 									"type": "file",
-									"src": "/Users/hb/Pictures/Dog.png"
+									"src": "/Users/hb/Dropbox/HB/Fotos/Fondos/BEAT.png"
 								},
 								{
 									"key": "fecha",
 									"value": "2023-03-20",
+									"type": "default"
+								},
+								{
+									"key": "descripcion",
+									"value": "Esta es la descripción del hecho de esta imagen",
 									"type": "default"
 								}
 							]
@@ -300,6 +86,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -328,13 +124,60 @@
 							]
 						},
 						"url": {
-							"raw": "{{HOST}}/archivo/40",
+							"raw": "{{HOST}}/archivo/31",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"archivo",
-								"40"
+								"31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archivo: Descargar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/archivo/descargar/6",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"archivo",
+								"descargar",
+								"6"
 							]
 						}
 					},
@@ -350,12 +193,12 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "40",
+									"value": "8",
 									"type": "default"
 								},
 								{
-									"key": "idAntecedente",
-									"value": "1",
+									"key": "idDenuncia",
+									"value": "3",
 									"type": "default"
 								},
 								{
@@ -366,11 +209,16 @@
 								{
 									"key": "archivo",
 									"type": "file",
-									"src": "/Users/hb/Pictures/Dog.png"
+									"src": "/Users/hb/Dropbox/HB/Fotos/Fondos/fibonacci_ruler.png"
 								},
 								{
 									"key": "fecha",
 									"value": "2023-03-20 19:00:00",
+									"type": "default"
+								},
+								{
+									"key": "descripcion",
+									"value": "Esta es la descripción del hecho de esta imagen",
 									"type": "default"
 								},
 								{
@@ -386,13 +234,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{HOST}}/archivo/40",
+							"raw": "{{HOST}}/archivo/8",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"archivo",
-								"40"
+								"8"
 							]
 						}
 					},
@@ -429,13 +277,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{HOST}}/archivo/40",
+							"raw": "{{HOST}}/archivo/7",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"archivo",
-								"40"
+								"7"
 							]
 						}
 					},
@@ -503,6 +351,265 @@
 			]
 		},
 		{
+			"name": "Correo",
+			"item": [
+				{
+					"name": "Correo: Guardar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNDY3MjExMSwianRpIjoiYWNjMThiMzMtYzI4Mi00NjYyLTk3NGEtOTgzOTg4YmE4ZDUyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzA0NjcyMTExLCJleHAiOjE3MDQ2NzMwMTF9.LASkLsAzXTW9ik0hX5S1qVpWv3Y1wuV8dt9RwgsDt5Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idFiscalizador\": 3,\n  \"glosa\": \"fiscalizador3@gasd.com\",\n  \"flagPrincipal\": false,\n  \"flagActivo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/correo",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"correo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Correo: Obtener",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/correo",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"correo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Correo: Obtener con id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/correo/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"correo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Correo: Obtener con id fiscalizador",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/correo/fiscalizador/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"correo",
+								"fiscalizador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Correo: Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNDY3MjExMSwianRpIjoiYWNjMThiMzMtYzI4Mi00NjYyLTk3NGEtOTgzOTg4YmE4ZDUyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzA0NjcyMTExLCJleHAiOjE3MDQ2NzMwMTF9.LASkLsAzXTW9ik0hX5S1qVpWv3Y1wuV8dt9RwgsDt5Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"idFiscalizador\": 1,\n  \"glosa\": \"fiscalizador@gasd.com\",\n  \"flagPrincipal\": false,\n  \"flagActivo\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/correo/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"correo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Correo: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/correo/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"correo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Denuncia",
 			"item": [
 				{
@@ -512,7 +619,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"idDenunciante\": 3,\n  \"idDenunciado\": 2,\n  \"idDireccion\": 1,\n  \"codigoMateria\" :1,\n  \"descripcion\": \"Soy la descripción de la denuncia\",\n  \"fecha\": \"2023-01-23\"\n}",
+							"raw": "{\n  \"idDenunciado\": 1,\n  \"idDenunciante\": 2,\n  \"codigoEstadoDenuncia\": 1,\n  \"denunciasMaterias\": [\n    {\n      \"codigoMateria\": 3,\n      \"fechaCreacion\": \"2023-12-11T23:09:21\",\n      \"fechaModificacion\": \"2023-12-11T23:10:08\",\n      \"flagActivo\": 1\n    },\n    {\n      \"codigoMateria\": 4,\n      \"fechaCreacion\": \"2023-12-11T23:10:57\",\n      \"fechaModificacion\": null,\n      \"flagActivo\": 1\n    },\n    {\n      \"codigoMateria\": 5,\n      \"fechaCreacion\": \"2023-12-11T23:10:57\",\n      \"fechaModificacion\": null,\n      \"flagActivo\": 1\n    }\n  ],\n  \"descripcion\": \"Dejan la basura afuera de mi casa\",\n  \"fecha\": \"2023-12-11T00:00:00\",\n  \"fechaCreacion\": \"2023-12-11T23:09:21\",\n  \"fechaModificacion\": \"2023-12-11T23:10:57\",\n  \"flagActivo\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -538,6 +645,9 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -590,13 +700,13 @@
 							]
 						},
 						"url": {
-							"raw": "{{HOST}}/denuncia/3",
+							"raw": "{{HOST}}/denuncia/1",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"denuncia",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -608,6 +718,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNDY0MDc2MywianRpIjoiYWQ0ZTE5ZTEtMzlkZS00YWM2LTk3ZTMtNTA3M2Y5ZTRhNDY2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzA0NjQwNzYzLCJleHAiOjE3MDQ2NDE2NjN9.Np6NTm499KVIlftsJhJtYlQQSHAzYnkA45Jq8CqA_c8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -750,7 +870,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"idDenuncia\": 1,\n  \"idDenunciante\": 1,\n  \"idDenunciado\": 1,\n  \"idDireccion\": 1,\n  \"codigoMateria\" :1,\n  \"descripcion\": \"Soy la descripción de la denuncia\",\n  \"fecha\": \"2023-01-23\",\n  \"fechaCreacion\":\"2022-10-10\",\n  \"flagActivo\":2\n}",
+							"raw": "{\n  \"id\": 24,\n  \"idDenunciante\": 4,\n  \"idDenunciado\": 2,\n  \"denunciasMaterias\": [\n    {\n      \"id\": 60,\n      \"idDenuncia\": 24,\n      \"codigoMateria\": 1,\n      \"fechaCreacion\": \"2022-10-11\"\n    },\n    {\n      \"id\": 61,\n      \"idDenuncia\": 24,\n      \"codigoMateria\": 2,\n      \"fechaCreacion\": \"2022-10-12\"\n    },\n    {\n      \"id\": 62,\n      \"idDenuncia\": 24,\n      \"codigoMateria\": 3,\n      \"fechaCreacion\": \"2022-10-12\"\n    }\n  ],\n  \"codigoMateria\": 1,\n  \"descripcion\": \"Soy la descripción de la denuncia\",\n  \"fecha\": \"2023-01-23\",\n  \"fechaCreacion\": \"2022-10-10\",\n  \"flagActivo\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -758,13 +878,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/denuncia/1",
+							"raw": "{{HOST}}/denuncia/24",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"denuncia",
-								"1"
+								"24"
 							]
 						}
 					},
@@ -777,7 +897,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"idDenuncia\": 6,\n  \"codigoEstado\":1\n}",
+							"raw": "{\n  \"idDenuncia\": 1,\n  \"codigoEstadoDenuncia\":3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -785,15 +905,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/denuncia/estado/6/2",
+							"raw": "{{HOST}}/denuncia/estado/1/3",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"denuncia",
 								"estado",
-								"6",
-								"2"
+								"1",
+								"3"
 							]
 						}
 					},
@@ -836,6 +956,225 @@
 							],
 							"path": [
 								"denuncia",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fiscalizador",
+			"item": [
+				{
+					"name": "Fiscalizador: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idComuna\": 1,\n  \"nombre\": \"Ente fiscalizador 2\",\n  \"flagActivo\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/fiscalizador/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"fiscalizador",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fiscalizador: Obtener",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{HOST}}/fiscalizador",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"fiscalizador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fiscalizador: Obtener con id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/fiscalizador/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"fiscalizador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fiscalizador: Obtener según id comuna",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/fiscalizador/comuna/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"fiscalizador",
+								"comuna",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fiscalizador: Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 2,\n  \"idComuna\": 1,\n  \"nombre\": \"Fiscalizador 2 editado\",\n  \"fechaCreacion\": \"2024-01-07T23:31:52\",\n  \"fechaModificacion\": null,\n  \"flagActivo\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/fiscalizador/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"fiscalizador",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fiscalizador: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idAntecedente",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "codigoTipoArchivo",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/Users/hb/Pictures/Dog.png"
+								},
+								{
+									"key": "fecha",
+									"value": "2023-03-20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HOST}}/fiscalizador/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"fiscalizador",
 								"2"
 							]
 						}
@@ -976,7 +1315,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"codigoTipoDireccion\": 1,\n  \"idComuna\": 1,\n  \"calle\": \"La ñipa\",\n  \"numero\": 1163,\n  \"departamento\": 507,\n  \"fechaCreacion\": \"2023-05-20\",\n  \"flagActivo\":1\n}",
+							"raw": "{\n  \"codigoTipoDireccion\": 1,\n  \"idComuna\": 1,\n  \"calle\": \"Av. Vicuña Mackenna Oriente\",\n  \"numero\": 10082,\n  \"departamento\": 507,\n  \"fechaCreacion\": \"2023-05-20\",\n  \"flagActivo\":1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1104,6 +1443,214 @@
 			]
 		},
 		{
+			"name": "EnvioCorreoFiscalizador",
+			"item": [
+				{
+					"name": "EnvioCorreoFiscalizador: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idFiscalizador\": 1,\n  \"idDenuncia\": 1,\n  \"codigoEstadoEnvioCorreo\": 1,\n  \"fechaEnvio\": \"2023-10-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnvioCorreoFiscalizador: Obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnvioCorreoFiscalizador: Obtener paginadas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador/pagina/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador",
+								"pagina",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnvioCorreoFiscalizador: Obtener con id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnvioCorreoFiscalizador: Obtener según id fiscalizador",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador/fiscalizador/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador",
+								"fiscalizador",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnvioCorreoFiscalizador: Obtener según id denuncia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador/denuncia/2",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador",
+								"denuncia",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnvioCorreoFiscalizador: Actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 3,\n  \"idFiscalizador\": 1,\n  \"idDenuncia\": 2,\n  \"codigoEstadoEnvioCorreo\": 1,\n  \"fechaEnvio\": \"2023-10-10\",\n  \"flagActivo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador/3",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnvioCorreoFiscalizador: Enviar correo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 3,\n  \"idFiscalizador\": 1,\n  \"idDenuncia\": 2,\n  \"codigoEstadoEnvioCorreo\": 1,\n  \"fechaEnvio\": \"2023-10-10\",\n  \"flagActivo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador/enviar-correo/fiscalizador/denuncia/1/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador",
+								"enviar-correo",
+								"fiscalizador",
+								"denuncia",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EnvioCorreoFiscalizador: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idFiscalizador\": 1,\n  \"idDenuncia\": 1,\n  \"codigoEstadoEnvioCorreo\": 1,\n  \"fechaEnvio\": \"2023-10-10\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/envio-correo-fiscalizador/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"envio-correo-fiscalizador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "EstadoDenuncia",
 			"item": [
 				{
@@ -1135,6 +1682,46 @@
 							],
 							"path": [
 								"estado-denuncia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EstadoEnvioCorreo",
+			"item": [
+				{
+					"name": "EstadoEnvioCorreo: obtener",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/estado-envio-correo",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"estado-envio-correo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EstadoEnvioCorreo: obtenerSegunCodigo Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/estado-envio-correo/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"estado-envio-correo",
 								"1"
 							]
 						}
@@ -1212,7 +1799,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"idPersona\": 4,\n  \"idDireccion\": 1,\n  \"codigoTipoParte\": 1,\n  \"correo\": \"dorisn@vtr.net\"\n}",
+							"raw": "{\n  \"idPersona\": 2,\n  \"idDireccion\": 2,\n  \"codigoTipoParte\": 2,\n  \"correo\": \"dorisn@vtr.net\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1312,7 +1899,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": 5,\n  \"idPersona\": 4,\n  \"idDireccion\": 1,\n  \"codigoTipoParte\": 2,\n  \"correo\": \"dorisn@vtr.net\"\n}",
+							"raw": "{\n  \"id\": 2,\n  \"idPersona\": 2,\n  \"idDireccion\": 2,\n  \"codigoTipoParte\": 2,\n  \"correo\": \"skizobass@gmail.com\",\n  \"fechaCreacion\":\"2023-12-14\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1320,13 +1907,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/parte/5",
+							"raw": "{{HOST}}/parte/2",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"parte",
-								"5"
+								"2"
 							]
 						}
 					},
@@ -1371,7 +1958,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"codigoTipoPersona\": 2,\n  \"rut\": 16692668,\n  \"dv\": 8,\n  \"nombre\": \"Doris\",\n  \"apellidoPaterno\": \"Napolitano\"\n}",
+							"raw": "{\n  \"codigoTipoPersona\": 1,\n  \"rut\": 16692668,\n  \"dv\": 8,\n  \"nombre\": \"Hernán\",\n  \"apellidoPaterno\": \"Beiza\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1469,14 +2056,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/persona/rut/11111111",
+							"raw": "{{HOST}}/persona/rut/214134",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
 								"persona",
 								"rut",
-								"11111111"
+								"214134"
 							]
 						}
 					},
@@ -1511,6 +2098,185 @@
 				},
 				{
 					"name": "Persona: Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\":1,\n  \"nombre\":\"Hernán\",\n  \"apellidoPaterno\":\"Beiza\",\n  \"rut\":76481245,\n  \"dv\":1,\n  \"fechaCreacion\": \"2022-09-24T16:34:08\",\n  \"codigoTipoPersona\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/parte/6",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"parte",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Usuario: Guardar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"codigoRol\": 1,\n  \"nombre\": \"Hernán\",\n  \"usuario\": \"skizobass@gmail.com\",\n  \"contrasena\": \"9040207\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/usuario/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario: Obtener",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwMzc5MzM1NSwianRpIjoiNTNiYWFlZTAtYjM2Yy00YjAxLWEwYjItOWE2OWI0Yjk0OWRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzAzNzkzMzU1LCJleHAiOjE3MDM3OTQyNTV9.qF1lvCvOCEG1WHKd1oDoNEBGxa8JZiHBRy_FmOXpDdI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/usuario/",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario: Obtener con id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwMzc5MzM1NSwianRpIjoiNTNiYWFlZTAtYjM2Yy00YjAxLWEwYjItOWE2OWI0Yjk0OWRmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzAzNzkzMzU1LCJleHAiOjE3MDM3OTQyNTV9.qF1lvCvOCEG1WHKd1oDoNEBGxa8JZiHBRy_FmOXpDdI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}/usuario/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario: Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"usuario\": \"skizobass@gmail.com\",\n  \"contrasena\": \"9040207\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/usuario/login",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"usuario",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario: Actualizar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNDA1MDg2OSwianRpIjoiMzM0OTI2MzktM2MwNS00Njc2LThlNDctMzg0MDMyMDhkMjU5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzA0MDUwODY5LCJleHAiOjE3MDQwNTE3Njl9.jT8yGlCs5l1NVTXlEfjKI1J8vDsbRRoFa-C3DizwY3Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"codigoRol\": 1,\n  \"nombre\": \"Hernán\",\n  \"usuario\": \"skizobass@gmail.com\",\n  \"contrasena\": \"9040207\",\n  \"flagActivo\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/usuario/1",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario: Eliminar",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -1697,6 +2463,36 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcwNTg2OTg5NiwianRpIjoiYWVhZjQxZjAtZDA5OS00MzQ3LThjNmYtNDA3MTllYjQ2ZDliIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzA1ODY5ODk2LCJleHAiOjE3MDU4NzA3OTZ9.jbqzGWSt9i2jTFaXMi6auzegfqUBWBytocxsvrK569A",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

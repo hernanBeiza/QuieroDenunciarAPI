@@ -1,12 +1,13 @@
 import json
 
-class CorreoVO():
+class EnvioCorreoFiscalizadorVO():
 	id = None
 	idFiscalizador = None
-	glosa = None
-	#fechaCreacion = None
-	#fechaModificacion = None
-	flagPrincipal = None
+	idDenuncia = None
+	codigoEstadoEnvioCorreo = None
+	fechaEnvio = None
+	fechaCreacion = None
+	fechaModificacion = None
 	flagActivo = None
 
 	#def __init__(self):

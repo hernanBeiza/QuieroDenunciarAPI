@@ -13,7 +13,7 @@ class CorreoService():
 	@staticmethod
 	def guardar(request):
 		print(colored("CorreoService: guardar(); {}".format(request.get_json()), 'cyan'))
-		idEnteFiscalizador = request.get_json()["idEnteFiscalizador"] if 'idEnteFiscalizador' in request.get_json() else None
+		idFiscalizador = request.get_json()["idFiscalizador"] if 'idFiscalizador' in request.get_json() else None
 		glosa = request.get_json()["glosa"] if 'glosa' in request.get_json() else None
 		#fechaCreacion = request.get_json()["fechaCreacion"] if 'fechaCreacion' in request.get_json() else None
 		#fechaModificacion = request.get_json()["fechaModificacion"] if 'fechaModificacion' in request.get_json() else None
@@ -22,15 +22,15 @@ class CorreoService():
 
 		enviar = True
 		mensajes = "Faltó:"
-		if(idEnteFiscalizador==None):
+		if(idFiscalizador==None):
 			enviar = False
-			mensajes +="\nEnte fiscalizador"
+			mensajes +="\nFiscalizador"
 		if(glosa==None):
 			enviar = False
 			mensajes +="\nCorreo"
 		if(enviar):
 			correoVO = CorreoVO()
-			correoVO.idEnteFiscalizador = idEnteFiscalizador
+			correoVO.idFiscalizador = idFiscalizador
 			correoVO.glosa = glosa
 			#correoVO.fechaCreacion = fechaCreacion
 			#correoVO.fechaModificacion = fechaModificacion
@@ -81,19 +81,19 @@ class CorreoService():
 		return data;
 
 	@staticmethod
-	def obtenerSegunIdEnteFiscalizador(idEnteFiscalizador):
-		print(colored("CorreoService: obtenerSegunIdEnteFiscalizador(); {}".format(idEnteFiscalizador), 'cyan'))
-		correos = CorreoDAO.obtenerSegunIdEnteFiscalizador(idEnteFiscalizador)
+	def obtenerSegunIdFiscalizador(idFiscalizador):
+		print(colored("CorreoService: obtenerSegunIdFiscalizador(); {}".format(idFiscalizador), 'cyan'))
+		correos = CorreoDAO.obtenerSegunIdFiscalizador(idFiscalizador)
 		if len(correos)>0:
 			data = {
 				"result":True,
 				"correos":VOBuilderFactory().getCorreoVOBuilder().fromCorreos(correos).builds(),
-				"mensajes":"Se encontraron correos para el ente fiscalizador con id {}".format(idEnteFiscalizador)
+				"mensajes":"Se encontraron correos para el fiscalizador con id {}".format(idFiscalizador)
 			}
 		else:
 			data = {
 				"result":False,
-				"errores":"No se encontraron correos para el ente fiscalizador con id {}".format(idEnteFiscalizador)
+				"errores":"No se encontraron correos para el fiscalizador con id {}".format(idFiscalizador)
 			}
 
 		return data;
@@ -102,7 +102,7 @@ class CorreoService():
 	def actualizar(request):
 		print(colored("CorreoService: actualizar(); {}".format(request.get_json()), 'cyan'))
 		id = request.get_json()["id"] if 'id' in request.get_json() else None
-		idEnteFiscalizador = request.get_json()["idEnteFiscalizador"] if 'idEnteFiscalizador' in request.get_json() else None
+		idFiscalizador = request.get_json()["idFiscalizador"] if 'idFiscalizador' in request.get_json() else None
 		glosa = request.get_json()["glosa"] if 'glosa' in request.get_json() else None
 		#fechaCreacion = request.get_json()["fechaCreacion"] if 'fechaCreacion' in request.get_json() else None
 		#fechaModificacion = request.get_json()["fechaModificacion"] if 'fechaModificacion' in request.get_json() else None
@@ -114,9 +114,9 @@ class CorreoService():
 		if(id==None):
 			enviar = False
 			mensajes +="\nId"
-		if(idEnteFiscalizador==None):
+		if(idFiscalizador==None):
 			enviar = False
-			mensajes +="\nEnte fiscalizador"
+			mensajes +="\nFiscalizador"
 		if(glosa==None):
 			enviar = False
 			mensajes +="\nGlosa del correo"
@@ -129,7 +129,7 @@ class CorreoService():
 		if(enviar):
 			correoVO = CorreoVO()
 			correoVO.id = id
-			correoVO.idEnteFiscalizador = idEnteFiscalizador
+			correoVO.idFiscalizador = idFiscalizador
 			correoVO.glosa = glosa
 			#correoVO.fechaCreacion = fechaCreacion
 			#correoVO.fechaModificacion = fechaModificacion

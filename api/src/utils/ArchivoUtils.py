@@ -7,6 +7,12 @@ class ArchivoUtils:
 
 	@staticmethod
 	def verificarCarpetas(app):
+		ArchivoUtils.verificarCarpetaImagenes(app)
+		ArchivoUtils.verificarCarpetaDocumentos(app)
+
+	#TODO Crear clase para creación de carperas necesarias para el sistema
+	@staticmethod
+	def verificarCarpetaImagenes(app):
 		try:
 			print("ArchivoUtils: Crear carpeta de imágenes en: {}".format(app.config['CARPETA_IMAGENES']))
 			os.makedirs(app.config['CARPETA_IMAGENES'])
@@ -14,6 +20,20 @@ class ArchivoUtils:
 			return True
 		except Exception as e:
 			print(colored("ArchivoUtils: La carpeta de imágenes no se pudo crear. Error: {}".format(e), 'red'))
+			return False
+
+	#TODO Crear clase para creación de carperas necesarias para el sistema
+	@staticmethod
+	def verificarCarpetaDocumentos(app):
+		try:
+			print("ArchivoUtils: Crear carpeta de documentos en: {}".format(app.config['CARPETA_DOCUMENTOS']))
+			os.makedirs(app.config['CARPETA_DOCUMENTOS'])
+			print(colored(
+				"ArchivoUtils: Carpeta de documentos creada correctamente en: {}".format(app.config['CARPETA_DOCUMENTOS']),
+				'green'))
+			return True
+		except Exception as e:
+			print(colored("ArchivoUtils: La carpeta de documentos no se pudo crear. Error: {}".format(e), 'red'))
 			return False
 
 	@staticmethod

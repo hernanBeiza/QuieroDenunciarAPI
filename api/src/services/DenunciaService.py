@@ -1,5 +1,4 @@
 import os
-
 from termcolor import colored
 
 from src.daos.models.Denuncia import Denuncia
@@ -244,7 +243,7 @@ class DenunciaService():
 			mensajes +="\nCódigo de estado de la denuncia"
 		if(enviar):
 			denunciaVO = DenunciaVO()
-			denunciaVO.idDenuncia = idDenuncia
+			denunciaVO.id = idDenuncia
 			denunciaVO.codigoEstadoDenuncia = codigoEstadoDenuncia
 			respuesta = DenunciaDAO.actualizarEstado(denunciaVO)
 			if(respuesta["result"]):

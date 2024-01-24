@@ -122,12 +122,26 @@ class ArchivoService():
 		print(colored("ArchivoService: descargarArchivoSegunId(); {}".format(id), 'cyan'))
 		archivo = ArchivoDAO.obtenerSegunId(id)
 		if(archivo is not None):
-			carpeta = "../{}".format(app.config['CARPETA_IMAGENES'])
-			return send_from_directory(carpeta, archivo.nombre_archivo, as_attachment=True)
+			carpeta = os.path.join(app.config['CARPETA_IMAGENES'])
+			rutaCompleta = os.path.join(carpeta,archivo.nombre_archivo)
+			print(rutaCompleta)
+			if os.path.isfile(rutaCompleta):
+				print("ArchivoService: Archivo encontrado en la ruta: {}".format(rutaCompleta))
+				carpetaRelativa = os.path.join("..",app.config['CARPETA_IMAGENES'])
+				return send_from_directory(carpetaRelativa, archivo.nombre_archivo, as_attachment=True)
+			else:
+				error = "ArchivoService: No se encontró archivo con id: {} en ruta: {} ".format(id,ruta)
+				print(colored(error, 'red'))
+				errorVisualizable = "El archivo no se pudo descargar. No se encontró el archivo solicitado."
+				print(colored(errorVisualizable, 'red'))
+				result = False
+				respuesta = {"result": result, "error": errorVisualizable, "codigo": 404}
+				raise Exception(error, respuesta)
 		else:
 			error = "ArchivoService: No se encontró archivo con id: {}".format(id)
 			print(colored(error, 'red'))
 			errorVisualizable = "El archivo no se pudo descargar. No existe archivo con id: {}".format(id)
+			print(colored(errorVisualizable, 'red'))
 			result = False
 			respuesta = {"result": result, "error": errorVisualizable, "codigo": 404}
 			raise Exception(error, respuesta)

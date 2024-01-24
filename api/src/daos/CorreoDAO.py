@@ -14,7 +14,7 @@ class CorreoDAO():
 		print(colored("CorreoDAO: guardar(); {}".format(correoVO), 'yellow'))
 
 		try:
-			correo = Correo(None, correoVO.idEnteFiscalizador, correoVO.glosa, correoVO.flagPrincipal, correoVO.flagActivo)
+			correo = Correo(None, correoVO.idFiscalizador, correoVO.glosa, correoVO.flagPrincipal, correoVO.flagActivo)
 			db.session.add(correo)
 			db.session.commit()
 			print(colored("CorreoDAO: Correo guardado correctamente", 'yellow'))
@@ -41,16 +41,16 @@ class CorreoDAO():
 		return Correo.query.get(id)
 
 	@staticmethod
-	def obtenerSegunIdEnteFiscalizador(idEnteFiscalizador):
-		print(colored("CorreoDAO: idEnteFiscalizador(); {}".format(idEnteFiscalizador), 'yellow'))
-		return Correo.query.filter_by(id_ente_fiscalizador=idEnteFiscalizador).all()
+	def obtenerSegunIdFiscalizador(idFiscalizador):
+		print(colored("CorreoDAO: obtenerSegunIdFiscalizador(); {}".format(idFiscalizador), 'yellow'))
+		return Correo.query.filter_by(id_fiscalizador=idFiscalizador).all()
 
 	@staticmethod
 	def actualizar(correoVO):
 		print(colored("CorreoDAO: actualizar(); {}".format(correoVO), 'yellow'))
 		try:
 			correo = Correo.query.get(correoVO.id)
-			correo.id_ente_fiscalizador = correoVO.idEnteFiscalizador
+			correo.id_fiscalizador = correoVO.idFiscalizador
 			correo.glosa = correoVO.glosa
 			#correo.fecha_creacion = correoVO.fechaCreacion
 			#correo.fecha_modificacion = correoVO.fechaModificacion
