@@ -4,6 +4,7 @@ from src.controllers.CorreoController import *
 from src.controllers.DenunciaController import *
 from src.controllers.DenunciaMateriaController import *
 from src.controllers.DireccionController import *
+from src.controllers.DocumentoController import *
 from src.controllers.EnvioCorreoFiscalizadorController import *
 from src.controllers.FiscalizadorController import *
 from src.controllers.EstadoDenunciaController import *

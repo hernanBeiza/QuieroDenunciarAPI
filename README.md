@@ -119,7 +119,7 @@ pip3 install -r requirements.txt
 
 ```bash
 export FLASK_APP=src/run.py
-export FLASK_ENV=development
+export FLASK_ENV=dev
 ```
 
 - Ejecutar en la CLI.
@@ -131,7 +131,7 @@ flask run --host localhost --port 3000
 - Todo en una línea
 
 ```bash
-FLASK_APP=src/run.py FLASK_ENV=development FLASK_DEBUG=true flask run --host localhost --port 3000
+FLASK_APP=src/run.py FLASK_ENV=dev FLASK_DEBUG=true flask run --host localhost --port 3000
 ```
 
 ## Comandos útiles PIP
