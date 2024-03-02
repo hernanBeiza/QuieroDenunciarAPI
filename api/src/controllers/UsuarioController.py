@@ -54,6 +54,16 @@ class UsuarioController():
 			mimetype='application/json'
 		)
 
+	@usuarioBluePrint.route('/verificar-token', methods=['POST'])
+	@jwt_required()
+	def verificarToken():
+		print(colored("UsuarioController: verificarToken(); {}".format(request), 'green'))
+		return app.response_class(
+			response=json.dumps(UsuarioService().verificarToken(request), sort_keys=False),
+			status=200,
+			mimetype='application/json'
+		)
+
 	@usuarioBluePrint.route('/<int:id>', methods=['PUT'])
 	@jwt_required()
 	def actualizar(id):

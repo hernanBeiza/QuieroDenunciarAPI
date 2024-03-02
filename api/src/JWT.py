@@ -20,10 +20,14 @@ class JWT:
 		#Configuración token JWT Flask-JWT-Extended
 		app.config["JWT_SECRET_KEY"] = "super-secret"
 		app.config["JWT_ERROR_MESSAGE_KEY"] = "mensajes"
+		#TODO Revisar esto
+		#app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
+
 		jwt = JWTManager(app)
 
 		@jwt.unauthorized_loader
 		def unauthorized(mensajeError):
+			print(colored("JWT: unauthorized: {}".format(mensajeError), 'red'))
 			data = {"result":False, "mensajes":mensajeError}
 			return data
 			"""
@@ -35,6 +39,7 @@ class JWT:
 			"""
 		@jwt.invalid_token_loader
 		def invalid(mensajeError):
+			print(colored("JWT: invalid: {}".format(mensajeError), 'red'))
 			data = {"result":False, "mensajes":mensajeError}
 			return data
 			"""
@@ -47,7 +52,8 @@ class JWT:
 
 		@jwt.expired_token_loader
 		def expired(headerData, payload):
-			data= {"result":False, "mensajes":"Token expirado"}
+			print(colored("JWT: expired", 'red'))
+			data = {"result":False, "mensajes":"Token expirado"}
 			return data
 			"""
 			return app.response_class(

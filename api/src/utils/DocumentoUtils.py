@@ -1,6 +1,4 @@
 import os
-from termcolor import colored
-import uuid
 from markdown_pdf import MarkdownPdf, Section
 
 class DocumentoUtils:

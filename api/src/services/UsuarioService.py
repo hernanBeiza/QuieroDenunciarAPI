@@ -116,6 +116,17 @@ class UsuarioService():
 		return data
 
 	@staticmethod
+	def verificarToken(request):
+		print(colored("UsuarioService: verificarToken();", 'cyan'))
+		idUsuarioLogueado = get_jwt_identity()
+		print(colored("UsuarioService: idUsuarioLogueado: {};".format(idUsuarioLogueado), 'cyan'))
+
+		return {
+			"result": True,
+			"mensajes": "Token válido"
+		}
+
+	@staticmethod
 	def actualizar(request):
 		print(colored("UsuarioService: actualizar(); {}".format(request.get_json()), 'cyan'))
 		id = request.get_json()["id"] if 'id' in request.get_json() else None
