@@ -75,6 +75,15 @@ class EnvioCorreoFiscalizadorController():
 			mimetype = 'application/json'
 		)
 
+	@envioCorreoFiscalizadorBluePrint.route('/<int:codigoEstadoEnvioCorreo>/<int:pagina>', methods=['GET'])
+	def obtenerSegunCodigoPagina(codigoEstadoEnvioCorreo, pagina):
+		print(colored("EnvioCorreoFiscalizadorController: obtenerSegunCodigoPagina(); {} {}".format(codigoEstadoEnvioCorreo, pagina), 'green'))
+		return app.response_class(
+			response=json.dumps(EnvioCorreoFiscalizadorService().obtenerSegunCodigoPagina(codigoEstadoEnvioCorreo, pagina),sort_keys=False),
+			status=200,
+			mimetype='application/json'
+		)		
+
 	@envioCorreoFiscalizadorBluePrint.route('/<int:id>', methods=['PUT'])
 	def actualizar(id):
 		print(colored("EnvioCorreoFiscalizadorController: actualizar(); {}".format(id), 'green'))

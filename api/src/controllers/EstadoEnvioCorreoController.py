@@ -28,5 +28,5 @@ class EstadoEnvioCorreoController():
 			status=200,
 			mimetype='application/json'
 		)
-		
+
 app.register_blueprint(estadoEnvioCorreoBluePrint)

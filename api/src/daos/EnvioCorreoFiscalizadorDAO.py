@@ -1,5 +1,6 @@
 from termcolor import colored
 
+from src.app import app
 from src.db import db
 from src.daos.models.EnvioCorreoFiscalizador import EnvioCorreoFiscalizador
 
@@ -52,6 +53,16 @@ class EnvioCorreoFiscalizadorDAO():
 	def obtenerSegunIdDenuncia(idDenuncia):
 		print(colored("EnvioCorreoFiscalizadorDAO: obtenerSegunIdDenuncia(); {}".format(idDenuncia), 'yellow'))
 		return EnvioCorreoFiscalizador.query.filter_by(id_denuncia=idDenuncia).all()
+
+	@staticmethod
+	def obtenerSegunCodigoPagina(codigoEstadoEnvioCorreo, pagina):
+		print(colored("EnvioCorreoFiscalizadorDAO: obtenerSegunCodigoPagina(); {} {}".format(codigoEstadoEnvioCorreo, pagina), 'yellow'))
+		try:
+			resultadosPorPagina = int(app.config["RESULTADOS_POR_PAGINA"])
+			return EnvioCorreoFiscalizador.query.filter_by(cod_estado_envio_correo=codigoEstadoEnvioCorreo).paginate(page=pagina, per_page=resultadosPorPagina)
+		except Exception as e:
+			print(colored("EnvioCorreoFiscalizadorDAO: Error al intentar obtener según codigoEstadoEnvioCorreo {} y página {}. Error: {}".format(codigoEstadoEnvioCorreo, pagina, e), 'red'))
+			return None
 
 	@staticmethod
 	def actualizar(envioCorreoFiscalizadorVO):

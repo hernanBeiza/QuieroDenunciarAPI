@@ -19,7 +19,7 @@ class JWT:
 		print(colored("JWT: iniciarConApp()", 'yellow'))
 		#Configuración token JWT Flask-JWT-Extended
 		app.config["JWT_SECRET_KEY"] = "super-secret"
-		app.config["JWT_ERROR_MESSAGE_KEY"] = "mensajes"
+		app.config["JWT_ERROR_MESSAGE_KEY"] = "mensajes"		
 		#TODO Revisar esto
 		#app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 

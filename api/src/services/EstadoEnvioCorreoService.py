@@ -42,5 +42,4 @@ class EstadoEnvioCorreoService():
 				"result":False,
 				"errores":"No se encontró estado de envío de correo con código {}".format(codigo)
 			}
-
 		return data

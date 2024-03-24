@@ -87,7 +87,7 @@ class EnvioCorreoFiscalizadorService():
 			if len(paginacion.items)>0:
 				data = {
 					"result":True,
-					"envioCorreosFiscalizadores":VOBuilderFactory().getEnvioCorreoFiscalizadorVOBuilder().fromEnvioCorreoFiscalizadores(paginacion.items).builds(),
+					"enviosCorreosFiscalizadores":VOBuilderFactory().getEnvioCorreoFiscalizadorVOBuilder().fromEnvioCorreoFiscalizadores(paginacion.items).builds(),
 					"mensajes":"Se encontraron envíos de correos de la página {}".format(pagina),
 					"paginas":paginacion.pages
 				}
@@ -125,11 +125,11 @@ class EnvioCorreoFiscalizadorService():
 	@staticmethod
 	def obtenerSegunIdFiscalizador(idFiscalizador):
 		print(colored("EnvioCorreoFiscalizadorService: obtenerSegunIdFiscalizador(); {}".format(idFiscalizador), 'cyan'))
-		envioCorreosFiscalizadores = EnvioCorreoFiscalizadorDAO.obtenerSegunIdFiscalizador(idFiscalizador)
+		enviosCorreosFiscalizadores = EnvioCorreoFiscalizadorDAO.obtenerSegunIdFiscalizador(idFiscalizador)
 		if(envioCorreosFiscalizadores):
 			data = {
 				"result":True,
-				"envioCorreosFiscalizadores":VOBuilderFactory().getEnvioCorreoFiscalizadorVOBuilder().fromEnvioCorreoFiscalizadores(envioCorreosFiscalizadores).builds(),
+				"enviosCorreosFiscalizadores":VOBuilderFactory().getEnvioCorreoFiscalizadorVOBuilder().fromEnvioCorreoFiscalizadores(enviosCorreosFiscalizadores).builds(),
 				"mensajes":"Se encontraron denuncias con id de denunciado {}".format(idFiscalizador)
 			}
 		else:
@@ -143,11 +143,11 @@ class EnvioCorreoFiscalizadorService():
 	@staticmethod
 	def obtenerSegunIdDenuncia(idDenuncia):
 		print(colored("EnvioCorreoFiscalizadorService: obtenerSegunIdDenuncia(); {}".format(idDenuncia), 'cyan'))
-		envioCorreoFiscalizadores = EnvioCorreoFiscalizadorDAO.obtenerSegunIdDenuncia(idDenuncia)
-		if len(envioCorreoFiscalizadores)>0:
+		enviosCorreosFiscalizadores = EnvioCorreoFiscalizadorDAO.obtenerSegunIdDenuncia(idDenuncia)
+		if len(enviosCorreosFiscalizadores)>0:
 			data = {
 				"result":True,
-				"envioCorreosFiscalizadores":VOBuilderFactory().getEnvioCorreoFiscalizadorVOBuilder().fromEnvioCorreoFiscalizadores(envioCorreoFiscalizadores).builds(),
+				"enviosCorreosFiscalizadores":VOBuilderFactory().getEnvioCorreoFiscalizadorVOBuilder().fromEnvioCorreoFiscalizadores(enviosCorreosFiscalizadores).builds(),
 				"mensajes":"Se encontraron envíos de correo con id de denuncia {}".format(idDenuncia)
 			}
 		else:
@@ -157,6 +157,30 @@ class EnvioCorreoFiscalizadorService():
 			}
 
 		return data;
+
+	@staticmethod
+	def obtenerSegunCodigoPagina(codigoEstadoEnvioCorreo, pagina):
+		print(colored("EnvioCorreoFiscalizadorService: obtenerSegunCodigoPagina(); {}".format(codigoEstadoEnvioCorreo, pagina), 'cyan'))
+		paginacion = EnvioCorreoFiscalizadorDAO.obtenerSegunCodigoPagina(codigoEstadoEnvioCorreo, pagina)
+		if paginacion is not None and paginacion.items is not None:
+			if len(paginacion.items)>0:
+				data = {
+					"result":True,
+					"enviosCorreosFiscalizadores":VOBuilderFactory().getEnvioCorreoFiscalizadorVOBuilder().fromEnvioCorreoFiscalizadores(paginacion.items).builds(),
+					"paginas":paginacion.pages,
+					"mensajes":"Se encontraron envíos de correos con código de estado {} en la página {}".format(codigoEstadoEnvioCorreo, pagina)
+				}
+			else:
+				data = {
+					"result":False,
+					"errores":"No se encontraron envíos de correos con código de estado {}".format(codigoEstadoEnvioCorreo)
+				}
+		else:
+			data = {
+				"result":False,
+				"errores":"No se encontraron envíos de correos con código de estado {} en la pagina {}".format(codigoEstadoEnvioCorreo, pagina)
+			}
+		return data
 
 	@staticmethod
 	def actualizar(request):

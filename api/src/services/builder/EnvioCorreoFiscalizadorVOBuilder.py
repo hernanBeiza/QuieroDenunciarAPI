@@ -3,6 +3,8 @@ from termcolor import colored
 
 from src.ma import ma
 from src.daos.models.EnvioCorreoFiscalizador import EnvioCorreoFiscalizador
+from src.services.builder.FiscalizadorVOBuilder import FiscalizadorVOBuilder
+from src.services.builder.EstadoEnvioCorreoVOBuilder import EstadoEnvioCorreoVOBuilder
 
 class EnvioCorreoFiscalizadorVOBuilder(ma.ModelSchema):
 
@@ -16,13 +18,18 @@ class EnvioCorreoFiscalizadorVOBuilder(ma.ModelSchema):
 	#Schema
 	##Modelo - Dato a mostrar
 	id_envio_correo_fiscalizador = fields.Integer(data_key="id")
-	id_fiscalizador = fields.Integer(data_key="idFiscalizador")
+	#id_fiscalizador = fields.Integer(data_key="idFiscalizador")
 	id_denuncia = fields.Integer(data_key="idDenuncia")
-	cod_estado_envio_correo = fields.Integer(data_key="codigoEstadoEnvioCorreo")
+	#cod_estado_envio_correo = fields.Integer(data_key="codigoEstadoEnvioCorreo")
 	fecha_envio = fields.String(data_key="fechaEnvio")
 	fecha_creacion = fields.DateTime(data_key="fechaCreacion")
 	fecha_modificacion = fields.DateTime(data_key="fechaModificacion")
 	flag_activo = fields.Boolean(data_key="flagActivo")
+
+	#TODO Debe llamarse igual al declarado en el modelo Fiscalizador
+	fiscalizador = fields.Nested(FiscalizadorVOBuilder)
+	#TODO Debe llamarse igual al declarado en el modelo Fiscalizador
+	estadoEnvioCorreo = fields.Nested(EstadoEnvioCorreoVOBuilder)
 
 	#def __init__(self):
 

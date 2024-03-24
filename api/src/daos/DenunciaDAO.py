@@ -1,5 +1,6 @@
 from termcolor import colored
 
+from src.app import app
 from src.db import db
 from src.daos.models.Denuncia import Denuncia
 
@@ -36,7 +37,8 @@ class DenunciaDAO():
 	@staticmethod
 	def obtenerPaginadas(pagina):
 		print(colored("DenunciaDAO: obtenerPaginadas(); {}".format(pagina), 'yellow'))
-		return Denuncia.query.order_by(Denuncia.id_denuncia.desc()).paginate(page=pagina, per_page=5)
+		resultadosPorPagina = int(app.config["RESULTADOS_POR_PAGINA"])
+		return Denuncia.query.order_by(Denuncia.id_denuncia.desc()).paginate(page=pagina, per_page=resultadosPorPagina)
 
 	@staticmethod
 	def obtenerSegunId(id):
