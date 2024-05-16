@@ -20,10 +20,10 @@ class ComunaController():
 		)
 
 	@comunaBluePrint.route('/<int:idComuna>', methods=['GET'])
-	def obtenerSegunCodigo(idComuna):
-		print(colored("ComunaController: obtenerSegunCodigo(); {}".format(idComuna), 'green'))
+	def obtenerSegunId(idComuna):
+		print(colored("ComunaController: obtenerSegunId(); {}".format(idComuna), 'green'))
 		return app.response_class(
-			response = json.dumps(ComunaService().obtenerSegunCodigo(idComuna),sort_keys=False),
+			response = json.dumps(ComunaService().obtenerSegunId(idComuna),sort_keys=False),
 			status = 200,
 			mimetype = 'application/json'
 		)

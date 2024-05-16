@@ -28,9 +28,9 @@ class ComunaService():
 		return data
 
 	@staticmethod
-	def obtenerSegunCodigo(idComuna):
-		print(colored("ComunaService: obtenerSegunCodigo(); {}".format(idComuna), 'cyan'))
-		comuna = ComunaDAO.obtenerSegunCodigo(idComuna)
+	def obtenerSegunId(idComuna):
+		print(colored("ComunaService: obtenerSegunId(); {}".format(idComuna), 'cyan'))
+		comuna = ComunaDAO.obtenerSegunId(idComuna)
 		if(comuna):
 			data = {
 				"result":True,

@@ -14,8 +14,8 @@ class ComunaDAO():
 		return Comuna.query.all()
 
 	@staticmethod
-	def obtenerSegunCodigo(idComuna):
-		print(colored("ComunaDAO: obtenerSegunCodigo(); {}".format(idComuna), 'yellow'))
+	def obtenerSegunId(idComuna):
+		print(colored("ComunaDAO: obtenerSegunId(); {}".format(idComuna), 'yellow'))
 		return Comuna.query.get(idComuna)
 
 	@staticmethod
